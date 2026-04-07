@@ -1,138 +1,136 @@
 ---
-const accessToken = Astro.cookies.get("sb-access-token")?.value;
-const refreshToken = Astro.cookies.get("sb-refresh-token")?.value;
-const isLoggedIn = !!accessToken && !!refreshToken;
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/myths", label: "Myths" },
+  { href: "/glossary", label: "Glossary" },
+  { href: "/team", label: "Team" },
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-white shadow-sm" >
-  <nav class="max-w-7xl mx-auto  px-10 h-20 flex items-center justify-between">
+<header
+  id="main-nav"
+  class="fixed left-0 top-0 z-50 w-full transition-transform duration-500 md:px-10" >
+  <nav class="flex mx-auto max-w-7xl px-6 md:px-10items-center justify-between shadow-[0_18px_35px_-28px_rgba(0,0,0,0.45)] backdrop-blur-md">
+    <!-- Logo -->
+    <a href="/" class="flex items-center no-underline py-2">
+      <img
+        src="/logo.svg"
+        alt="Éire Lore"
+        class="h-12 w-auto object-contain md:h-24"
+      />
+    </a>
 
-    <!-- Links -->
-    <ul class="flex items-center gap-12 list-none text-lg text-green-900">
-      <li>
-        <!-- Logo -->
-        <a href="/" class="flex items-center">
-          <img
-            src="/Icon_logo.png"
-            alt="Innova Green Journal"
-            class="h-12 w-12 object-contain"
-          />
-        </a>
-      </li>
+    <!-- Desktop nav -->
+    <ul class="hidden items-center gap-10 list-none md:flex">
+      {navLinks.map((link) => {
+        const isActive = currentPath === link.href;
+        return (
+          <li class="relative">
+            <a
+              href={link.href}
+              class={`relative inline-block text-sm font-medium uppercase tracking-[0.12em] no-underline transition duration-300 ${
+                isActive ? "text-gold" : "text-sand/75 hover:text-gold"
+              }`}
+            >
+              {link.label}
 
-      <li><a href="/about" class="no-underline hover:underline">About</a></li>
- <li><a href="/about" class="no-underline hover:underline">NUEVO</a></li>
-      <li><a href="/posts" class="no-underline hover:underline">Posts</a></li>
-
-      <li>
-        <a href="/newpost"
-            class="ml-2 px-5 py-2 text-sm font-medium rounded-md bg-green-700 text-white hover:bg-green-800
-                  transition"
-          > Add New
-        </a>
-      </li>
+              {isActive && (
+  <span class="absolute -bottom-2 left-1/2 h-[2px] w-8 -translate-x-1/2 rounded-full bg-gold"></span>
+)}
+            </a>
+          </li>
+        );
+      })}
     </ul>
 
-    <!-- Right side-->
-    <div class="flex items-center gap-3 relative">
-
+    <!-- Right -->
+    <div class="flex items-center gap-3">
       <!-- Search -->
+
       <div class="relative flex items-center">
-        <button id="search-btn" aria-label="Search" class="p-2 text-gray-500 hover:text-green-700 focus:outline-none"
-          type="button"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg"
-            fill="none" viewBox="0 0 24 24"
-            stroke="currentColor" stroke-width="1.5"
-            class="h-5 w-5">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M21 21l-4.35-4.35m1.6-5.15a7.5 7.5 0 1 1-15 0
-                7.5 7.5 0 0 1 15 0Z" />
-          </svg>
-        </button>
+  <input
+    id="search-input"
+    type="text"
+    placeholder="Search myths..."
+    class="absolute right-14 top-1/2 hidden h-11 w-48 -translate-y-1/2 rounded-full border border-gold/20 bg-dark/90 px-4 text-sm text-sand placeholder:text-sand/45 outline-none backdrop-blur-md focus:border-gold"
+  />
 
-        <input id="search-input" type="text" placeholder="Search posts..." class="hidden ml-2 px-3 py-1 text-sm border border-green-900/30
-                 rounded focus:outline-none focus:border-green-700"/>
+  <button
+    id="search-btn"
+    aria-label="Search"
+    type="button"
+    class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 text-sand transition hover:border-gold hover:text-gold"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.5"
+      class="h-5 w-5"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 21l-4.35-4.35m1.6-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"
+      />
+    </svg>
+  </button>
       </div>
 
-      <!-- User menu -->
-      <div class="relative">
-        <button
-          id="menu-btn"
-          aria-label="User menu"
-          class="p-2 text-gray-500 hover:text-green-700 focus:outline-none"
-          type="button"
+      <!-- Mobile menu -->
+      <button
+        id="menu-btn"
+        aria-label="Open menu"
+        type="button"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 text-sand transition hover:border-gold hover:text-gold md:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.5"
+          class="h-6 w-6"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            class="h-5 w-5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 0 1 15 0"
-            />
-          </svg>
-        </button>
-
-        <!-- user menu drop -->
-        <div
-          id="menu"
-          class="hidden absolute top-full right-0 mt-2 w-44 bg-white border border-green-900/20 rounded shadow-sm z-50 overflow-hidden"
-        >
-          {isLoggedIn ? (
-            <>
-              <a href="/dashboard" class="block px-4 py-2 text-sm text-green-900 hover:bg-[#DAFFA8] no-underline">
-                My profile
-              </a>
-              <a href="/myposts" class="block px-4 py-2 text-sm text-green-900 hover:bg-[#DAFFA8] no-underline">
-                My posts
-              </a>
-              <a href="/api/auth/signout" class="block px-4 py-2 text-sm text-green-900 hover:bg-[#DAFFA8] no-underline">
-                Sign out
-              </a>
-            </>
-          ) : (
-            <>
-              <a href="/signin" class="block px-4 py-2 text-sm text-green-900 hover:bg-[#DAFFA8] no-underline">
-                Sign in
-              </a>
-              <a href="/register" class="block px-4 py-2 text-sm text-green-900 hover:bg-[#DAFFA8] no-underline">
-                Register
-              </a>
-            </>
-          )}
-        </div>
-      </div>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="mx-auto mt-4 hidden max-w-7xl rounded-2xl border border-gold/15 bg-dark/95 p-4 backdrop-blur-md md:hidden"
+  >
+    <ul class="flex flex-col gap-2 list-none">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="block rounded-xl px-4 py-3 text-sm font-medium uppercase tracking-[0.08em] text-sand no-underline transition hover:bg-forest/60 hover:text-gold"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </header>
-
-<script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("menu");
-
-  if (btn && menu) {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menu.classList.toggle("hidden");
-    });
-
-    document.addEventListener("click", () => {
-      if (!menu.classList.contains("hidden")) {
-        menu.classList.add("hidden");
-      }
-    });
-  }
-</script>
 
 <script>
   const searchBtn = document.getElementById("search-btn");
   const searchInput = document.getElementById("search-input");
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
   if (searchBtn && searchInput) {
     searchBtn.addEventListener("click", (e) => {
@@ -141,9 +139,61 @@ const isLoggedIn = !!accessToken && !!refreshToken;
       if (!searchInput.classList.contains("hidden")) searchInput.focus();
     });
 
-    document.addEventListener("click", () => {
-      if (!searchInput.classList.contains("hidden")) {
-        searchInput.classList.add("hidden");
+    searchInput.addEventListener("click", (e) => e.stopPropagation());
+  }
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    mobileMenu.addEventListener("click", (e) => e.stopPropagation());
+  }
+
+  document.addEventListener("click", () => {
+    if (searchInput && !searchInput.classList.contains("hidden")) {
+      searchInput.classList.add("hidden");
+    }
+    if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+      mobileMenu.classList.add("hidden");
+    }
+  });
+</script>
+
+<script>
+  const nav = document.getElementById("main-nav");
+
+  let lastScrollY = window.scrollY;
+  let isHoveringNav = false;
+
+  if (nav) {
+    nav.addEventListener("mouseenter", () => {
+      isHoveringNav = true;
+      nav.classList.remove("-translate-y-full");
+    });
+
+    nav.addEventListener("mouseleave", () => {
+      isHoveringNav = false;
+    });
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (isHoveringNav) return;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        nav.classList.add("-translate-y-full");
+      } else {
+        nav.classList.remove("-translate-y-full");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (e.clientY < 90) {
+        nav.classList.remove("-translate-y-full");
       }
     });
   }

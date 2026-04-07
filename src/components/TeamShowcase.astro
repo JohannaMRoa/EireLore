@@ -1,0 +1,142 @@
+---
+const team = [
+  {
+    id: 1,
+    name: "Fabiana ",
+    role: "Frontend Developer",
+    short: "Implementation, component structure, and interactive features.",
+    bio: "This team member worked on frontend development, helping build interactive components, reusable structures, and the technical implementation of the website in Astro.",
+    skills: ["Astro", "HTML", "CSS", "JavaScript", "social media"],
+    contact: "teammate2@email.com",
+    image: "/team/member-1.png",
+  },
+  {
+    id: 2,
+    name: "Teammate Two",
+    role: "Frontend Developer",
+    short: "Implementation, component structure, and interactive features.",
+    bio: "This team member worked on frontend development, helping build interactive components, reusable structures, and the technical implementation of the website in Astro.",
+    skills: ["Astro", "HTML", "CSS", "JavaScript"],
+    contact: "teammate2@email.com",
+    image: "/team/member-2.png",
+  },
+  {
+    id: 3,
+    name: "Teammate Three",
+    role: "Research Lead",
+    short: "Content research, references, and myth curation.",
+    bio: "This team member focused on myth research, source validation, and content structure to ensure the cultural and academic side of the project was well supported.",
+    skills: ["Research", "Content Writing", "Curation", "Academic Sources"],
+    contact: "teammate3@email.com",
+    image: "/team/member-3.png",
+  },
+  {
+    id: 4,
+    name: "Teammate Four",
+    role: "Media / Storytelling",
+    short: "Narrative development, tone, and multimedia ideas.",
+    bio: "This team member contributed to narrative planning, user experience flow, and ways of presenting myths in a more immersive and engaging format.",
+    skills: ["Narrative Design", "Content Flow", "Concept Development", "Media Thinking"],
+    contact: "teammate4@email.com",
+    image: "/team/member-4.png",
+  },
+];
+---
+
+<section class="px-6 pt-40 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-12 text-center">
+      <h2 class="mt-3 text-4xl font-semibold text-sand md:text-5xl">
+        Meet the Team
+      </h2>
+      <p class="mx-auto mt-4 max-w-2xl text-sand/70">
+        Learn more about the team behind the project, our roles, skills, and contact details.
+      </p>
+    </div>
+
+    <!-- Static cards -->
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {team.map((member, index) => (
+        <button
+          type="button"
+          class={`team-card group overflow-hidden rounded-[1.6rem] border border-transparent bg-dark/35 text-left shadow-[0_10px_30px_-18px_rgba(0,0,0,0.45)] transition duration-300 hover:-translate-y-1 hover:border-gold/30 ${index === 0 ? "is-active" : ""}`}
+          data-member={JSON.stringify(member)}
+        >
+          <div class="aspect-[4/5] overflow-hidden">
+            <img
+              src={member.image}
+              alt={member.name}
+              class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            />
+          </div>
+
+          <div class="border-t border-transparen bg-dark/50 p-4">
+            <h3 class="text-lg font-semibold text-sand">{member.name}</h3>
+            <p class="mt-1 text-xs uppercase tracking-[0.12em] text-gold/85">
+              {member.role}
+            </p>
+          </div>
+        </button>
+      ))}
+    </div>
+
+    <!-- Expandable detail panel -->
+    <div
+      id="team-detail"
+      class="team-detail-open mt-8 overflow-hidden rounded-[2rem] border border-transparent bg-dark/35 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.55)] backdrop-blur-sm transition-all duration-500"
+    >
+      <div class="grid md:grid-cols-[280px_1fr]">
+        <div class="min-h-[320px] bg-forest/25">
+          <img
+            id="detail-image"
+            src={team[0].image}
+            alt={team[0].name}
+            class="h-full w-full object-cover"
+          />
+        </div>
+
+        <div class="p-8 md:p-10">
+          <p id="detail-role" class="text-sm uppercase tracking-[0.18em] text-gold">
+            {team[0].role}
+          </p>
+
+          <h3 id="detail-name" class="mt-3 text-3xl font-semibold text-sand md:text-4xl">
+            {team[0].name}
+          </h3>
+
+          <p id="detail-short" class="mt-4 text-lg leading-relaxed text-sand/80">
+            {team[0].short}
+          </p>
+
+          <p id="detail-bio" class="mt-6 max-w-3xl leading-relaxed text-sand/68">
+            {team[0].bio}
+          </p>
+
+          <div class="mt-8">
+            <p class="text-sm uppercase tracking-[0.14em] text-gold">Skills</p>
+            <div id="detail-skills" class="mt-4 flex flex-wrap gap-3">
+              {team[0].skills.map((skill) => (
+                <span class="rounded-full border border-gold/15 bg-forest/25 px-4 py-2 text-sm text-sand/85">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <p class="text-sm uppercase tracking-[0.14em] text-gold">Contact</p>
+            <a
+              id="detail-contact"
+              href={`mailto:${team[0].contact}`}
+              class="mt-3 inline-block text-sand/80 underline decoration-gold/50 underline-offset-4 transition hover:text-gold"
+            >
+              {team[0].contact}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="../scripts/team-showcase.js"></script>
