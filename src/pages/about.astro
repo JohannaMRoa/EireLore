@@ -1,3 +1,188 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
+
+<Layout title="About">
+  <section class="px-6 pt-40 pb-24 md:px-10">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 text-center">
+        
+        <h1 class="mt-4 text-5xl font-semibold text-sand md:text-6xl">
+          The Story Behind the Project
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-sand/70">
+          Discover the ideas, goals, and cultural motivations behind this dissertation project.
+        </p>
+      </div>
+
+      <div class="space-y-32">
+            <section class="story-block min-h-screen flex items-center">
+        <div class="max-w-3xl">
+          <h2 class="mt-3 text-4xl font-semibold text-sand md:text-5xl">
+            Project Description
+          </h2>
+          <p class="mt-6 max-w-2xl leading-relaxed text-sand/75">
+            Éire Lore is an interactive digital heritage project that brings Irish
+            legends to life through 3D-printed figures and QR-based storytelling.
+            Each collectible object connects users to immersive legend pages with
+            narration, visuals, and animated story moments.
+          </p>
+        </div>
+      </section>
+
+        <section class="story-block px-6 py-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="mt-3 text-4xl font-semibold text-sand md:text-5xl">
+        Goals
+      </h2>
+      <p class="mt-6 text-base leading-relaxed text-sand/75 md:text-lg">
+        The project aims to make Irish mythology more engaging, accessible, and
+        memorable through digital storytelling, visual design, and immersive
+        interaction.
+      </p>
+    </div>
+
+    <div class="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="text-center">
+        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
+          <img
+            src="/goals/goal-1.png"
+            alt="Preserve Irish myths"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-sand">
+          Preserve Folklore
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/68">
+          Present Irish myths in a digital format that helps preserve cultural
+          memory and storytelling traditions.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
+          <img
+            src="/goals/goal-2.png"
+            alt="Engage users visually"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-sand">
+          Engage Through Design
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/68">
+          Use visuals, layout, and interaction to create a more immersive and
+          emotionally engaging reading experience.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
+          <img
+            src="/goals/goal-3.png"
+            alt="Make myths accessible"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-sand">
+          Improve Accessibility
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/68">
+          Make the stories easier to understand for wider audiences, including
+          people less familiar with Irish mythology.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
+          <img
+            src="/goals/goal-4.png"
+            alt="Create interactive storytelling"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-sand">
+          Create Interaction
+        </h3>
+        <p class="mt-3 text-sm leading-relaxed text-sand/68">
+          Explore scrollytelling as a way to transform traditional narratives
+          into interactive digital experiences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+       <section class="story-block min-h-screen flex items-center">
+          <div class="max-w-3xl">
+            <h2 class="mt-3 text-4xl font-semibold text-sand md:text-5xl">
+              Purpose
+            </h2>
+            <p class="mt-6 leading-relaxed text-sand/75">
+              The purpose of Éire Lore is to reconnect modern audiences with Irish
+              mythology through accessible, portable, and emotionally engaging digital
+              storytelling. By combining physical artefacts with responsive web
+              experiences, the project bridges heritage and contemporary interaction.
+            </p>
+          </div>
+        </section>
+
+        <section class="story-block min-h-screen flex items-center">
+            <div class="max-w-3xl">
+              <h2 class="mt-3 text-4xl font-semibold text-sand md:text-5xl">
+                Culture & Nostalgia
+              </h2>
+              <p class="mt-6 leading-relaxed text-sand/75">
+                Many people first encounter Irish legends during childhood, but rarely
+                revisit them later in life. This project reintroduces those stories
+                through nostalgia, cultural identity, and digital immersion, allowing
+                users to rediscover familiar myths in a new emotional and interactive way.
+              </p>
+            </div>
+          </section>
+
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initAboutScroll = () => {
+    const sections = document.querySelectorAll(".story-block");
+
+    sections.forEach((section) => {
+      gsap.fromTo(
+        section,
+        {
+          opacity: 0,
+          y: 80,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 75%",
+            end: "top 45%",
+            scrub: 1,
+          },
+        }
+      );
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAboutScroll);
+  } else {
+    initAboutScroll();
+  }
+</script>
