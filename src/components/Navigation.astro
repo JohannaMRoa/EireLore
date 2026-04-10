@@ -1,6 +1,5 @@
 ---
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/myths", label: "Myths" },
   { href: "/glossary", label: "Glossary" },
@@ -37,7 +36,7 @@ const currentPath = Astro.url.pathname;
             >
               {link.label}
 
-<<<<<<< HEAD
+
               {isActive && (
   <span class="absolute -bottom-2 left-1/2 h-[2px] w-8 -translate-x-1/2 rounded-full bg-gold"></span>
 )}
@@ -45,19 +44,8 @@ const currentPath = Astro.url.pathname;
           </li>
         );
       })}
-=======
-      <li><a href="/about" class="no-underline hover:underline">About</a></li>
- <li><a href="/about" class="no-underline hover:underline">NUEVO 222</a></li>
-      <li><a href="/posts" class="no-underline hover:underline">Posts</a></li>
 
-      <li>
-        <a href="/newpost"
-            class="ml-2 px-5 py-2 text-sm font-medium rounded-md bg-green-700 text-white hover:bg-green-800
-                  transition"
-          > Add New
-        </a>
-      </li>
->>>>>>> fae09e39b0469f2efa94c7ca97b7cd15a6520c05
+
     </ul>
 
     <!-- Right -->
