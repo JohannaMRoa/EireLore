@@ -32,3 +32,17 @@ body {
   opacity: 0;
   transform: translateY(14px);
 }
+
+/* ABOUT */
+
+.culture-item {
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.culture-item:hover {
+  transform: translateY(-8px);
+}
+
+.culture-item:hover img {
+  filter: brightness(1.06);
+}
