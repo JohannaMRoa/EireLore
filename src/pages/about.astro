@@ -8,9 +8,6 @@ import Layout from "../layouts/Layout.astro";
 
     <div class="mx-auto max-w-7xl">
       <div class="mb-20 text-center">
-        <p class="text-sm uppercase tracking-[0.2em] text-gold/80">
-          About the Dissertation
-        </p>
 
         <h1 class="mt-6 text-center">
           <span class="block text-5xl font-semibold leading-tight text-sand md:text-7xl">
@@ -52,113 +49,100 @@ import Layout from "../layouts/Layout.astro";
 
       <!----------------------- Project Description ---------------------------------------->
 
-      <div class="space-y-16">
-        <section class="story-block py-20">
-          <div class="max-w-3xl">
+      <section class="story-block project-section min-h-[70vh] flex items-center py-20">
+  <div class="mx-auto max-w-4xl text-center">
+    
 
-            <h2 class="mt-4 text-4xl font-semibold text-sand md:text-5xl">
-              Project Description
-            </h2>
-
-            <p class="mt-6 max-w-2xl leading-relaxed text-sand/75">
-              Éire Lore is an interactive digital heritage project that brings Irish
-              legends to life through 3D-printed figures and QR-based storytelling.
-              Each collectible object connects users to immersive legend pages with
-              narration, visuals, and animated story moments.
-            </p>
-          </div>
-        </section>
+    <p class="mx-auto mt-6 max-w-2xl leading-relaxed text-sand/75 md:text-lg">
+      Éire Lore is an interactive digital heritage project that brings Irish
+      legends to life through 3D-printed figures and QR-based storytelling.
+      Each collectible object connects users to immersive legend pages with
+      narration, visuals, and animated story moments.
+    </p>
+  </div>
+</section>
 
 
 
 <!----------------------- Goals ---------------------------------------->
-
-        <section class="story-block px-6 py-24 md:px-10">
+<section class="story-block goals-section py-28 min-h-screen">
   <div class="mx-auto max-w-7xl">
-    <div class="mx-auto max-w-3xl text-center">
+    <div class="mx-auto max-w-3xl text-center goals-intro">
       <h2 class="mt-3 text-4xl font-semibold text-sand md:text-5xl">
         Goals
       </h2>
       <p class="mt-6 text-base leading-relaxed text-sand/75 md:text-lg">
         The project aims to make Irish mythology more engaging, accessible, and
-        memorable through digital storytelling, visual design, and immersive
-        interaction.
+        memorable through digital storytelling, visual design, and immersive interaction.
       </p>
     </div>
 
-    <div class="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-      <div class="text-center">
-        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
-          <img
-            src="/goals/goal-1.png"
-            alt="Preserve Irish myths"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <h3 class="mt-6 text-xl font-semibold text-sand">
+    <!-- Cards -->
+    <div class="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <button
+        type="button"
+        class="goal-card is-active rounded-[1.6rem] border border-white/8 bg-dark/20 p-6 text-left shadow-[0_14px_30px_-18px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-1"
+        data-title="Preserve Folklore"
+        data-text="Present Irish myths in a digital format that helps preserve cultural memory and storytelling traditions."
+      >
+        <p class="text-sm uppercase tracking-[0.14em] text-gold/75">01</p>
+        <h3 class="mt-4 text-2xl font-semibold text-sand">
           Preserve Folklore
         </h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/68">
-          Present Irish myths in a digital format that helps preserve cultural
-          memory and storytelling traditions.
-        </p>
-      </div>
+      </button>
 
-      <div class="text-center">
-        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
-          <img
-            src="/goals/goal-2.png"
-            alt="Engage users visually"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <h3 class="mt-6 text-xl font-semibold text-sand">
+      <button
+        type="button"
+        class="goal-card rounded-[1.6rem] border border-white/8 bg-dark/20 p-6 text-left shadow-[0_14px_30px_-18px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-1"
+        data-title="Engage Through Design"
+        data-text="Use visuals, layout, and interaction to create a more immersive and emotionally engaging reading experience."
+      >
+        <p class="text-sm uppercase tracking-[0.14em] text-gold/75">02</p>
+        <h3 class="mt-4 text-2xl font-semibold text-sand">
           Engage Through Design
         </h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/68">
-          Use visuals, layout, and interaction to create a more immersive and
-          emotionally engaging reading experience.
-        </p>
-      </div>
+      </button>
 
-      <div class="text-center">
-        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
-          <img
-            src="/goals/goal-3.png"
-            alt="Make myths accessible"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <h3 class="mt-6 text-xl font-semibold text-sand">
+      <button
+        type="button"
+        class="goal-card rounded-[1.6rem] border border-white/8 bg-dark/20 p-6 text-left shadow-[0_14px_30px_-18px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-1"
+        data-title="Improve Accessibility"
+        data-text="Make the stories easier to understand for wider audiences, including people less familiar with Irish mythology."
+      >
+        <p class="text-sm uppercase tracking-[0.14em] text-gold/75">03</p>
+        <h3 class="mt-4 text-2xl font-semibold text-sand">
           Improve Accessibility
         </h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/68">
-          Make the stories easier to understand for wider audiences, including
-          people less familiar with Irish mythology.
-        </p>
-      </div>
+      </button>
 
-      <div class="text-center">
-        <div class="mx-auto flex h-40 w-40 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark/30 shadow-[0_14px_30px_-18px_rgba(0,0,0,0.45)]">
-          <img
-            src="/goals/goal-4.png"
-            alt="Create interactive storytelling"
-            class="h-full w-full object-cover"
-          />
-        </div>
-        <h3 class="mt-6 text-xl font-semibold text-sand">
+      <button
+        type="button"
+        class="goal-card rounded-[1.6rem] border border-white/8 bg-dark/20 p-6 text-left shadow-[0_14px_30px_-18px_rgba(0,0,0,0.35)] transition duration-300 hover:-translate-y-1"
+        data-title="Create Interaction"
+        data-text="Explore scrollytelling as a way to transform traditional narratives into interactive digital experiences."
+      >
+        <p class="text-sm uppercase tracking-[0.14em] text-gold/75">04</p>
+        <h3 class="mt-4 text-2xl font-semibold text-sand">
           Create Interaction
         </h3>
-        <p class="mt-3 text-sm leading-relaxed text-sand/68">
-          Explore scrollytelling as a way to transform traditional narratives
-          into interactive digital experiences.
-        </p>
-      </div>
+      </button>
+    </div>
+
+    <!-- Reveal panel -->
+    <div
+      id="goal-detail"
+      class="mt-8 overflow-hidden rounded-[2rem] border border-white/8 bg-dark/25 p-8 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.45)] backdrop-blur-sm transition-all duration-500"
+    >
+      <p class="text-sm uppercase tracking-[0.14em] text-gold">Selected Goal</p>
+      <h3 id="goal-detail-title" class="mt-3 text-3xl font-semibold text-sand">
+        Preserve Folklore
+      </h3>
+      <p id="goal-detail-text" class="mt-4 max-w-3xl leading-relaxed text-sand/72">
+        Present Irish myths in a digital format that helps preserve cultural memory and storytelling traditions.
+      </p>
     </div>
   </div>
 </section>
-
-
 
 
 
@@ -303,7 +287,6 @@ import Layout from "../layouts/Layout.astro";
 
 <!----------------------- JAVASCRIPT ---------------------------------------->
 
-
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -314,11 +297,13 @@ import Layout from "../layouts/Layout.astro";
     const sections = document.querySelectorAll(".story-block");
 
     sections.forEach((section) => {
+      if (section.classList.contains("goals-section")) return;
+
       gsap.fromTo(
         section,
         {
           opacity: 0,
-          y: 80,
+          y: 60,
         },
         {
           opacity: 1,
@@ -327,13 +312,57 @@ import Layout from "../layouts/Layout.astro";
           ease: "power2.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 78%",
-            end: "top 30%",
+            start: "top 75%",
+            end: "top 35%",
             toggleActions: "play reverse play reverse",
           },
         }
       );
     });
+
+    const goalsSection = document.querySelector(".goals-section");
+    const goalsIntro = document.querySelector(".goals-intro");
+    const goalItems = document.querySelectorAll(".goal-item");
+
+    if (goalsSection && goalsIntro && goalItems.length) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: goalsSection,
+          start: "top top",
+          end: "+=900",
+          scrub: 1,
+          pin: true,
+        },
+      });
+
+      tl.fromTo(
+        goalsIntro,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+        }
+      ).fromTo(
+        goalItems,
+        {
+          opacity: 0,
+          y: 50,
+          scale: 0.92,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          stagger: 0.25,
+          duration: 0.9,
+        },
+        "-=0.1"
+      );
+    }
 
     const cultureItems = document.querySelectorAll(".culture-item");
 
