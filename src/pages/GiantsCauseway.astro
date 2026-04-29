@@ -1,11 +1,15 @@
 ---
 import LegendLayout from "../layouts/LegendLayout.astro";
-
 ---
 
 <LegendLayout title="The Giant's Causeway">
-  <section class="giant-pan-section relative h-[500vh]">
+
+  <!----------------------- SCENE 1: THE COAST AND THE TWO GIANTS ----------------------->
+
+  <section class="giant-pan-section scene-1 relative h-[500vh]">
     <div class="sticky top-0 h-screen overflow-hidden">
+
+      <!-- Background panorama -->
       <img
         id="giant-panorama"
         src="/Giants caseway/giant3.png"
@@ -13,41 +17,32 @@ import LegendLayout from "../layouts/LegendLayout.astro";
         class="absolute top-0 left-0 h-full max-w-none"
       />
 
-      <div class="story-text absolute bottom-16 left-6 z-20 max-w-3xl md:left-10">
-  <div class="legend-title">
-    <p class="text-sm uppercase tracking-[0.18em] text-gold">
-      Irish Myth
-    </p>
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/75 via-dark/20 to-transparent"></div>
 
-    <h1 class="mt-4 font-[var(--font-title)] text-6xl leading-none text-sand md:text-8xl">
-      The Giant&apos;s Causeway
-    </h1>
-  </div>
+      <!-- Story text -->
+      <div class="absolute left-8 top-1/2 z-20 max-w-4xl -translate-y-1/2 md:left-16">
+        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
+          On the wild north coast of Ireland lived Fionn mac Cumhaill.
+        </p>
 
-  <div class="legend-lines mt-8">
-    <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-      On the wild north coast of Ireland lived Fionn mac Cumhaill.
-    </p>
+        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
+          A giant known for his strength, pride, and courage.
+        </p>
 
-    <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-      A giant known for his strength, pride, and courage.
-    </p>
-
-    <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-      Across the sea waited another giant — Benandonner.
-    </p>
-
-    <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-      Fionn began tearing stones from the earth.
-    </p>
-
-    <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-      One by one, he hurled them into the sea.
-    </p>
-  </div>
-</div>
+        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
+          Across the sea waited another giant — Benandonner.
+        </p>
+      </div>
     </div>
   </section>
+
+  <!----------------------- SCENE 2: STONES / ACTION ----------------------->
+  <!-- Later we add the next image and the text:
+  Fionn began tearing stones from the earth.
+  One by one, he hurled them into the sea.
+  -->
+
 </LegendLayout>
 
 <script>
@@ -56,47 +51,16 @@ import LegendLayout from "../layouts/LegendLayout.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const initGiantPan = () => {
+  const initSceneOne = () => {
     const image = document.getElementById("giant-panorama");
     const section = document.querySelector(".giant-pan-section");
+    const legendLines = document.querySelectorAll(".legend-line");
 
-    if (!image || !section) return;
+    if (!image || !section || !legendLines.length) return;
 
-    const animatePan = () => {
+    const animateScene = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       gsap.killTweensOf(image);
-
-      const legendTitle = document.querySelector(".legend-title");
-const legendLines = document.querySelectorAll(".legend-line");
-
-gsap.set(legendLines, {
-  opacity: 0,
-  y: 30,
-  scale: 0.96,
-});
-
-gsap.timeline({
-  scrollTrigger: {
-    trigger: section,
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 1,
-  },
-})
-  .fromTo(
-    legendTitle,
-    { opacity: 1, y: 0 },
-    { opacity: 0, y: -40, duration: 1.2 }
-  )
-  .to(legendLines[0], { opacity: 1, y: 0, scale: 1, duration: 1 })
-  .to(legendLines[0], { opacity: 0, y: -30, scale: 1.02, duration: 1 })
-  .to(legendLines[1], { opacity: 1, y: 0, scale: 1, duration: 1 })
-  .to(legendLines[1], { opacity: 0, y: -30, scale: 1.02, duration: 1 })
-  .to(legendLines[2], { opacity: 1, y: 0, scale: 1, duration: 1 })
-  .to(legendLines[2], { opacity: 0, y: -30, scale: 1.02, duration: 1 })
-  .to(legendLines[3], { opacity: 1, y: 0, scale: 1, duration: 1 })
-  .to(legendLines[3], { opacity: 0, y: -30, scale: 1.02, duration: 1 })
-  .to(legendLines[4], { opacity: 1, y: 0, scale: 1, duration: 1 });
 
       const imageWidth = image.offsetWidth;
       const viewportWidth = window.innerWidth;
@@ -104,13 +68,12 @@ gsap.timeline({
 
       if (overflow <= 0) return;
 
+      // Image pan: starts on the right side, moves towards the left side
       gsap.fromTo(
         image,
+        { x: -overflow },
         {
-          x: -overflow, // empieza mostrando la derecha
-        },
-        {
-          x: 0, // termina mostrando la izquierda completa
+          x: 0,
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -121,20 +84,54 @@ gsap.timeline({
           },
         }
       );
+
+      // Text animation
+      gsap.set(legendLines, {
+        opacity: 0,
+        y: 30,
+        scale: 0.96,
+      });
+
+      const textTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+
+      legendLines.forEach((line, index) => {
+        textTimeline.to(line, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+        });
+
+        if (index !== legendLines.length - 1) {
+          textTimeline.to(line, {
+            opacity: 0,
+            y: -30,
+            scale: 1.02,
+            duration: 1,
+          });
+        }
+      });
     };
 
     if (image.complete) {
-      animatePan();
+      animateScene();
     } else {
-      image.addEventListener("load", animatePan);
+      image.addEventListener("load", animateScene);
     }
 
-    window.addEventListener("resize", animatePan);
+    window.addEventListener("resize", animateScene);
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initGiantPan);
+    document.addEventListener("DOMContentLoaded", initSceneOne);
   } else {
-    initGiantPan();
+    initSceneOne();
   }
 </script>
