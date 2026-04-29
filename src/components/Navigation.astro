@@ -12,34 +12,33 @@ const currentPath = Astro.url.pathname;
 
 <header
   id="main-nav"
-  class="fixed left-0 top-0 z-50 w-full transition-transform duration-500 md:px-10" >
-  <nav class="flex mx-auto max-w-7xl px-6 md:px-10items-center justify-between shadow-[0_18px_35px_-28px_rgba(0,0,0,0.45)] backdrop-blur-md">
+  class="fixed left-0 top-4 z-50 w-full px-4 transition-transform duration-500 md:top-6 md:px-10"
+>
+  <nav class="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-gold/20 bg-dark/65 px-4 py-2 shadow-[0_18px_60px_-24px_rgba(0,0,0,0.75)] backdrop-blur-2xl md:px-6">
     <!-- Logo -->
-    <a href="/" class="flex items-center no-underline py-2">
+    <a href="/" class="flex items-center no-underline">
       <img
-        src="/logo.svg"
+        src="/logo-2.svg"
         alt="Éire Lore"
-        class="h-12 w-auto object-contain md:h-24"
+        class="h-11 w-auto object-contain md:h-12"
       />
     </a>
 
     <!-- Desktop nav -->
-    <ul class="hidden items-center gap-10 list-none md:flex">
+    <ul class="hidden items-center gap-2 list-none md:flex">
       {navLinks.map((link) => {
         const isActive = currentPath === link.href;
         return (
-          <li class="relative">
+          <li>
             <a
               href={link.href}
-              class={`relative inline-block text-sm font-medium uppercase tracking-[0.12em] no-underline transition duration-300 ${
-                isActive ? "text-gold" : "text-sand/75 hover:text-gold"
+              class={`relative inline-flex rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] no-underline transition-all duration-300 ${
+                isActive
+                  ? "bg-gold text-dark shadow-[0_0_25px_rgba(220,180,90,0.35)]"
+                  : "text-sand/75 hover:bg-sand/10 hover:text-gold"
               }`}
             >
               {link.label}
-
-              {isActive && (
-  <span class="absolute -bottom-2 left-1/2 h-[2px] w-8 -translate-x-1/2 rounded-full bg-gold"></span>
-)}
             </a>
           </li>
         );
@@ -49,36 +48,35 @@ const currentPath = Astro.url.pathname;
     <!-- Right -->
     <div class="flex items-center gap-3">
       <!-- Search -->
-
       <div class="relative flex items-center">
-  <input
-    id="search-input"
-    type="text"
-    placeholder="Search myths..."
-    class="absolute right-14 top-1/2 hidden h-11 w-48 -translate-y-1/2 rounded-full border border-gold/20 bg-dark/90 px-4 text-sm text-sand placeholder:text-sand/45 outline-none backdrop-blur-md focus:border-gold"
-  />
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search myths..."
+          class="absolute right-14 top-1/2 hidden h-11 w-52 -translate-y-1/2 rounded-full border border-gold/25 bg-dark/95 px-5 text-sm text-sand placeholder:text-sand/45 outline-none shadow-[0_12px_35px_-18px_rgba(0,0,0,0.8)] backdrop-blur-xl transition focus:border-gold"
+        />
 
-  <button
-    id="search-btn"
-    aria-label="Search"
-    type="button"
-    class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 text-sand transition hover:border-gold hover:text-gold"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      stroke-width="1.5"
-      class="h-5 w-5"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M21 21l-4.35-4.35m1.6-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"
-      />
-    </svg>
-  </button>
+        <button
+          id="search-btn"
+          aria-label="Search"
+          type="button"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 bg-sand/5 text-sand transition hover:border-gold hover:bg-gold hover:text-dark"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.5"
+            class="h-5 w-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-4.35-4.35m1.6-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"
+            />
+          </svg>
+        </button>
       </div>
 
       <!-- Mobile menu -->
@@ -86,7 +84,7 @@ const currentPath = Astro.url.pathname;
         id="menu-btn"
         aria-label="Open menu"
         type="button"
-        class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 text-sand transition hover:border-gold hover:text-gold md:hidden"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 bg-sand/5 text-sand transition hover:border-gold hover:bg-gold hover:text-dark md:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -109,19 +107,26 @@ const currentPath = Astro.url.pathname;
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="mx-auto mt-4 hidden max-w-7xl rounded-2xl border border-gold/15 bg-dark/95 p-4 backdrop-blur-md md:hidden"
+    class="mx-auto mt-3 hidden max-w-md rounded-[2rem] border border-gold/20 bg-dark/90 p-3 shadow-[0_18px_60px_-24px_rgba(0,0,0,0.85)] backdrop-blur-2xl md:hidden"
   >
     <ul class="flex flex-col gap-2 list-none">
-      {navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="block rounded-xl px-4 py-3 text-sm font-medium uppercase tracking-[0.08em] text-sand no-underline transition hover:bg-forest/60 hover:text-gold"
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
+      {navLinks.map((link) => {
+        const isActive = currentPath === link.href;
+        return (
+          <li>
+            <a
+              href={link.href}
+              class={`block rounded-full px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] no-underline transition ${
+                isActive
+                  ? "bg-gold text-dark"
+                  : "text-sand hover:bg-sand/10 hover:text-gold"
+              }`}
+            >
+              {link.label}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   </div>
 </header>
