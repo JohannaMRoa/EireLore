@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Irish Legends Website">
+  <section class="relative overflow-hidden bg-[rgb(86,100,9)]">
+
+    <div class="relative h-[180vh] w-full">
+
+      <img
+        src="/assets/Giant-3.svg"
+        alt=""
+        class="layer-3 absolute top-0 left-1/2 w-screen max-w-none -translate-x-1/2"
+      />
+
+      <img
+        src="/assets/Giant-2.svg"
+        alt=""
+        class="layer-2 absolute top-0 left-1/2 w-screen max-w-none -translate-x-1/2"
+      />
+
+      <img
+        src="/assets/Giant-1.svg"
+        alt=""
+        class="layer-1 absolute top-0 left-1/2 w-screen max-w-none -translate-x-1/2"
+      />
+
+      <div class="relative z-10 mx-auto max-w-7xl px-6 pt-[65vh] md:px-10">
+        <div class="grid gap-6 lg:grid-cols-[1.4fr_0.8fr]">
+          
+          <div class="info-box rounded-[2rem] border border-gold/20 bg-dark/65 p-8 text-sand backdrop-blur-2xl">
+            <h2 class="text-4xl font-semibold text-sand md:text-5xl">
+              The Giant
+            </h2>
+
+            <p class="mt-6 leading-relaxed text-sand/75 md:text-lg">
+              This legend tells the story of a powerful giant connected to the
+              Irish landscape, ancient imagination, and oral storytelling.
+            </p>
+          </div>
+
+          <div class="grid gap-6">
+            <div class="info-box rounded-[2rem] border border-gold/20 bg-dark/65 p-6 text-sand backdrop-blur-2xl">
+              <h3 class="text-2xl font-semibold text-sand">
+                Listen to the Story
+              </h3>
+
+              <audio controls class="mt-5 w-full">
+                <source src="/assets/audio/giant.mp3" type="audio/mpeg" />
+              </audio>
+            </div>
+
+            <div class="info-box rounded-[2rem] border border-gold/20 bg-dark/65 p-6 text-sand backdrop-blur-2xl">
+              <h3 class="text-2xl font-semibold text-sand">
+                Map of Ireland
+              </h3>
+
+              <div class="mt-5 flex h-64 items-center justify-center rounded-[1.5rem] border border-white/10 bg-sand/5 text-sand/60">
+                Ireland Map
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+</Layout>
+
+<style>
+  :global(body),
+  :global(footer) {
+    background: rgb(86, 100, 9);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".layer-1", {
+    y: 250,
+    ease: "none",
+    scrollTrigger: {
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".layer-2", {
+    y: 500,
+    ease: "none",
+    scrollTrigger: {
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".layer-3", {
+    y: 750,
+    ease: "none",
+    scrollTrigger: {
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  const boxes = document.querySelectorAll(".info-box");
+
+  boxes.forEach((box, i) => {
+    gsap.fromTo(
+      box,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: box,
+          start: "top 70%",
+        },
+      }
+    );
+  });
+</script>
