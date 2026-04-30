@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_3" data-name="3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1366 550">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_Áåçûìÿííûé_ãðàäèåíò_49);
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#_Áåçûìÿííûé_ãðàäèåíò_52);
+      }
+
+      .cls-4 {
+        fill: #a7c69f;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x="-.09" y="0" width="1366" height="550"/>
+    </clipPath>
+    <linearGradient id="_Áåçûìÿííûé_ãðàäèåíò_52" data-name="Áåçûìÿííûé ãðàäèåíò 52" x1="629.49" y1="-87.24" x2="632.16" y2="418.13" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5d99fb"/>
+      <stop offset=".08" stop-color="#68a2f7"/>
+      <stop offset=".22" stop-color="#88baec"/>
+      <stop offset=".41" stop-color="#bae1dc"/>
+      <stop offset=".53" stop-color="#e1ffd0"/>
+      <stop offset=".99" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="_Áåçûìÿííûé_ãðàäèåíò_49" data-name="Áåçûìÿííûé ãðàäèåíò 49" x1="706.64" y1="412.43" x2="726.84" y2="126.91" gradientUnits="userSpaceOnUse">
+      <stop offset=".42" stop-color="#6da4a9"/>
+      <stop offset=".52" stop-color="#7cac9d"/>
+      <stop offset=".67" stop-color="#8fb58f"/>
+      <stop offset=".83" stop-color="#9abb86"/>
+      <stop offset="1" stop-color="#9ebd84"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-5">
+    <g>
+      <rect class="cls-3" x="-670.65" y="-31.63" width="2602.98" height="402.22"/>
+      <g>
+        <polygon class="cls-1" points="1129.94 314.58 610.27 295.05 582.23 296.48 297.41 311.42 312.97 278.2 358.49 207.54 449.93 124.62 465.16 144.94 478.8 129.64 514.75 89.11 520.32 112.57 523.9 108.79 579.32 49.71 620.67 106.98 633.07 90.13 648.96 68.58 759.71 173.36 829.36 222.58 850.57 223.49 903.83 225.67 927.21 153.1 1129.94 314.58"/>
+        <polygon class="cls-4" points="587.7 246.35 505.48 260.96 506.92 125.96 514.75 89.12 523.89 108.79 587.7 246.35"/>
+        <path class="cls-4" d="M564.19,266.5c-20.86.66-44.3,1.5-58.82,2.03l.07-5.72c15.41-2.76,40.68-6.98,61.47-10.42l-2.72,14.11Z"/>
+        <path class="cls-4" d="M618.87,267.94l-34.48-.52v-15.63c4.93-1.14,24.18-5.51,27.8-6.33l6.67,22.49Z"/>
+        <polygon class="cls-4" points="611.18 297.07 582.22 296.48 487.86 297.17 488.13 272.29 598.29 269.22 610.29 295.04 611.18 297.07"/>
+        <polygon class="cls-4" points="500.77 133.42 471.98 287.79 364.73 294.35 449.93 124.62 478.8 129.64 500.77 133.42"/>
+        <polygon class="cls-4" points="704.17 222.76 601.29 201.47 575.91 131.45 595.94 118.76 579.33 49.71 609.29 45.65 633.07 90.12 704.17 222.76"/>
+        <polygon class="cls-4" points="733.4 277.35 627.32 273.24 603.67 208.02 705.58 225.41 733.4 277.35"/>
+        <polygon class="cls-4" points="1129.94 314.58 1006.13 311.01 927.21 153.1 1005.34 160.83 1129.94 314.58"/>
+        <polygon class="cls-4" points="742.98 220.11 676.49 141.33 680.61 135.5 767.08 230.65 742.98 220.11"/>
+        <polygon class="cls-4" points="734.55 235.06 937.39 276.82 746.56 273.58 734.55 235.06"/>
+        <path class="cls-4" d="M865.3,244.76l-85.45-13.17s-130.39-160.4-130.89-163.01l21.72,5.55,77.72,75.51,55.42,6.35,46.76,67.51,14.73,21.28Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,76 +1,80 @@
 ---
-import LegendLayout from "../layouts/LegendLayout.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<LegendLayout title="The Giant's Causeway">
+<Layout title="Irish Legends Website">
+  <section class="relative overflow-hidden bg-[rgb(86,100,9)]">
 
-  <!----------------------- SCENE 1: THE COAST AND THE TWO GIANTS ----------------------->
+    <div class="relative h-[180vh] w-full">
 
-  <section class="giant-pan-section scene-1 relative h-[500vh]">
-    <div class="sticky top-0 h-screen overflow-hidden">
-
-      <!-- Background panorama -->
       <img
-        id="giant-panorama"
-        src="/Giants caseway/Giant_scene.png"
-        alt="The Giant's Causeway panoramic story scene"
-        class="absolute top-0 left-0 h-full max-w-none"
+        src="/assets/Giant-3.svg"
+        alt=""
+        class="layer-3 absolute top-0 left-1/2 w-screen max-w-none -translate-x-1/2"
       />
 
-      <!-- Dark overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-dark/75 via-dark/20 to-transparent"></div>
-
-      <!-- Story text -->
-      <div class="absolute left-8 top-1/2 z-20 max-w-4xl -translate-y-1/2 md:left-16">
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-          On the wild north coast of Ireland lived
-        </p>
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-          Fionn Mac Cumhaill
-        </p>
-
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-          He was strong, proud, and known across the land for his courage
-        </p>
-
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-          Across the sea in Scotland
-        </p>
-
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-          lived another giant, 
-        </p>
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-          Benandonner
-        </p>
-
-        <p class="legend-line text-3xl leading-tight text-sand md:text-5xl">
-        He boasted loudly and challenged 
-        Fionn again and again
-        </p>
-
-        <img
-        class="bubble_speak"
-        src="/Giants caseway/bubble_text1.png"
-        class="absolute top-0 left-0 h-full max-w-none"
-      />
-       <img
-        class="bubble_speak"
-        src="/Giants caseway/bubble_text2.png"
-        class="absolute top-0 left-0 h-full max-w-none"
+      <img
+        src="/assets/Giant-2.svg"
+        alt=""
+        class="layer-2 absolute top-0 left-1/2 w-screen max-w-none -translate-x-1/2"
       />
 
+      <img
+        src="/assets/Giant-1.svg"
+        alt=""
+        class="layer-1 absolute top-0 left-1/2 w-screen max-w-none -translate-x-1/2"
+      />
+
+      <div class="relative z-10 mx-auto max-w-7xl px-6 pt-[65vh] md:px-10">
+        <div class="grid gap-6 lg:grid-cols-[1.4fr_0.8fr]">
+          
+          <div class="info-box rounded-[2rem] border border-gold/20 bg-dark/65 p-8 text-sand backdrop-blur-2xl">
+            <h2 class="text-4xl font-semibold text-sand md:text-5xl">
+              The Giant
+            </h2>
+
+            <p class="mt-6 leading-relaxed text-sand/75 md:text-lg">
+              This legend tells the story of a powerful giant connected to the
+              Irish landscape, ancient imagination, and oral storytelling.
+            </p>
+          </div>
+
+          <div class="grid gap-6">
+            <div class="info-box rounded-[2rem] border border-gold/20 bg-dark/65 p-6 text-sand backdrop-blur-2xl">
+              <h3 class="text-2xl font-semibold text-sand">
+                Listen to the Story
+              </h3>
+
+              <audio controls class="mt-5 w-full">
+                <source src="/assets/audio/giant.mp3" type="audio/mpeg" />
+              </audio>
+            </div>
+
+            <div class="info-box rounded-[2rem] border border-gold/20 bg-dark/65 p-6 text-sand backdrop-blur-2xl">
+              <h3 class="text-2xl font-semibold text-sand">
+                Map of Ireland
+              </h3>
+
+              <div class="mt-5 flex h-64 items-center justify-center rounded-[1.5rem] border border-white/10 bg-sand/5 text-sand/60">
+                Ireland Map
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+
     </div>
+
   </section>
+</Layout>
 
-  <!----------------------- SCENE 2: STONES / ACTION ----------------------->
-  <!-- Later we add the next image and the text:
-  Fionn began tearing stones from the earth.
-  One by one, he hurled them into the sea.
-  -->
-
-</LegendLayout>
+<style>
+  :global(body),
+  :global(footer) {
+    background: rgb(86, 100, 9);
+  }
+</style>
 
 <script>
   import { gsap } from "gsap";
@@ -78,87 +82,53 @@ import LegendLayout from "../layouts/LegendLayout.astro";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  const initSceneOne = () => {
-    const image = document.getElementById("giant-panorama");
-    const section = document.querySelector(".giant-pan-section");
-    const legendLines = document.querySelectorAll(".legend-line");
+  gsap.to(".layer-1", {
+    y: 250,
+    ease: "none",
+    scrollTrigger: {
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
 
-    if (!image || !section || !legendLines.length) return;
+  gsap.to(".layer-2", {
+    y: 500,
+    ease: "none",
+    scrollTrigger: {
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
 
-    const animateScene = () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      gsap.killTweensOf(image);
+  gsap.to(".layer-3", {
+    y: 750,
+    ease: "none",
+    scrollTrigger: {
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
 
-      const imageWidth = image.offsetWidth;
-      const viewportWidth = window.innerWidth;
-      const overflow = imageWidth - viewportWidth;
+  const boxes = document.querySelectorAll(".info-box");
 
-      if (overflow <= 0) return;
-
-      // Image pan: starts on the right side, moves towards the left side
-      gsap.fromTo(
-        image,
-        { x: -overflow },
-        {
-          x: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        }
-      );
-
-      // Text animation
-      gsap.set(legendLines, {
-        opacity: 0,
-        y: 30,
-        scale: 0.96,
-      });
-
-      const textTimeline = gsap.timeline({
+  boxes.forEach((box, i) => {
+    gsap.fromTo(
+      box,
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: i * 0.15,
+        ease: "power2.out",
         scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 1,
+          trigger: box,
+          start: "top 70%",
         },
-      });
-
-      legendLines.forEach((line, index) => {
-        textTimeline.to(line, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-        });
-
-        if (index !== legendLines.length - 1) {
-          textTimeline.to(line, {
-            opacity: 0,
-            y: -30,
-            scale: 1.02,
-            duration: 1,
-          });
-        }
-      });
-    };
-
-    if (image.complete) {
-      animateScene();
-    } else {
-      image.addEventListener("load", animateScene);
-    }
-
-    window.addEventListener("resize", animateScene);
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initSceneOne);
-  } else {
-    initSceneOne();
-  }
+      }
+    );
+  });
 </script>
