@@ -1,31 +1,587 @@
 ---
+// src/pages/index.astro
+// EireLore — Legends landing page
+// Enriched to match the About page visual system:
+//   · Playfair Display + Montserrat
+//   · dark/teal/gold/sand palette
+//   · GSAP entrance animations (blur + scale + opacity)
+//   · Legend cards grid with hover states
 import Layout from "../layouts/Layout.astro";
+
+// Add more legends here as the project grows
+const legends = [
+  {
+    slug:     "/GiantsCauseway",
+    title:    "The Giant's Causeway",
+    subtitle: "Finn McCool & Benandonner",
+    tag:      "Giants",
+    excerpt:  "Along the wild Antrim coast, a giant built a bridge of basalt to challenge his Scottish rival — and his wife's cunning saved him.",
+    icon:     "🪨",
+  },
+  // Add more legends below:
+  // {
+  //   slug:     "/Selkies",
+  //   title:    "The Selkies",
+  //   subtitle: "Seals of the Sea",
+  //   tag:      "Creatures",
+  //   excerpt:  "...",
+  //   icon:     "🌊",
+  // },
+];
 ---
 
-<Layout title="Irish Legends Website">
-  <section class="relative min-h-screen px-6 pt-40 pb-20 md:px-10">
-    
-    <img
-      src="/assets/candle-1.gif"
-      alt=""
-      class="fixed inset-0 -z-20 h-full w-full object-cover"
-    />
+<Layout title="Éire Lore — Irish Legends">
 
-    <div class="absolute inset-0 -z-10 bg-black/45"></div>
+  <!-- Fixed candle background (your original) -->
+  <img
+    src="/assets/candle-1.gif"
+    alt=""
+    class="fixed inset-0 -z-20 h-full w-full object-cover"
+  />
+  <div class="fixed inset-0 -z-10 bg-black/55"></div>
 
-    <div class="mx-auto flex max-w-7xl flex-col justify-center">
-      <p class="text-sm uppercase tracking-[0.2em] text-gold">
-        Irish Legends
-      </p>
+  <main class="index-page">
 
-      <h1 class="mt-6 text-6xl font-bold leading-tight text-sand md:text-8xl">
-        Enter the world of Irish myths
-      </h1>
+    <!-- ══════════════════════════════════════
+         HERO
+    ══════════════════════════════════════ -->
+    <section class="hero">
+      <div class="hero-inner">
 
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-sand/70">
-        Discover heroes, creatures, and ancient stories through immersive
-        scrollytelling.
-      </p>
-    </div>
-  </section>
+        <!-- Eyebrow -->
+        <p class="hero-eyebrow anim-item">Irish Legends</p>
+
+        <!-- Title -->
+        <h1 class="hero-title anim-item">
+          Enter the world<br/>
+          <span class="hero-title-accent">of Irish myths</span>
+        </h1>
+
+        <!-- Lead -->
+        <p class="hero-lead anim-item">
+          Discover heroes, creatures, and ancient stories through
+          immersive scrollytelling — brought to life through
+          illustration, narration, and interactive design.
+        </p>
+
+        <!-- CTA row -->
+        <div class="hero-cta anim-item">
+          <a href="#legends" class="btn-primary">
+            <span>Explore Legends</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <polyline points="19 12 12 19 5 12"/>
+            </svg>
+          </a>
+          <a href="/about" class="btn-ghost">About the Project</a>
+        </div>
+
+        <!-- Decorative scroll hint -->
+        <div class="scroll-hint" aria-hidden="true">
+          <div class="scroll-tick"></div>
+        </div>
+      </div>
+
+      <!-- Decorative bottom fade into legends section -->
+      <div class="hero-fade"></div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         LEGENDS GRID
+    ══════════════════════════════════════ -->
+    <section id="legends" class="legends-section">
+
+      <div class="section-header anim-item">
+        <div class="section-divider-line"></div>
+        <p class="section-eyebrow">The Collection</p>
+        <h2 class="section-title">Choose Your <span class="accent">Legend</span></h2>
+      </div>
+
+      <div class="legends-grid">
+        {legends.map((legend, i) => (
+          <a
+            href={legend.slug}
+            class="legend-card anim-item"
+            style={`animation-delay: ${i * 0.1}s`}
+          >
+            <div class="card-icon" aria-hidden="true">{legend.icon}</div>
+            <div class="card-tag">{legend.tag}</div>
+            <h3 class="card-title">{legend.title}</h3>
+            <p class="card-subtitle">{legend.subtitle}</p>
+            <div class="card-rule"></div>
+            <p class="card-excerpt">{legend.excerpt}</p>
+            <span class="card-cta">
+              Read the legend
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+
+        <!-- Coming soon placeholder card -->
+        <div class="legend-card legend-card--soon anim-item">
+          <div class="card-icon" aria-hidden="true">✦</div>
+          <div class="card-tag">Coming Soon</div>
+          <h3 class="card-title">More Legends</h3>
+          <p class="card-subtitle">In development</p>
+          <div class="card-rule"></div>
+          <p class="card-excerpt">
+            New stories from Irish mythology are being added — selkies,
+            banshees, the Tuatha Dé Danann, and more.
+          </p>
+          <span class="card-cta card-cta--muted">Stay tuned</span>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════════
+         ABOUT STRIP
+    ══════════════════════════════════════ -->
+    <section class="about-strip anim-item">
+      <div class="about-strip-inner">
+        <div class="about-strip-text">
+          <p class="section-eyebrow">The Project</p>
+          <h2 class="strip-title">What is <span class="accent">Éire Lore?</span></h2>
+          <p class="strip-body">
+            An interactive digital heritage project that brings Irish legends
+            to life through illustrated scrollytelling, narration, and
+            3D-printed collectible figures connected via QR codes.
+          </p>
+          <a href="/about" class="btn-ghost" style="margin-top:1.5rem">
+            Learn more about the project
+          </a>
+        </div>
+        <div class="about-strip-tags">
+          <span class="tag">Digital Heritage</span>
+          <span class="tag">Irish Mythology</span>
+          <span class="tag">Scrollytelling</span>
+          <span class="tag">3D Figures</span>
+          <span class="tag">QR Storytelling</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </Layout>
+
+
+<style>
+  /* ── TOKENS ──────────────────────────────── */
+  :root {
+    --dark:  #004435;
+    --teal:  #106B66;
+    --gold:  #D8A91B;
+    --sand:  #F1D298;
+    --font-title: "Playfair Display", serif;
+    --font-body:  "Montserrat", sans-serif;
+    --ease:  cubic-bezier(0.22, 1, 0.36, 1);
+    --radius: 1.6rem;
+  }
+
+  .index-page { min-height: 100vh; }
+
+  /* ── HERO ────────────────────────────────── */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: clamp(6rem, 14vh, 10rem) clamp(1.5rem, 6vw, 3rem) clamp(5rem, 10vh, 7rem);
+    position: relative;
+  }
+
+  .hero-inner { max-width: 800px; }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 1.02;
+    color: var(--sand);
+  }
+  .hero-title-accent {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-lead {
+    margin-top: 1.5rem;
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.8;
+    color: rgba(241, 210, 152, 0.68);
+    max-width: 52ch;
+  }
+
+  .hero-cta {
+    margin-top: 2.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.75rem 1.6rem;
+    border-radius: 100px;
+    transition: background 0.2s, gap 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--sand);
+    gap: 13px;
+    transform: translateY(-2px);
+  }
+  .btn-primary svg { transition: transform 0.3s var(--ease); }
+  .btn-primary:hover svg { transform: translateY(3px); }
+
+  /* Ghost button */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(216, 169, 27, 0.35);
+    border-radius: 100px;
+    padding: 0.72rem 1.4rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(241, 210, 152, 0.7);
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .btn-ghost:hover {
+    color: var(--sand);
+    border-color: rgba(216, 169, 27, 0.65);
+    background: rgba(216, 169, 27, 0.07);
+  }
+
+  /* Scroll hint */
+  .scroll-hint {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .scroll-tick {
+    width: 1px;
+    height: 52px;
+    background: linear-gradient(var(--gold), transparent);
+    opacity: 0.5;
+    animation: tickPulse 1.9s ease-in-out infinite;
+  }
+  @keyframes tickPulse {
+    0%, 100% { opacity: 0.2; transform: scaleY(0.5); }
+    50%       { opacity: 0.6; transform: scaleY(1); }
+  }
+
+  /* Bottom fade */
+  .hero-fade {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, rgba(0,44,35,0.6));
+    pointer-events: none;
+  }
+
+
+  /* ── SHARED SECTION STYLES ───────────────── */
+  .section-header { text-align: center; margin-bottom: clamp(2.5rem, 6vh, 4rem); }
+  .section-divider-line {
+    width: 1px;
+    height: clamp(36px, 5vh, 56px);
+    background: linear-gradient(var(--gold), transparent);
+    opacity: 0.4;
+    margin: 0 auto clamp(1.2rem, 3vh, 2rem);
+  }
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    color: var(--sand);
+    line-height: 1.1;
+  }
+  .accent { font-style: italic; color: var(--gold); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    border: 1px solid rgba(216, 169, 27, 0.25);
+    background: rgba(0, 44, 35, 0.4);
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: rgba(241, 210, 152, 0.65);
+    backdrop-filter: blur(8px);
+  }
+
+
+  /* ── LEGENDS SECTION ─────────────────────── */
+  .legends-section {
+    padding: clamp(4rem, 10vh, 7rem) clamp(1.5rem, 6vw, 3rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .legends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Legend card */
+  .legend-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+    border: 1px solid rgba(216, 169, 27, 0.15);
+    background: rgba(0, 44, 35, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+  }
+  .legend-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(216, 169, 27, 0.4);
+    box-shadow: 0 20px 48px -20px rgba(0,0,0,0.5);
+  }
+  .legend-card--soon {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    filter: grayscale(0.2);
+  }
+  .card-tag {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-bottom: 0.6rem;
+  }
+  .card-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    color: var(--sand);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  .card-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: rgba(241, 210, 152, 0.45);
+    margin-bottom: 1rem;
+  }
+  .card-rule {
+    width: 28px; height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin-bottom: 0.9rem;
+  }
+  .card-excerpt {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(241, 210, 152, 0.6);
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    transition: gap 0.25s;
+    margin-top: auto;
+  }
+  .legend-card:hover .card-cta { gap: 10px; }
+  .card-cta--muted { color: rgba(241, 210, 152, 0.3); }
+
+
+  /* ── ABOUT STRIP ─────────────────────────── */
+  .about-strip {
+    border-top: 1px solid rgba(216, 169, 27, 0.12);
+    padding: clamp(4rem, 10vh, 7rem) clamp(1.5rem, 6vw, 3rem);
+  }
+  .about-strip-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  @media (max-width: 700px) {
+    .about-strip-inner { grid-template-columns: 1fr; }
+  }
+
+  .strip-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--sand);
+    line-height: 1.1;
+    margin: 0.5rem 0 1rem;
+  }
+  .strip-body {
+    font-family: var(--font-body);
+    font-size: clamp(0.88rem, 1.3vw, 0.97rem);
+    line-height: 1.8;
+    color: rgba(241, 210, 152, 0.65);
+    max-width: 52ch;
+  }
+
+  .about-strip-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  @media (max-width: 700px) {
+    .about-strip-tags { flex-direction: row; flex-wrap: wrap; }
+  }
+
+
+  /* ── ENTRANCE ANIMATIONS ─────────────────── */
+  /* Initial hidden state — JS adds .is-visible */
+  .anim-item {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    filter: blur(6px);
+    transition:
+      opacity   0.8s var(--ease),
+      transform 0.8s var(--ease),
+      filter    0.8s var(--ease);
+  }
+  .anim-item.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  /* Hero items animate on load (no scroll needed) */
+  .hero .anim-item { transition-delay: calc(var(--i, 0) * 0.12s); }
+</style>
+
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── Hero items: staggered entrance on load ──────────────────
+  // Same blur + scale + opacity style as the About page
+  const heroItems = document.querySelectorAll(".hero .anim-item");
+  heroItems.forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 40, scale: 0.97, filter: "blur(6px)" },
+      {
+        opacity: 1, y: 0, scale: 1, filter: "blur(0px)",
+        duration: 1, delay: 0.15 + i * 0.13, ease: "power3.out",
+      }
+    );
+  });
+
+  // ── All other .anim-item: scroll-triggered ──────────────────
+  const scrollItems = document.querySelectorAll(
+    ".legends-section .anim-item, .about-strip.anim-item, .section-header.anim-item"
+  );
+  scrollItems.forEach((el, i) => {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 50, scale: 0.93, filter: "blur(8px)" },
+      {
+        opacity: 1, y: 0, scale: 1, filter: "blur(0px)",
+        duration: 1, delay: (i % 4) * 0.1, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 72%" },
+      }
+    );
+  });
+
+  // ── Legend cards: staggered on scroll ──────────────────────
+  const cards = document.querySelectorAll(".legend-card");
+  cards.forEach((card, i) => {
+    gsap.fromTo(
+      card,
+      { opacity: 0, y: 60, scale: 0.93, filter: "blur(8px)" },
+      {
+        opacity: 1, y: 0, scale: 1, filter: "blur(0px)",
+        duration: 1, delay: i * 0.12, ease: "power3.out",
+        scrollTrigger: { trigger: card, start: "top 75%" },
+      }
+    );
+  });
+
+  // ── Smooth scroll for anchor links ──────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const target = document.querySelector(
+        (e.currentTarget as HTMLAnchorElement).getAttribute("href")!
+      );
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+</script>
