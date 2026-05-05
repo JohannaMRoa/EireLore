@@ -4,52 +4,52 @@ import Layout from "../layouts/Layout.astro";
 
 const scenes = [
   {
-    body:     "On the wild north coast of Ireland lived the mighty giant Fionn mac Cumhaill. He was strong, proud, and known across the land for his courage.",
+    body: "On the wild north coast of Ireland lived the mighty giant Fionn mac Cumhaill. He was strong, proud, and known across the land for his courage.",
     imageSrc: "/assets/scenes-GC/scene-01.png",
     imageAlt: "The wild Irish coast",
   },
   {
-    body:     "Across the sea in Scotland lived another giant, Benandonner. He boasted loudly and challenged Fionn again and again.",
+    body: "Across the sea in Scotland lived another giant, Benandonner. He boasted loudly and challenged Fionn again and again.",
     imageSrc: "/assets/scenes-GC/scene-02.png",
     imageAlt: "Finn McCool standing on the Antrim cliffs",
   },
   {
-    body:     "Fionn decided he would meet Benandonner face to face. He began tearing great chunks of stone from the earth and throwing them into the sea.",
+    body: "Fionn decided he would meet Benandonner face to face. He began tearing great chunks of stone from the earth and throwing them into the sea.",
     imageSrc: "/assets/scenes-GC/scene-03.png",
     imageAlt: "Stormy sea between Ireland and Scotland",
   },
   {
-    body:     "Piece by piece, a mighty causeway stretched from Ireland toward Scotland. It looked like a road made for giants alone.",
+    body: "Piece by piece, a mighty causeway stretched from Ireland toward Scotland. It looked like a road made for giants alone.",
     imageSrc: "/assets/scenes-GC/scene-04.png",
     imageAlt: "Finn hurling basalt columns into the sea",
   },
   {
-    body:     "Fionn marched along the causeway, ready for battle. But when he saw Benandonner in the distance, he realized the Scottish giant was far bigger than he expected.",
+    body: "Fionn marched along the causeway, ready for battle. But when he saw Benandonner in the distance, he realized the Scottish giant was far bigger than he expected.",
     imageSrc: "/assets/scenes-GC/scene-05.png",
     imageAlt: "Finn frozen in dread at Benandonner's shadow",
   },
   {
-    body:     "Fionn rushed home in fear and told his clever wife, Oonagh, what he had seen.",
+    body: "Fionn rushed home in fear and told his clever wife, Oonagh, what he had seen.",
     imageSrc: "/assets/scenes-GC/scene-06.png",
     imageAlt: "Oonagh with a clever smile disguising Finn",
   },
   {
-    body:     "Oonagh quickly made a plan to protect him. She dressed Fionn like a baby and placed him in a giant cradle. She covered him with blankets just before Benandonner arrived.",
+    body: "Oonagh quickly made a plan to protect him. She dressed Fionn like a baby and placed him in a giant cradle. She covered him with blankets just before Benandonner arrived.",
     imageSrc: "/assets/scenes-GC/scene-07.png",
     imageAlt: "Benandonner staring in horror at Finn in the cradle",
   },
   {
-    body:     "When Benandonner entered the house, Oonagh welcomed him and pointed to the cradle: 'Welcome, but please keep your voice down' she whispered. 'The baby is finally asleep'. He stared in amazement at the enormous baby sleeping there — if this is the size of his child, how gigantic must Finn be?",
+    body: "When Benandonner entered the house, Oonagh welcomed him and pointed to the cradle: 'Welcome, but please keep your voice down' she whispered. 'The baby is finally asleep'. He stared in amazement at the enormous baby sleeping there — if this is the size of his child, how gigantic must Finn be?",
     imageSrc: "/assets/scenes-GC/scene-08.png",
     imageAlt: "Benandonner staring in the cottage",
   },
   {
-    body:     "Benandonner thought: if this is the child, then the father must be terrifying. Suddenly afraid, he lost all desire to fight Fionn.",
+    body: "Benandonner thought: if this is the child, then the father must be terrifying. Suddenly afraid, he lost all desire to fight Fionn.",
     imageSrc: "/assets/scenes-GC/scene-09.png",
     imageAlt: "Benandonner realising his mistake",
   },
   {
-    body:     "Benandonner fled back to Scotland, tearing up the causeway behind him as he ran. That is why only the end of the giant's road remains today, known as the Giant's Causeway.",
+    body: "Benandonner fled back to Scotland, tearing up the causeway behind him as he ran. That is why only the end of the giant's road remains today, known as the Giant's Causeway.",
     imageSrc: "/assets/scenes-GC/scene-10.png",
     imageAlt: "The Giant's Causeway today",
   },
@@ -57,160 +57,221 @@ const scenes = [
 ---
 
 <Layout title="The Giant's Causeway — Éire Lore">
+  <main class="giants-page">
 
-  <audio id="story-audio" preload="metadata" style="display:none">
-    <source src="/assets/audio/giants-causeway.mp3" type="audio/mpeg" />
-  </audio>
-
-  <!-- ══════ TITLE ══════ -->
-  <section class="title-section">
-    <div class="title-inner">
-
-      <p class="title-eyebrow">Irish Legend</p>
-
-      <h1 class="title-heading">
-        The Giant's<br/>
-        <em>Causeway</em>
-      </h1>
-
-      <div class="title-ctas">
-        <button class="cta-primary" id="btn-read">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2.5"
-               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/>
-            <polyline points="19 12 12 19 5 12"/>
-          </svg>
-          <span>Read the story</span>
-        </button>
-
-        <button class="cta-secondary" id="btn-play">
-          <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24"
-               fill="currentColor" aria-hidden="true">
-            <polygon points="5 3 19 12 5 21 5 3"/>
-          </svg>
-          <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24"
-               fill="currentColor" aria-hidden="true" style="display:none">
-            <rect x="6" y="4" width="4" height="16"/>
-            <rect x="14" y="4" width="4" height="16"/>
-          </svg>
-          <span class="btn-play-label">Play the story</span>
-        </button>
-      </div>
-
-      <!-- Progress — visible only while playing -->
-      <div class="story-progress" id="story-progress" aria-hidden="true">
-        <div class="progress-track" id="progress-track">
-          <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <span class="progress-time" id="progress-time">0:00</span>
-      </div>
-
-      <div class="scroll-hint" aria-hidden="true">
-        <div class="scroll-tick"></div>
-      </div>
-
+    <!-- PARALLAX BACKGROUND -->
+    <div class="parallax-container" aria-hidden="true">
+      <img src="/assets/Giant-3.svg" class="layer layer-3" alt="" />
+      <img src="/assets/Giant-2.svg" class="layer layer-2" alt="" />
+      <img src="/assets/Giant-1.svg" class="layer layer-1" alt="" />
     </div>
-  </section>
 
-  <!-- ══════ STORY ══════ -->
-  <section id="story" class="story-section">
-    <div class="scenes-wrapper">
-      {scenes.map((scene, i) => {
-        const flip   = i % 2 !== 0;
-        const padded = String(i + 1).padStart(2, "0");
-        return (
-          <article
-            class:list={["scene", { "scene--flip": flip }]}
-            data-scene={i}
-            id={`scene-${i}`}
-          >
-            <div class="scene-image" data-anim="image">
-              {scene.imageSrc ? (
+    <!-- FLOATING BACK BUTTON -->
+    <a href="/myths" class="floating-back-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      <span>Back to all legends</span>
+    </a>
+
+    <audio id="story-audio" preload="metadata" style="display:none">
+      <source src="/assets/audio/giants-causeway.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- TITLE -->
+    <section class="title-section">
+      <div class="title-inner">
+
+        <p class="title-eyebrow">Irish Legend</p>
+
+        <h1 class="title-heading">
+          The Giant's<br/>
+          <em>Causeway</em>
+        </h1>
+
+        <div class="title-ctas">
+          <button class="cta-primary" id="btn-read">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <polyline points="19 12 12 19 5 12"/>
+            </svg>
+            <span>Read the story</span>
+          </button>
+
+          <button class="cta-secondary" id="btn-play">
+            <svg class="icon-play" width="14" height="14" viewBox="0 0 24 24"
+                 fill="currentColor" aria-hidden="true">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <svg class="icon-pause" width="14" height="14" viewBox="0 0 24 24"
+                 fill="currentColor" aria-hidden="true" style="display:none">
+              <rect x="6" y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            <span class="btn-play-label">Play the story</span>
+          </button>
+        </div>
+
+        <div class="story-progress" id="story-progress" aria-hidden="true">
+          <div class="progress-track" id="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="progress-time" id="progress-time">0:00</span>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true">
+          <div class="scroll-tick"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section id="story" class="story-section">
+      <div class="scenes-wrapper">
+        {scenes.map((scene, i) => {
+          const flip = i % 2 !== 0;
+          const padded = String(i + 1).padStart(2, "0");
+
+          return (
+            <article
+              class:list={["scene", { "scene--flip": flip }]}
+              data-scene={i}
+              id={`scene-${i}`}
+            >
+              <div class="scene-image" data-anim="image">
                 <img
                   src={scene.imageSrc}
                   alt={scene.imageAlt ?? `Scene ${padded}`}
-                  width="800" height="600"
+                  width="800"
+                  height="600"
                   loading={i === 0 ? "eager" : "lazy"}
                   decoding="async"
                 />
-              ) : (
-                <div class="scene-placeholder">
-                  <p class="ph-tag">Scene {padded} · Illustration</p>
-                  <p class="ph-hint">
-                    <code>public/assets/scenes-GC/scene-{padded}.png</code>
-                  </p>
-                </div>
-              )}
-            </div>
+              </div>
 
-            <div class="scene-text">
-              <div class="scene-rule" data-anim="rule"></div>
-              <p class="scene-body" data-anim="body">{scene.body}</p>
-              {scene.quote && (
-                <blockquote class="scene-quote" data-anim="quote">
-                  "{scene.quote}"
-                </blockquote>
-              )}
-            </div>
-          </article>
-        );
-      })}
-    </div>
+              <div class="scene-text">
+                <div class="scene-rule" data-anim="rule"></div>
+                <p class="scene-body" data-anim="body">{scene.body}</p>
+              </div>
+            </article>
+          );
+        })}
+      </div>
 
-    <div id="story-outro" class="story-outro">
-      <a href="/myths" class="outro-back-btn">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="19" y1="12" x2="5" y2="12"/>
-          <polyline points="12 19 5 12 12 5"/>
-        </svg>
-        <span>Back to all legends</span>
-      </a>
-    </div>
-  </section>
+      <div id="story-outro" class="story-outro"></div>
+    </section>
 
+  </main>
 </Layout>
 
-
 <style>
-  /* ── TOKENS ─────────────────────────── */
   :root {
-    --dark:       #004435;
-    --teal:       #106B66;
-    --gold:       #D8A91B;
-    --sand:       #F1D298;
+    --dark: #004435;
+    --teal: #106B66;
+    --gold: #D8A91B;
+    --sand: #F1D298;
     --font-title: "Playfair Display", serif;
-    --font-body:  "Montserrat", sans-serif;
-    --ease:       cubic-bezier(0.22, 1, 0.36, 1);
+    --font-body: "Montserrat", sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --page-bg: #566409;
+    --footer-bg: #566409;
+    --bg-overlay: rgba(0, 0, 0, 0.16);
+    --parallax-opacity: 1;
   }
 
-  /* Prevent horizontal overflow globally on this page */
-  :global(html), :global(body) { overflow-x: hidden; }
+  :global(html),
+  :global(body) {
+    overflow-x: hidden;
+    background: var(--page-bg);
+  }
 
-  /* ── TITLE ──────────────────────────── */
+  :global(footer) {
+    background: var(--footer-bg) !important;
+  }
+
+  .giants-page {
+    position: relative;
+    overflow: hidden;
+    background: var(--page-bg);
+  }
+
+  .giants-page::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: var(--bg-overlay);
+    pointer-events: none;
+  }
+
+  .parallax-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 180vh;
+    overflow: hidden;
+    opacity: var(--parallax-opacity);
+    pointer-events: none;
+  }
+
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    max-width: none;
+    transform: translateX(-50%);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .layer-3 { z-index: 1; }
+  .layer-2 { z-index: 2; }
+  .layer-1 { z-index: 3; }
+
+  .title-section,
+  .story-section {
+    position: relative;
+    z-index: 2;
+  }
+
   .title-section {
     min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Extra top padding so content clears the nav on all screen sizes */
     padding: clamp(6rem, 16vh, 10rem) clamp(1.25rem, 5vw, 4rem) clamp(3rem, 6vh, 5rem);
-    background: linear-gradient(180deg, var(--dark) 0%, var(--teal) 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
   }
+
   .title-section::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      ellipse 80% 60% at 50% 110%,
-      rgba(216,169,27,0.07) 0%,
-      transparent 70%
-    );
+    background:
+      radial-gradient(
+        ellipse 70% 48% at 50% 48%,
+        rgba(0, 0, 0, 0.34) 0%,
+        rgba(0, 0, 0, 0.18) 42%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 80% 60% at 50% 110%,
+        rgba(216,169,27,0.12) 0%,
+        transparent 70%
+      );
     pointer-events: none;
   }
 
@@ -220,7 +281,6 @@ const scenes = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* fluid gap — tighter on small screens */
     gap: clamp(1rem, 2.5vh, 1.8rem);
     width: 100%;
   }
@@ -228,19 +288,21 @@ const scenes = [
   .title-eyebrow {
     font-family: var(--font-body);
     font-size: clamp(0.58rem, 2vw, 0.72rem);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--gold);
     opacity: 0;
     transform: translateY(14px);
     animation: fadeUp 0.9s 0.15s var(--ease) forwards;
+    text-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.75),
+      0 0 18px rgba(216, 169, 27, 0.45);
   }
 
   .title-heading {
     font-family: var(--font-title);
     font-weight: 700;
-    /* Fluid: comfortable on 320px phone up to large desktop */
     font-size: clamp(2.8rem, 13vw, 9rem);
     line-height: 1.0;
     color: var(--sand);
@@ -248,10 +310,21 @@ const scenes = [
     opacity: 0;
     transform: translateY(20px);
     animation: fadeUp 1.1s 0.35s var(--ease) forwards;
+    text-shadow:
+      0 6px 0 rgba(0, 44, 35, 0.38),
+      0 16px 35px rgba(0, 0, 0, 0.75),
+      0 0 42px rgba(0, 0, 0, 0.55);
   }
-  .title-heading em { font-style: italic; color: var(--gold); }
 
-  /* ── CTAs ───────────────────────────── */
+  .title-heading em {
+    font-style: italic;
+    color: var(--gold);
+    text-shadow:
+      0 6px 0 rgba(0, 44, 35, 0.35),
+      0 16px 36px rgba(0, 0, 0, 0.78),
+      0 0 32px rgba(216, 169, 27, 0.42);
+  }
+
   .title-ctas {
     display: flex;
     align-items: center;
@@ -269,7 +342,6 @@ const scenes = [
     align-items: center;
     gap: 7px;
     border-radius: 100px;
-    /* Slightly larger touch target on mobile */
     padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.1rem, 4vw, 1.5rem);
     font-family: var(--font-body);
     font-size: clamp(0.65rem, 2.5vw, 0.78rem);
@@ -278,9 +350,7 @@ const scenes = [
     text-transform: uppercase;
     cursor: pointer;
     border: none;
-    /* Disable hover transforms on touch — they feel laggy */
     transition: background 0.2s, color 0.2s, border-color 0.2s;
-    /* Minimum touch target */
     min-height: 44px;
     -webkit-tap-highlight-color: transparent;
   }
@@ -288,36 +358,37 @@ const scenes = [
   .cta-primary {
     background: var(--gold);
     color: var(--dark);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
   }
-  /* Hover only on pointer devices */
+
+  .cta-secondary {
+    background: rgba(0, 44, 35, 0.34);
+    color: rgba(241,210,152,0.9);
+    border: 1px solid rgba(216,169,27,0.38);
+    backdrop-filter: blur(8px);
+  }
+
   @media (hover: hover) {
     .cta-primary:hover { background: var(--sand); }
     .cta-primary:hover svg { transform: translateY(3px); }
+
     .cta-secondary:hover {
       background: rgba(216,169,27,0.08);
       color: var(--sand);
       border-color: rgba(216,169,27,0.6);
     }
   }
-  .cta-primary:active { background: var(--sand); }
-  .cta-primary svg { transition: transform 0.3s var(--ease); }
 
-  .cta-secondary {
-    background: transparent;
-    color: rgba(241,210,152,0.7);
-    border: 1px solid rgba(216,169,27,0.3);
+  .cta-primary svg {
+    transition: transform 0.3s var(--ease);
   }
-  .cta-secondary:active {
-    background: rgba(216,169,27,0.1);
-    color: var(--gold);
-  }
+
   .cta-secondary.is-playing {
     background: rgba(216,169,27,0.1);
     color: var(--gold);
     border-color: rgba(216,169,27,0.5);
   }
 
-  /* ── PROGRESS BAR ───────────────────── */
   .story-progress {
     display: flex;
     align-items: center;
@@ -326,9 +397,9 @@ const scenes = [
     transform: translateY(6px);
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
-    /* Fluid width — full on mobile, capped on desktop */
     width: min(90vw, 360px);
   }
+
   .story-progress.visible {
     opacity: 1;
     transform: translateY(0);
@@ -337,25 +408,20 @@ const scenes = [
 
   .progress-track {
     flex: 1;
-    /* Taller hit area on touch */
     height: 4px;
     background: rgba(216,169,27,0.18);
     border-radius: 4px;
     cursor: pointer;
     position: relative;
     overflow: visible;
-    /* Invisible padding for easier touch */
     padding: 8px 0;
     margin: -8px 0;
   }
-  .progress-track::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-  }
+
   .progress-fill {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 4px;
     width: 0%;
     background: var(--gold);
@@ -363,11 +429,13 @@ const scenes = [
     transition: width 0.25s linear;
     pointer-events: none;
   }
+
   .ap-marker {
     position: absolute;
     top: 0;
     transform: translate(-50%, 0);
-    width: 5px; height: 4px;
+    width: 5px;
+    height: 4px;
     border-radius: 50%;
     background: rgba(216,169,27,0.5);
     pointer-events: none;
@@ -377,17 +445,17 @@ const scenes = [
     font-family: var(--font-body);
     font-size: 0.6rem;
     font-weight: 600;
-    color: rgba(241,210,152,0.45);
+    color: rgba(241,210,152,0.6);
     letter-spacing: 0.05em;
     white-space: nowrap;
     min-width: 3ch;
   }
 
-  /* ── SCROLL HINT ────────────────────── */
   .scroll-hint {
     opacity: 0;
     animation: fadeUp 1s 1s ease forwards;
   }
+
   .scroll-tick {
     width: 1px;
     height: clamp(24px, 4vh, 40px);
@@ -397,16 +465,26 @@ const scenes = [
   }
 
   @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes tickPulse {
-    0%, 100% { opacity: 0.12; transform: scaleY(0.5); }
-    50%       { opacity: 0.45; transform: scaleY(1); }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  /* ── STORY SECTION ──────────────────── */
+  @keyframes tickPulse {
+    0%, 100% {
+      opacity: 0.12;
+      transform: scaleY(0.5);
+    }
+
+    50% {
+      opacity: 0.45;
+      transform: scaleY(1);
+    }
+  }
+
   .story-section {
-    background: linear-gradient(180deg, var(--teal) 0%, var(--dark) 100%);
+    background: transparent;
     padding-top: clamp(3rem, 6vh, 5rem);
   }
 
@@ -416,9 +494,7 @@ const scenes = [
     padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(3rem, 6vh, 5rem);
   }
 
-  /* ── SCENE — mobile first ───────────── */
   .scene {
-    /* Mobile: single column, image above text */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -428,11 +504,9 @@ const scenes = [
     margin-bottom: clamp(3.5rem, 10vh, 7rem);
     position: relative;
     transition: opacity 0.35s ease;
-    /* Prevent any child from leaking outside */
     overflow: hidden;
   }
 
-  /* Desktop: side-by-side */
   @media (min-width: 700px) {
     .scene {
       grid-template-columns: 52% 1fr;
@@ -441,174 +515,186 @@ const scenes = [
       margin-bottom: clamp(5rem, 12vh, 10rem);
       overflow: visible;
     }
+
     .scene--flip {
       grid-template-columns: 1fr 52%;
       grid-template-areas: "text image";
     }
   }
 
-  .scene.audio-dim    { opacity: 0.3; }
+  .scene.audio-dim { opacity: 0.3; }
   .scene.audio-active { opacity: 1 !important; }
 
-  /* ── IMAGE ──────────────────────────── */
   .scene-image {
     grid-area: image;
     position: relative;
-    /* Square on mobile — slightly landscape on desktop */
     aspect-ratio: 1 / 1;
     opacity: 0;
   }
+
   @media (min-width: 700px) {
     .scene-image { aspect-ratio: 5 / 4; }
   }
 
   .scene-image img {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     display: block;
   }
 
-  .scene-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 0.6rem; padding: 1.5rem; text-align: center;
-    border: 1px dashed rgba(216,169,27,0.15);
-    border-radius: 0.5rem;
-  }
-  .ph-tag {
-    font-family: var(--font-body); font-size: 0.55rem;
-    font-weight: 600; letter-spacing: 0.28em;
-    text-transform: uppercase; color: rgba(216,169,27,0.3);
-  }
-  .ph-hint { font-size: 0.68rem; color: rgba(241,210,152,0.15); line-height: 1.6; }
-  .ph-hint code { font-family: monospace; color: rgba(216,169,27,0.18); }
-
-  /* ── TEXT ───────────────────────────── */
   .scene-text {
     grid-area: text;
-    /* Centre text on mobile, let it breathe on desktop */
     padding: 0 clamp(0rem, 2vw, 0.5rem);
   }
 
-  /* All text children start invisible — GSAP animates them */
-  .scene-rule, .scene-body, .scene-quote { opacity: 0; }
+  .scene-rule,
+  .scene-body {
+    opacity: 0;
+  }
 
   .scene-rule {
-    width: 28px; height: 2px;
-    background: var(--gold); border-radius: 2px;
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
     margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
     transform-origin: left center;
   }
 
   .scene-body {
     font-family: var(--font-body);
-    /* Comfortable reading size on phone, larger on desktop */
     font-size: clamp(0.95rem, 2.2vw, 1.25rem);
     line-height: 1.85;
-    color: rgba(241,210,152,0.75);
+    color: rgba(241,210,152,0.9);
     max-width: 44ch;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
   }
+
   @media (max-width: 699px) {
     .scene-body { max-width: 100%; }
   }
 
-  .scene-quote {
-    margin-top: 1.25rem;
-    padding-left: 1rem;
-    border-left: 2px solid rgba(216,169,27,0.3);
-    font-family: var(--font-title);
-    font-size: clamp(0.95rem, 2vw, 1.3rem);
-    font-style: italic;
-    color: var(--gold);
-    line-height: 1.65;
-  }
-
-  /* ── OUTRO ──────────────────────────── */
   .story-outro {
-    text-align: center;
-    padding: clamp(3.5rem, 8vh, 6rem) 1.5rem;
-    opacity: 0;
+    height: 2rem;
   }
 
-  .outro-back-btn {
+  .floating-back-btn {
+    position: fixed;
+    left: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 50;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    border: 1px solid rgba(216,169,27,0.28);
+    border: 1px solid rgba(216,169,27,0.36);
     border-radius: 100px;
-    padding: 0.75rem 1.5rem;
+    padding: 0.78rem 1.25rem;
     font-family: var(--font-body);
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(216,169,27,0.65);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(241,210,152,0.88);
     text-decoration: none;
-    background: rgba(0,44,35,0.4);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 44, 35, 0.62);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
     min-height: 44px;
     -webkit-tap-highlight-color: transparent;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
   }
+
   @media (hover: hover) {
-    .outro-back-btn:hover {
+    .floating-back-btn:hover {
       color: var(--sand);
-      border-color: rgba(216,169,27,0.55);
-      background: rgba(0,44,35,0.7);
+      border-color: rgba(216,169,27,0.65);
+      background: rgba(0,44,35,0.82);
+      transform: translateY(-2px);
     }
   }
-  .outro-back-btn:active {
-    color: var(--sand);
-    border-color: rgba(216,169,27,0.55);
-    background: rgba(0,44,35,0.7);
+
+  @media (max-width: 520px) {
+    .floating-back-btn {
+      padding: 0.72rem 0.9rem;
+      font-size: 0.58rem;
+      max-width: calc(100vw - 2rem);
+    }
   }
 </style>
-
 
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+
   gsap.registerPlugin(ScrollTrigger);
 
-  // ── Detect touch device ────────────────────────────────────
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
-  // ── CONFIG ─────────────────────────────────────────────────
-  const SECONDS_PER_SCENE = 14; // adjust to match audio length ÷ 10
+  const SECONDS_PER_SCENE = 14;
 
-  // ── DOM ────────────────────────────────────────────────────
-  const audio         = document.getElementById("story-audio")    as HTMLAudioElement;
-  const btnRead       = document.getElementById("btn-read")       as HTMLButtonElement;
-  const btnPlay       = document.getElementById("btn-play")       as HTMLButtonElement;
-  const progressWrap  = document.getElementById("story-progress") as HTMLDivElement;
+  const audio = document.getElementById("story-audio") as HTMLAudioElement;
+  const btnRead = document.getElementById("btn-read") as HTMLButtonElement;
+  const btnPlay = document.getElementById("btn-play") as HTMLButtonElement;
+  const progressWrap = document.getElementById("story-progress") as HTMLDivElement;
   const progressTrack = document.getElementById("progress-track") as HTMLDivElement;
-  const progressFill  = document.getElementById("progress-fill")  as HTMLDivElement;
-  const progressTime  = document.getElementById("progress-time")  as HTMLSpanElement;
-  const scenes        = document.querySelectorAll<HTMLElement>(".scene");
-  const TOTAL         = scenes.length;
-  const DURATION      = SECONDS_PER_SCENE * TOTAL;
+  const progressFill = document.getElementById("progress-fill") as HTMLDivElement;
+  const progressTime = document.getElementById("progress-time") as HTMLSpanElement;
+  const scenes = document.querySelectorAll<HTMLElement>(".scene");
 
-  // ── Scene dot markers ──────────────────────────────────────
+  const TOTAL = scenes.length;
+  const DURATION = SECONDS_PER_SCENE * TOTAL;
+
+  gsap.to(".layer-1", {
+    y: 200,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".parallax-container",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".layer-2", {
+    y: 400,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".parallax-container",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  gsap.to(".layer-3", {
+    y: 600,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".parallax-container",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
   scenes.forEach((_, i) => {
     if (i === 0) return;
+
     const dot = document.createElement("div");
     dot.className = "ap-marker";
     dot.style.left = `${(i / TOTAL) * 100}%`;
     progressTrack.appendChild(dot);
   });
 
-  // ── Helpers ────────────────────────────────────────────────
   const fmt = (s: number) =>
     `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, "0")}`;
 
-  // ── GSAP animations ────────────────────────────────────────
-  // On touch: simpler fade-up only (no horizontal slide, no blur)
-  // On desktop: full slide + blur
   scenes.forEach((scene) => {
     const isFlip = scene.classList.contains("scene--flip");
-    const img    = scene.querySelector<HTMLElement>("[data-anim='image']");
-    const rule   = scene.querySelector<HTMLElement>("[data-anim='rule']");
-    const body   = scene.querySelector<HTMLElement>("[data-anim='body']");
-    const quote  = scene.querySelector<HTMLElement>("[data-anim='quote']");
+    const img = scene.querySelector<HTMLElement>("[data-anim='image']");
+    const rule = scene.querySelector<HTMLElement>("[data-anim='rule']");
+    const body = scene.querySelector<HTMLElement>("[data-anim='body']");
 
     const st = {
       trigger: scene,
@@ -619,132 +705,180 @@ const scenes = [
 
     if (img) {
       if (isTouch) {
-        // Mobile: simple fade up — no x offset, no blur (better perf)
-        gsap.fromTo(img,
+        gsap.fromTo(
+          img,
           { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.65, ease: "power2.out", scrollTrigger: st }
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: "power2.out",
+            scrollTrigger: st,
+          }
         );
       } else {
-        // Desktop: slide from outside edge + blur
-        gsap.fromTo(img,
+        gsap.fromTo(
+          img,
           { opacity: 0, x: isFlip ? 50 : -50, filter: "blur(8px)" },
-          { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.9, ease: "power3.out", scrollTrigger: st }
+          {
+            opacity: 1,
+            x: 0,
+            filter: "blur(0px)",
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: st,
+          }
         );
       }
     }
 
-    if (rule) gsap.fromTo(rule,
-      { opacity: 0, scaleX: 0, transformOrigin: "left center" },
-      { opacity: 0.6, scaleX: 1, duration: 0.5, ease: "power2.inOut",
-        scrollTrigger: st, delay: isTouch ? 0.1 : 0.18 }
-    );
+    if (rule) {
+      gsap.fromTo(
+        rule,
+        { opacity: 0, scaleX: 0, transformOrigin: "left center" },
+        {
+          opacity: 0.6,
+          scaleX: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+          scrollTrigger: st,
+          delay: isTouch ? 0.1 : 0.18,
+        }
+      );
+    }
 
-    if (body) gsap.fromTo(body,
-      isTouch
-        ? { opacity: 0, y: 16 }
-        : { opacity: 0, y: 22, filter: "blur(5px)" },
-      isTouch
-        ? { opacity: 1, y: 0, duration: 0.6, ease: "power2.out", scrollTrigger: st, delay: 0.18 }
-        : { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "power3.out", scrollTrigger: st, delay: 0.28 }
-    );
-
-    if (quote) gsap.fromTo(quote,
-      isTouch
-        ? { opacity: 0, y: 12 }
-        : { opacity: 0, y: 16, filter: "blur(4px)" },
-      isTouch
-        ? { opacity: 1, y: 0, duration: 0.55, ease: "power2.out", scrollTrigger: st, delay: 0.28 }
-        : { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.75, ease: "power3.out", scrollTrigger: st, delay: 0.42 }
-    );
+    if (body) {
+      gsap.fromTo(
+        body,
+        isTouch
+          ? { opacity: 0, y: 16 }
+          : { opacity: 0, y: 22, filter: "blur(5px)" },
+        isTouch
+          ? {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: st,
+              delay: 0.18,
+            }
+          : {
+              opacity: 1,
+              y: 0,
+              filter: "blur(0px)",
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: st,
+              delay: 0.28,
+            }
+      );
+    }
   });
 
-  // Outro
-  const outro = document.getElementById("story-outro");
-  if (outro) gsap.fromTo(outro,
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
-      scrollTrigger: { trigger: outro, start: "top 85%", toggleActions: "play none play none" } }
-  );
-
-  // ── Read the Story ─────────────────────────────────────────
   btnRead.addEventListener("click", () => {
     const target = document.getElementById("story");
+
     if (!target) return;
-    // Offset by nav height (80px) + a safe buffer so scene 0
-    // doesn't immediately hit its ScrollTrigger threshold
+
     const navH = 80;
-    const top  = target.getBoundingClientRect().top + window.scrollY - navH;
+    const top = target.getBoundingClientRect().top + window.scrollY - navH;
+
     window.scrollTo({ top, behavior: "smooth" });
   });
 
-  // ── Auto-scroll: go to scene ───────────────────────────────
   let currentScene = -1;
 
   function goToScene(index: number) {
     if (index === currentScene) return;
+
     currentScene = index;
+
     const el = document.getElementById(`scene-${index}`);
+
     if (!el) return;
+
     el.scrollIntoView({ behavior: "smooth", block: "center" });
-    scenes.forEach(s => s.classList.remove("audio-active"));
+
+    scenes.forEach((s) => s.classList.remove("audio-active"));
     el.classList.add("audio-active");
   }
 
-  // ── Playback state ─────────────────────────────────────────
   let isPlaying = false;
-  let elapsed   = 0;
+  let elapsed = 0;
   let rafId: number;
-  let lastTick  = 0;
+  let lastTick = 0;
 
   function tick(now: number) {
     if (!isPlaying) return;
+
     elapsed += (now - lastTick) / 1000;
-    lastTick  = now;
+    lastTick = now;
+
     const pct = Math.min((elapsed / DURATION) * 100, 100);
+
     progressFill.style.width = `${pct}%`;
     progressTime.textContent = fmt(elapsed);
+
     goToScene(Math.min(Math.floor(elapsed / SECONDS_PER_SCENE), TOTAL - 1));
-    if (elapsed >= DURATION) { stop(true); return; }
+
+    if (elapsed >= DURATION) {
+      stop(true);
+      return;
+    }
+
     rafId = requestAnimationFrame(tick);
   }
 
   function start() {
     isPlaying = true;
-    lastTick  = performance.now();
+    lastTick = performance.now();
+
     audio.play().catch(() => {});
+
     progressWrap.classList.add("visible");
     progressWrap.setAttribute("aria-hidden", "false");
+
     btnPlay.classList.add("is-playing");
-    (btnPlay.querySelector(".icon-play")  as SVGElement).style.display = "none";
+
+    (btnPlay.querySelector(".icon-play") as SVGElement).style.display = "none";
     (btnPlay.querySelector(".icon-pause") as SVGElement).style.display = "";
     (btnPlay.querySelector(".btn-play-label") as HTMLElement).textContent = "Pause";
-    scenes.forEach(s => s.classList.add("audio-dim"));
-    // Scroll to story, then begin ticking after scroll lands
+
+    scenes.forEach((s) => s.classList.add("audio-dim"));
+
     const target = document.getElementById("story");
+
     if (target) {
       const top = target.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: "smooth" });
     }
-    setTimeout(() => { rafId = requestAnimationFrame(tick); }, 700);
+
+    setTimeout(() => {
+      rafId = requestAnimationFrame(tick);
+    }, 700);
   }
 
   function stop(finished = false) {
     isPlaying = false;
+
     cancelAnimationFrame(rafId);
     audio.pause();
-    scenes.forEach(s => {
+
+    scenes.forEach((s) => {
       s.classList.remove("audio-dim");
       s.classList.remove("audio-active");
     });
+
     btnPlay.classList.remove("is-playing");
-    (btnPlay.querySelector(".icon-play")  as SVGElement).style.display = "";
+
+    (btnPlay.querySelector(".icon-play") as SVGElement).style.display = "";
     (btnPlay.querySelector(".icon-pause") as SVGElement).style.display = "none";
     (btnPlay.querySelector(".btn-play-label") as HTMLElement).textContent = "Play the story";
+
     if (finished) {
       progressFill.style.width = "100%";
-      document.getElementById("story-outro")
-        ?.scrollIntoView({ behavior: "smooth", block: "center" });
     }
+
     ScrollTrigger.refresh();
   }
 
@@ -752,24 +886,46 @@ const scenes = [
     isPlaying ? stop() : start();
   });
 
-  // ── Progress bar: click + touch drag ──────────────────────
   function seekTo(clientX: number) {
     const rect = progressTrack.getBoundingClientRect();
-    const pct  = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    elapsed    = pct * DURATION;
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+
+    elapsed = pct * DURATION;
+
     if (isPlaying) lastTick = performance.now();
     if (audio.duration) audio.currentTime = pct * audio.duration;
+
     progressFill.style.width = `${pct * 100}%`;
     progressTime.textContent = fmt(elapsed);
+
     goToScene(Math.min(Math.floor(elapsed / SECONDS_PER_SCENE), TOTAL - 1));
   }
 
-  progressTrack.addEventListener("click",      (e) => seekTo(e.clientX));
-  progressTrack.addEventListener("touchstart",  (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
-  progressTrack.addEventListener("touchmove",   (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
+  progressTrack.addEventListener("click", (e) => seekTo(e.clientX));
 
-  // ── Refresh ScrollTrigger on orientation change ────────────
-  window.addEventListener("orientationchange", () => {
-    setTimeout(() => ScrollTrigger.refresh(), 300);
-  }, { passive: true });
+  progressTrack.addEventListener(
+    "touchstart",
+    (e) => {
+      e.preventDefault();
+      seekTo(e.touches[0].clientX);
+    },
+    { passive: false }
+  );
+
+  progressTrack.addEventListener(
+    "touchmove",
+    (e) => {
+      e.preventDefault();
+      seekTo(e.touches[0].clientX);
+    },
+    { passive: false }
+  );
+
+  window.addEventListener(
+    "orientationchange",
+    () => {
+      setTimeout(() => ScrollTrigger.refresh(), 300);
+    },
+    { passive: true }
+  );
 </script>
