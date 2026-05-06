@@ -1,81 +1,48 @@
 ---
 // nuevas palabras
 const glossaryData = [
-  {
+
+  // CHILDREN OF LIR / CHILDREN OF AIR
+
+    {
     term: "Aoife",
     pronunciation: "EE-fa",
-    meaning: "A mythical princess and the second wife of King Lir. Consumed by jealousy, she used dark magic to transform her stepchildren into swans.",
+    meaning: "A mythical princess and the second wife of King Lir.",
     related_story: "The Children of Lir",
     link: "/ChildrenOfLir"
   },
   {
-    term: "Banshee",
-    pronunciation: "BAN-shee",
-    meaning: "A female spirit from Irish mythology whose mournful wail is believed to be an omen of impending death for an ancient family.",
-    related_story: "The Banshee",
-    link: "/Banshee"
-  },
-  {
-    term: "Bradán Feasa",
-    pronunciation: "BRA-dawn FA-sa",
-    meaning: "The Salmon of Knowledge, a magical fish that contained all the wisdom of the world. Whoever ate it first would gain its absolute knowledge.",
-    related_story: "The Salmon of Knowledge",
-    link: "#"
-  },
-  {
-    term: "Cú Chulainn",
-    pronunciation: "koo CULL-in",
-    meaning: "An Irish mythological demigod and hero of the Ulster Cycle, renowned for his terrifying battle frenzy (ríastrad).",
-    related_story: "The Ulster Cycle",
-    link: "#"
-  },
-  {
-    term: "Fionn mac Cumhaill",
-    pronunciation: "FIN mac COOL",
-    meaning: "A mythical hunter-warrior and leader of the Fianna. He is said to have built the Giant's Causeway to fight a Scottish giant.",
-    related_story: "The Giant's Causeway",
-    link: "/GiantsCauseway"
-  },
-  {
-    term: "Tír na nÓg",
-    pronunciation: "TEER na NOG",
-    meaning: "The Land of Eternal Youth in Irish mythology, an otherworldly realm where illness and death do not exist.",
-    related_story: "Oisín in Tír na nÓg",
-    link: "#"
-  },
-  // CHILDREN OF LIR / CHILDREN OF AIR
-  {
     term: "Lir",
     pronunciation: "LEER",
-    meaning: "Ancient sea god and noble lord of the Tuatha Dé Danann. His four children were transformed into swans for 900 years by his jealous wife Aoife.",
+    meaning: "Ancient sea god and noble lord of the Tuatha Dé Danann.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
   },
   {
     term: "Fionnuala",
-    pronunciation: "fin-OO-la",
-    meaning: "Daughter of Lir, whose name means 'white shoulder'. The eldest and most protective of the four swan children, she cared for her brothers throughout their 900 years of enchantment.",
+    pronunciation: "fin-NOO-la",
+    meaning: "Daughter of Lir. The eldest and most protective of the four children.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
   },
   {
     term: "Aodh",
     pronunciation: "AY",
-    meaning: "One of the three sons of Lir transformed into a swan. His name means 'fire'. He was the elder of the three brothers.",
+    meaning: "One of the three sons of Lir. His name means 'fire'. He was the elder of the three brothers.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
   },
   {
     term: "Fiachra",
-    pronunciation: "FEE-a-khra",
-    meaning: "One of the twin sons of Lir, transformed into a swan for 900 years alongside his siblings. His name is possibly derived from 'fiach' meaning 'raven'.",
+    pronunciation: "fee-ak-ra",
+    meaning: "One of the twin sons of Lir. His name is possibly derived from 'fiach' meaning 'raven'.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
   },
   {
     term: "Conn",
     pronunciation: "KON",
-    meaning: "The youngest of the four Children of Lir. One of the twin sons transformed into a swan by their stepmother Aoife.",
+    meaning: "The youngest of the four Children of Lir. One of the twin sons.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
   },
@@ -88,7 +55,7 @@ const glossaryData = [
   },
   {
     term: "Bodb Derg",
-    pronunciation: "BOV derg",
+    pronunciation: "BOV jar-ag",
     meaning: "High King of the Tuatha Dé Danann and father of both Aoibh and Aoife. When he discovered Aoife's treachery, he cursed her to become a demon of the air for eternity.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
@@ -105,7 +72,7 @@ const glossaryData = [
   {
     term: "Bean Sí",
     pronunciation: "ban SHEE",
-    meaning: "Woman of the Fairy Mound — the Irish name for the Banshee, a female spirit whose mournful wail heralds the death of a member of an ancient Irish family.",
+    meaning: "Woman of the Fairy Mound — the Irish name for the Banshee, a female spirit whose mournful wail heralds the death.",
     related_story: "The Banshee",
     link: "/Banshee"
   },
@@ -132,9 +99,16 @@ const glossaryData = [
   },
 
   // GIANT'S CAUSEWAY
+    {
+    term: "Fionn mac Cumhaill",
+    pronunciation: "FIN mac COOL",
+    meaning: "A mythical hunter-warrior and leader of the Fianna. He is said to have built the Giant's Causeway.",
+    related_story: "The Giant's Causeway",
+    link: "/GiantsCauseway"
+  },
   {
     term: "Oonagh",
-    pronunciation: "OO-na",
+    pronunciation: "OO-nah",
     meaning: "The clever wife of Fionn mac Cumhaill. In the Giant's Causeway legend, she saved her husband by disguising him as an enormous baby, tricking Benandonner into fleeing Scotland.",
     related_story: "Giant's Causeway",
     link: "/GiantsCauseway"
@@ -142,7 +116,7 @@ const glossaryData = [
   {
     term: "Benandonner",
     pronunciation: "ben-AN-don-er",
-    meaning: "The fearsome Scottish giant who challenged Fionn mac Cumhaill to battle. His name means 'Mountain of Thunder'. He fled back to Scotland after being tricked by Fionn's wife.",
+    meaning: "The fearsome Scottish giant who challenged Fionn mac Cumhaill to battle.",
     related_story: "Giant's Causeway",
     link: "/GiantsCauseway"
   },
@@ -155,145 +129,159 @@ const glossaryData = [
   },
 
   // CÚ CHULAINN
+    {
+    term: "Cú Chulainn",
+    pronunciation: "koo HULL-in",
+    meaning: "An Irish mythological demigod and hero of the Ulster Cycle.",
+    related_story: "The Ulster Cycle",
+    link: "#"
+  },
   {
     term: "Sétanta",
-    pronunciation: "SHAY-dan-ta",
+    pronunciation: "shay-DAN-dah",
     meaning: "The birth name of Cú Chulainn. As a child, he killed the fierce guard dog of the smith Culann and offered to take its place, earning his legendary name.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
-    term: "Conchobar mac Nessa",
-    pronunciation: "KON-a-var mac NESS-a",
-    meaning: "The King of Ulster and maternal uncle of Cú Chulainn. A powerful ruler who oversaw the great warriors of the Red Branch, he played a central role in the Ulster Cycle.",
+    term: "Conor Mac Nessa",
+    pronunciation: "KON-or mac NESS-a",
+    meaning: "The King of Ulster and maternal uncle of Cú Chulainn. A powerful ruler who oversaw the great warriors of the Red Branch.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
-    term: "Scáthach",
-    pronunciation: "SKAW-hakh",
-    meaning: "The Shadow — a legendary female warrior who ran a school for heroes on the Isle of Skye (Dún Scáith). She trained Cú Chulainn in all the arts of war and gifted him the Gáe Bulg.",
+    term: "Scathach",
+    pronunciation: "Scou-ha/skaw-thach",
+    meaning: "The Shadow, a legendary female warrior who ran a school for heroes on the Isle of Skye (Dún Scáith). She trained Cú Chulainn in all the arts of war and gifted him the Gáe Bulg.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Emer",
-    pronunciation: "EE-ver",
+    pronunciation: "Ay-mer",
     meaning: "The wife of Cú Chulainn and daughter of the chieftain Forgall Monach. She was renowned for her beauty, wisdom, and fierce loyalty to her husband.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
-    term: "Gáe Bulg",
-    pronunciation: "GAY BUL-og",
-    meaning: "Spear of Death — the terrible barbed spear gifted to Cú Chulainn by Scáthach. Made from the bones of a sea monster, it created thirty wounds upon entering the body and could never be pulled out.",
+    term: "Gáe Bolga",
+    pronunciation: "GAY Boolga",
+    meaning: "Spear of Death, the terrible barbed spear gifted to Cú Chulainn by Scáthach. Made from the bones of a sea monster.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Ríastrad",
-    pronunciation: "REE-as-trad",
-    meaning: "The warp spasm or battle frenzy — a terrifying transformation that overtook Cú Chulainn in battle, twisting his body into a monstrous shape that knew neither friend nor foe.",
+    pronunciation: "REE-uh-strad",
+    meaning: "The warp spasm or battle frenzy, a terrifying transformation that overtook Cú Chulainn in battle.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Táin Bó Cúailnge",
-    pronunciation: "TAWN boh KOO-lin-ya",
-    meaning: "The Cattle Raid of Cooley — the greatest epic of the Ulster Cycle, in which Cú Chulainn single-handedly defended Ulster against the armies of Queen Medb of Connacht.",
+    pronunciation: "TOYN bo hOO-ling-eh",
+    meaning: "The Cattle Raid of Cooley, the greatest epic of the Ulster Cycle.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Medb",
-    pronunciation: "MAYV",
-    meaning: "The powerful and ruthless Queen of Connacht. She launched the invasion of Ulster to seize the great Brown Bull of Cooley, setting off the epic Táin Bó Cúailnge.",
+    pronunciation: "Maeve",
+    meaning: "The powerful and ruthless Queen of Connacht. She launched the invasion of Ulster to seize the great Brown Bull of Cooley.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Ferdiad",
     pronunciation: "FER-dee-ad",
-    meaning: "Cú Chulainn's closest foster brother and fellow trainee under Scáthach. Tragically manipulated by Medb into fighting his best friend, their three-day duel became one of Irish mythology's most heartbreaking episodes.",
+    meaning: "Cú Chulainn's closest foster brother and fellow trainee under Scáthach.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Emain Macha",
-    pronunciation: "EV-in MAH-kha",
-    meaning: "The great royal fort and seat of the Kings of Ulster, today known as Navan Fort in County Armagh. Cú Chulainn spent much of his youth and warrior life here.",
+    pronunciation: "EV-in MAH-khah",
+    meaning: "The great royal fort and seat of the Kings of Ulster, today known as Navan Fort in County Armagh.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
-    term: "Deichtine",
-    pronunciation: "DEK-ti-neh",
-    meaning: "The mortal mother of Cú Chulainn and sister of King Conchobar mac Nessa. According to legend, the god Lugh was his divine father.",
+    term: "Dechtire",
+    pronunciation: "DECK-tir-a",
+    meaning: "The mortal mother of Cú Chulainn and sister of King Conor Mac Nessa.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Láeg",
-    pronunciation: "LAY",
-    meaning: "The loyal charioteer and trusted companion of Cú Chulainn. He drove the hero's chariot into battle and was one of the few who remained by his side throughout his legendary feats.",
+    pronunciation: "LOY-ug",
+    meaning: "The loyal charioteer and trusted companion of Cú Chulainn. He drove the hero's chariot into battle and remained by his side.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Liath Macha",
-    pronunciation: "LEE-a MAH-kha",
-    meaning: "The Grey of Macha — one of Cú Chulainn's two magical horses, said to be a supernatural being. On the day of his death, the horse shed tears of blood.",
+    pronunciation: "LEE-ah MAH-khah",
+    meaning: "The Grey of Macha, one of Cú Chulainn's two magical horses, said to be a supernatural being.",
     related_story: "Cú Chulainn",
     link: "#"
   },
   {
     term: "Dún Scáith",
-    pronunciation: "DOON SKAW",
-    meaning: "Fortress of Shadows — the impregnable stronghold of the warrior-woman Scáthach on the Isle of Skye, where Cú Chulainn went to receive his martial training.",
+    pronunciation: "DOON SKAH",
+    meaning: "Fortress of Shadows, the impregnable stronghold of the warrior-woman Scáthach on the Isle of Skye.",
     related_story: "Cú Chulainn",
     link: "#"
   },
 
   // TÍR NA NÓG
+    {
+    term: "Tír na nÓg",
+    pronunciation: "TEER na NOG",
+    meaning: "The Land of Eternal Youth in Irish mythology, an otherworldly realm where illness and death do not exist.",
+    related_story: "Oisín in Tír na nÓg",
+    link: "#"
+  },
   {
     term: "Oisín",
-    pronunciation: "UH-sheen",
-    meaning: "Son of Fionn mac Cumhaill and legendary poet-warrior of the Fianna. He fell in love with Niamh and spent 300 years in Tír na nÓg, returning only to find his whole world gone.",
+    pronunciation: "USH-een",
+    meaning: "Son of Fionn mac Cumhaill and legendary poet-warrior of the Fianna. He fell in love with Niamh and spent 300 years in Tír na nÓg.",
     related_story: "Tír na nÓg",
     link: "#"
   },
   {
     term: "Niamh Chinn Óir",
-    pronunciation: "NEEV hin OR",
-    meaning: "Niamh of the Golden Hair — a queen of Tír na nÓg and daughter of Manannán mac Lir. She crossed the sea on her magical white horse to find and bring Oisín to the Land of Eternal Youth.",
+    pronunciation: "NEEV Keen OR",
+    meaning: "Niamh of the Golden Hair, a queen of Tír na nÓg and daughter of Manannán mac Lir. She crossed the sea on her magical white horse.",
     related_story: "Tír na nÓg",
     link: "#"
   },
   {
-    term: "Embarr",
-    pronunciation: "EM-bar",
-    meaning: "The magical white horse of Niamh, able to gallop across the surface of the sea. She lent it to Oisín to return to Ireland, warning him never to let his feet touch the ground.",
+    term: "Enbarr",
+    pronunciation: "ON-var",
+    meaning: "The magical white horse of Niamh, able to gallop across the surface of the sea. She lent it to Oisín to return to Ireland.",
     related_story: "Tír na nÓg",
     link: "#"
   },
   {
     term: "Manannán mac Lir",
-    pronunciation: "MAN-a-nawn mac LEER",
-    meaning: "The great god of the sea and ruler of the Otherworld. Father of Niamh and keeper of Tír na nÓg. He often travelled on a magical horse across the waves and granted safe passage to the dead.",
+    pronunciation: "MA-naw-nan mac LIR",
+    meaning: "The great god of the sea and ruler of the Otherworld. Father of Niamh and keeper of Tír na nÓg.",
     related_story: "Tír na nÓg",
     link: "#"
   },
   {
     term: "Fianna",
     pronunciation: "FEE-a-na",
-    meaning: "The legendary band of Irish warrior-hunters led by Fionn mac Cumhaill, who defended Ireland from supernatural threats and foreign invaders during the third century.",
+    meaning: "The legendary Irish warrior-hunters led by Fionn mac Cumhaill",
     related_story: "Tír na nÓg",
     link: "#"
   },
   {
     term: "Gleann na Smol",
-    pronunciation: "GLAN na SMULL",
-    meaning: "Valley of the Thrushes — the valley through which Oisín passed on his return to Ireland, where he encountered men struggling with a stone and fell from his horse.",
+    pronunciation: "GLAN uh SMULL",
+    meaning: "Valley of the Thrushes — the valley through which Oisín passed on his return to Ireland.",
     related_story: "Tír na nÓg",
     link: "#"
   },
@@ -302,137 +290,46 @@ const glossaryData = [
   {
     term: "Púca",
     pronunciation: "POO-ka",
-    meaning: "A mischievous shapeshifting spirit of Irish folklore, feared as the most troublesome of the fairy folk. It can take the form of a black horse, goat, hare, dog, or goblin, always with jet-black fur.",
+    meaning: "A mischievous shapeshifting spirit of Irish folklore, feared as the most troublesome of the fairy folk.",
     related_story: "The Púca",
     link: "#"
   },
 
-  // THE TUATHA DÉ DANANN
-  {
-    term: "Tuatha Dé Danann",
-    pronunciation: "TOO-a-ha day DAN-un",
-    meaning: "Tribe of the Goddess Danu — the supernatural divine race who ruled Ireland before the arrival of the Gaels. Masters of magic, wisdom, and craftsmanship, they later retreated underground into the fairy mounds.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Dagda",
-    pronunciation: "DAH-da",
-    meaning: "The Good God — the supreme chieftain of the Tuatha Dé Danann. A mighty warrior, druid, and harper, he owned a cauldron that could feed an entire army and a magical club that could kill or restore life.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Lugh",
-    pronunciation: "LOO",
-    meaning: "Lugh of the Long Arm — the solar hero-god of the Tuatha Dé Danann, master of all crafts and skills. He led his people to victory against the Fomorians and is the divine father of Cú Chulainn.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "An Morrígan",
-    pronunciation: "an MOR-ee-gan",
-    meaning: "The Great Queen or Phantom Queen — the fearsome goddess of war, fate, and death. A shapeshifter who often appeared as a crow over battlefields, she could bring victory or doom to warriors.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Nuada Airgetlám",
-    pronunciation: "NOO-a-da AR-get-lawv",
-    meaning: "Nuada of the Silver Arm — the first king of the Tuatha Dé Danann. After losing his arm in battle, a magical silver limb was crafted for him, allowing him to reclaim his throne.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Brigid",
-    pronunciation: "BREED",
-    meaning: "Daughter of the Dagda and beloved goddess of poetry, fire, healing, and craftsmanship. Her festival Imbolc marks the beginning of spring. Her legacy later merged with the Christian Saint Brigid.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Aengus Óg",
-    pronunciation: "ANG-us OHG",
-    meaning: "The Young Son — the god of love, youth, and poetry among the Tuatha Dé Danann. Charming and passionate, he was son of the Dagda and resided at Newgrange on the River Boyne.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Fomorians",
-    pronunciation: "fo-MOR-ee-ans",
-    meaning: "A race of monstrous, primordial beings who represented the destructive forces of nature. Ancient enemies of the Tuatha Dé Danann, they were finally defeated at the Second Battle of Mag Tuired.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Balor",
-    pronunciation: "BAH-lor",
-    meaning: "The last and most terrifying king of the Fomorians, whose single eye could kill anyone it looked upon. He was eventually slain by his own grandson, the hero-god Lugh.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Dian Cécht",
-    pronunciation: "DEE-an KAYKT",
-    meaning: "The master healer of the Tuatha Dé Danann. He crafted Nuada's silver arm and possessed the Well of Health (Slane), which could revive the dead.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Mag Tuired",
-    pronunciation: "MAH TEER-ad",
-    meaning: "Plain of Pillars — the legendary battlefield where the Tuatha Dé Danann fought two great battles: first against the Fir Bolg, then against the Fomorians.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Lia Fáil",
-    pronunciation: "LEE-a FAWL",
-    meaning: "Stone of Destiny — one of the four great treasures of the Tuatha Dé Danann. Said to cry out when the rightful High King of Ireland stood upon it. Still said to reside on the Hill of Tara.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
-  {
-    term: "Tara",
-    pronunciation: "TAR-a",
-    meaning: "The sacred Hill of Tara in County Meath — the ancient seat of the High Kings of Ireland and spiritual heart of the land, home to the Lia Fáil and site of great assemblies.",
-    related_story: "The Tuatha Dé Danann",
-    link: "#"
-  },
+
 
   // SALMON OF KNOWLEDGE
   {
     term: "Finnegas",
-    pronunciation: "FIN-e-gas",
-    meaning: "Also known as Finn Eces — a wise druid-poet who spent seven years fishing the River Boyne for the Salmon of Knowledge. He was the teacher and foster-father of the young Fionn mac Cumhaill.",
+    pronunciation: "FIN-ay-gas",
+    meaning: "Also known as Finn Eces, a wise druid-poet who spent seven years fishing the River Boyne for the Salmon of Knowledge. He was the teacher and foster-father of the young Fionn mac Cumhaill.",
     related_story: "The Salmon of Knowledge",
     link: "#"
   },
   {
     term: "Deimne",
-    pronunciation: "DEV-na",
-    meaning: "The birth name of Fionn mac Cumhaill before he gained his legendary name. He was raised in secret to protect him from the enemies who had killed his father.",
+    pronunciation: "Dim-nah",
+    meaning: "The birth name of Fionn mac Cumhaill before he gained his legendary name.",
     related_story: "The Salmon of Knowledge",
     link: "#"
   },
   {
     term: "Tobar Segais",
     pronunciation: "TUH-bar SHEG-ish",
-    meaning: "The Well of Wisdom — a sacred spring at the source of the River Boyne, surrounded by nine magical hazel trees. The hazelnuts that fell into its waters gave all wisdom to the Salmon of Knowledge.",
+    meaning: "The Well of Wisdom — a sacred spring at the source of the River Boyne, surrounded by nine magical hazel trees.",
     related_story: "The Salmon of Knowledge",
     link: "#"
   },
   {
     term: "An Bhóinn",
-    pronunciation: "an VOHN",
-    meaning: "The River Boyne — one of Ireland's most sacred rivers, flowing through County Meath. Home of the Salmon of Knowledge and named after the goddess Boann. Site of the ancient complex of Brú na Bóinne.",
+    pronunciation: "un VOY-n",
+    meaning: "The River Boyne — one of Ireland's most sacred rivers, flowing through County Meath. Home of the Salmon of Knowledge and named after the goddess Boann.",
     related_story: "The Salmon of Knowledge",
     link: "#"
   },
   {
     term: "Teinm Láida",
-    pronunciation: "CHEN-im LAW-da",
-    meaning: "The gift of illumination through chanting — the form of mystical knowledge that Fionn mac Cumhaill could access for the rest of his life simply by biting his thumb.",
+    pronunciation: "TEN-im LAW-ih-dah",
+    meaning: "The gift of illumination through chanting.",
     related_story: "The Salmon of Knowledge",
     link: "#"
   },
