@@ -1,0 +1,160 @@
+---
+import LegendLayout from "../../layouts/LegendLayout.astro";
+---
+
+<p class="legend-line text-white font-bold text-3xl md:text-5xl leading-tight tracking-tight drop-shadow-lg text-center max-w-[900px] mx-auto">
+
+  <!-- SCENE 1 -->
+  <p class="legend-line">On the wild north coast of Ireland</p>
+  <p class="legend-line">lived Fionn Mac Cumhaill</p>
+  <p class="legend-line">He was strong</p>
+  <p class="legend-line">proud</p>
+  <p class="legend-line">and known across the land</p>
+  <p class="legend-line">for his courage</p>
+  <p class="legend-line">Across the sea in Scotland</p>
+  <p class="legend-line">lived another giant</p>
+  <p class="legend-line">Benandonner</p>
+  <p class="legend-line">He boasted loudly</p>
+  <p class="legend-line">and challenged Fionn</p>
+  <p class="legend-line">again</p>
+  <p class="legend-line">...</p>
+  <p class="legend-line">and again</p>
+
+  <!-- SCENE 3 -->
+  <p class="legend-line">Fionn decided</p>
+  <p class="legend-line">he would meet Benandonner</p>
+  <p class="legend-line">face to face</p>
+  <p class="legend-line">He began tearing</p>
+  <p class="legend-line">great chunks of stone</p>
+  <p class="legend-line">from the earth</p>
+  <p class="legend-line">and throwing them</p>
+  <p class="legend-line">into the sea</p>
+
+  <!-- SCENE 4 -->
+  <p class="legend-line">Piece by piece</p>
+  <p class="legend-line">a mighty causeway</p>
+  <p class="legend-line">stretched from Ireland</p>
+  <p class="legend-line">toward Scotland</p>
+
+  <!-- SCENE 5 -->
+  <p class="legend-line">Fionn marched</p>
+  <p class="legend-line">along the causeway</p>
+  <p class="legend-line">ready for battle</p>
+  <p class="legend-line">But when he saw</p>
+  <p class="legend-line">Benandonner</p>
+  <p class="legend-line">in the distance</p>
+  <p class="legend-line">he realized</p>
+  <p class="legend-line">the giant was far bigger</p>
+  <p class="legend-line">than he expected</p>
+  <p class="legend-line">HOLY MOLLY!</p>
+
+  <!-- SCENE 6 -->
+  <p class="legend-line">Fionn rushed home</p>
+  <p class="legend-line">in fear</p>
+  <p class="legend-line">He told his wife</p>
+  <p class="legend-line">Oonagh</p>
+  <p class="legend-line">what he had seen</p>
+
+  <!-- SCENE 7 -->
+  <p class="legend-line">Oonagh had a plan</p>
+  <p class="legend-line">to protect him</p>
+  <p class="legend-line">She dressed Fionn</p>
+  <p class="legend-line">like a baby</p>
+  <p class="legend-line">and placed him</p>
+  <p class="legend-line">in a giant cradle</p>
+  <p class="legend-line">She covered him</p>
+  <p class="legend-line">with blankets</p>
+  <p class="legend-line">just before</p>
+  <p class="legend-line">Benandonner arrived</p>
+
+  <!-- SCENE 8 -->
+  <p class="legend-line">Benandonner entered</p>
+  <p class="legend-line">the house</p>
+  <p class="legend-line">Oonagh welcomed him</p>
+  <p class="legend-line">"Keep your voice down"</p>
+  <p class="legend-line">"the baby is asleep"</p>
+  <p class="legend-line">He stared</p>
+  <p class="legend-line">in amazement</p>
+  <p class="legend-line">at the enormous baby</p>
+  <p class="legend-line">If this is the child...</p>
+  <p class="legend-line">how big is the father?</p>
+
+  <!-- SCENE 9 -->
+  <p class="legend-line">Benandonner thought</p>
+  <p class="legend-line">If this is the child</p>
+  <p class="legend-line">the father must be terrifying</p>
+  <p class="legend-line">Fear took over</p>
+  <p class="legend-line">He no longer wanted</p>
+  <p class="legend-line">to fight Fionn</p>
+
+  <!-- SCENE 10 -->
+  <p class="legend-line">Benandonner fled</p>
+  <p class="legend-line">back to Scotland</p>
+  <p class="legend-line">tearing the causeway</p>
+  <p class="legend-line">behind him</p>
+  <p class="legend-line">stone by stone</p>
+  <p class="legend-line">That is why</p>
+  <p class="legend-line">only part remains</p>
+  <p class="legend-line">The Giant’s Causeway</p>
+
+</div>
+
+
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const initStory = () => {
+  const section = document.querySelector(".giant-pan-section");
+  const lines = document.querySelectorAll(".legend-line");
+
+  if (!section || !lines.length) return;
+
+  // estado inicial
+  gsap.set(lines, {
+    opacity: 0,
+    y: 40,
+    scale: 0.98,
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1,
+    },
+  });
+
+  lines.forEach((line, index) => {
+    // aparece
+    tl.to(line, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "power2.out",
+    });
+
+    // desaparece (excepto última)
+    if (index !== lines.length - 1) {
+      tl.to(line, {
+        opacity: 0,
+        y: -40,
+        scale: 1.02,
+        duration: 0.6,
+        ease: "power2.in",
+      });
+    }
+  });
+};
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initStory);
+} else {
+  initStory();
+}
+</script>

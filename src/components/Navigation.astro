@@ -1,6 +1,5 @@
 ---
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/myths", label: "Myths" },
   { href: "/glossary", label: "Glossary" },
@@ -12,11 +11,11 @@ const currentPath = Astro.url.pathname;
 
 <header
   id="main-nav"
-  class="fixed left-0 top-4 z-50 w-full px-4 transition-all duration-300 md:top-6 md:px-10"
+  class="fixed left-0 top-4 z-50 w-full px-4 transition-all duration-500 md:top-6 md:px-10"
 >
   <nav
     id="nav-inner"
-    class="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-gold/20 bg-dark/65 px-4 py-2 shadow-[0_18px_60px_-24px_rgba(0,0,0,0.75)] backdrop-blur-2xl transition-all duration-300 md:px-6"
+    class="mx-auto flex max-w-7xl items-center justify-between rounded-full bg-dark/65 px-4 py-2 shadow-[0_18px_60px_-24px_rgba(0,0,0,0.75)] backdrop-blur-2xl transition-all duration-300 md:px-6"
   >
     <a href="/" class="flex items-center no-underline">
       <img
@@ -110,8 +109,31 @@ const currentPath = Astro.url.pathname;
   const inner = document.getElementById("nav-inner");
   const logo = document.getElementById("nav-logo");
 
+  let lastScrollY = window.scrollY;
+  let navVisibleByMouse = false;
+
+  function showNav() {
+    nav.style.transform = "translateY(0)";
+    nav.style.opacity = "1";
+    nav.style.filter = "blur(0px)";
+  }
+
+  function hideNav() {
+    nav.style.transform = "translateY(-120%)";
+    nav.style.opacity = "0";
+    nav.style.filter = "blur(6px)";
+  }
+
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80 && !navVisibleByMouse) {
+      hideNav();
+    } else {
+      showNav();
+    }
+
+    if (currentScrollY > 50) {
       nav.style.top = "6px";
       inner.style.maxWidth = "900px";
       inner.style.padding = "6px 16px";
@@ -121,6 +143,17 @@ const currentPath = Astro.url.pathname;
       inner.style.maxWidth = "";
       inner.style.padding = "";
       logo.style.height = "";
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (e.clientY < 120) {
+      navVisibleByMouse = true;
+      showNav();
+    } else {
+      navVisibleByMouse = false;
     }
   });
 </script>
