@@ -104,6 +104,7 @@ const currentPath = Astro.url.pathname;
   </div>
 </header>
 
+
 <script>
   const nav = document.getElementById("main-nav");
   const inner = document.getElementById("nav-inner");
@@ -112,6 +113,7 @@ const currentPath = Astro.url.pathname;
   let lastScrollY = window.scrollY;
   let navVisibleByMouse = false;
 
+  // ── NAV SHOW / HIDE ─────────────────────
   function showNav() {
     nav.style.transform = "translateY(0)";
     nav.style.opacity = "1";
@@ -124,15 +126,21 @@ const currentPath = Astro.url.pathname;
     nav.style.filter = "blur(6px)";
   }
 
+  // ── SCROLL NAV EFFECT ───────────────────
   window.addEventListener("scroll", () => {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 80 && !navVisibleByMouse) {
+    if (
+      currentScrollY > lastScrollY &&
+      currentScrollY > 80 &&
+      !navVisibleByMouse
+    ) {
       hideNav();
     } else {
       showNav();
     }
 
+    // Shrink nav on scroll
     if (currentScrollY > 50) {
       nav.style.top = "6px";
       inner.style.maxWidth = "900px";
@@ -148,6 +156,7 @@ const currentPath = Astro.url.pathname;
     lastScrollY = currentScrollY;
   });
 
+  // ── SHOW NAV WHEN MOUSE GOES TOP ────────
   document.addEventListener("mousemove", (e) => {
     if (e.clientY < 120) {
       navVisibleByMouse = true;
@@ -157,65 +166,80 @@ const currentPath = Astro.url.pathname;
     }
   });
 
-  document.addEventListener("mousemove", (e) => {
-    if (e.clientY < 120) {
-      navVisibleByMouse = true;
-      showNav();
-    } else {
-      navVisibleByMouse = false;
-    }
-  });
+  // ── SEARCH SYSTEM ───────────────────────
   const searchBtn = document.getElementById("search-btn");
-const searchInput = document.getElementById("search-input");
+  const searchInput = document.getElementById("search-input");
 
-const searchRoutes = {
-  "giant": "/myths",
-  "giants": "/myths",
-  "causeway": "/myths",
-  "fionn": "/glossary#fionn-mac-cumhaill",
-  "finn": "/glossary#fionn-mac-cumhaill",
-  "benandonner": "/glossary#benandonner",
-  "oonagh": "/glossary#oonagh",
-  "myths": "/myths",
-  "glossary": "/glossary",
-  "team": "/team",
-  "about": "/about",
-};
+  const searchRoutes = {
+    "giant": "/myths",
+    "giants": "/myths",
+    "causeway": "/myths",
 
-function openSearch() {
-  searchInput.classList.remove("hidden");
-  searchInput.focus();
-}
+    "fionn": "/glossary#fionn-mac-cumhaill",
+    "finn": "/glossary#fionn-mac-cumhaill",
+    "benandonner": "/glossary#benandonner",
+    "oonagh": "/glossary#oonagh",
 
-function runSearch() {
-  const query = searchInput.value.trim().toLowerCase();
+    "banshee": "/myths",
+    "lir": "/myths",
+    "selkie": "/myths",
+    "puca": "/myths",
+    "morrigan": "/myths",
 
-  if (!query) {
-    openSearch();
-    return;
+    "myths": "/myths",
+    "glossary": "/glossary",
+    "team": "/team",
+    "about": "/about",
+  };
+
+  function openSearch() {
+    searchInput.classList.remove("hidden");
+    searchInput.focus();
   }
 
-  const match = Object.keys(searchRoutes).find((key) =>
-    query.includes(key)
-  );
-
-  if (match) {
-    window.location.href = searchRoutes[match];
-  } else {
-    window.location.href = `/glossary?search=${encodeURIComponent(query)}`;
-  }
-}
-
-searchBtn.addEventListener("click", runSearch);
-
-searchInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    runSearch();
-  }
-
-  if (e.key === "Escape") {
+  function closeSearch() {
     searchInput.classList.add("hidden");
     searchInput.value = "";
   }
-});
+
+  function runSearch() {
+    const query = searchInput.value.trim().toLowerCase();
+
+    // First click only opens search
+    if (!query) {
+      openSearch();
+      return;
+    }
+
+    const match = Object.keys(searchRoutes).find((key) =>
+      query.includes(key)
+    );
+
+    if (match) {
+      window.location.href = searchRoutes[match];
+    } else {
+      window.location.href =
+        `/glossary?search=${encodeURIComponent(query)}`;
+    }
+  }
+
+  searchBtn?.addEventListener("click", runSearch);
+
+  searchInput?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      runSearch();
+    }
+
+    if (e.key === "Escape") {
+      closeSearch();
+    }
+  });
+
+  // ── MOBILE MENU ─────────────────────────
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
 </script>
