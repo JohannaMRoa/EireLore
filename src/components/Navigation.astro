@@ -156,4 +156,57 @@ const currentPath = Astro.url.pathname;
       navVisibleByMouse = false;
     }
   });
+  const searchBtn = document.getElementById("search-btn");
+const searchInput = document.getElementById("search-input");
+
+const searchRoutes = {
+  "giant": "/myths",
+  "giants": "/myths",
+  "causeway": "/myths",
+  "fionn": "/glossary#fionn-mac-cumhaill",
+  "finn": "/glossary#fionn-mac-cumhaill",
+  "benandonner": "/glossary#benandonner",
+  "oonagh": "/glossary#oonagh",
+  "myths": "/myths",
+  "glossary": "/glossary",
+  "team": "/team",
+  "about": "/about",
+};
+
+function openSearch() {
+  searchInput.classList.remove("hidden");
+  searchInput.focus();
+}
+
+function runSearch() {
+  const query = searchInput.value.trim().toLowerCase();
+
+  if (!query) {
+    openSearch();
+    return;
+  }
+
+  const match = Object.keys(searchRoutes).find((key) =>
+    query.includes(key)
+  );
+
+  if (match) {
+    window.location.href = searchRoutes[match];
+  } else {
+    window.location.href = `/glossary?search=${encodeURIComponent(query)}`;
+  }
+}
+
+searchBtn.addEventListener("click", runSearch);
+
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    runSearch();
+  }
+
+  if (e.key === "Escape") {
+    searchInput.classList.add("hidden");
+    searchInput.value = "";
+  }
+});
 </script>
