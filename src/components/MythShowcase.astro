@@ -1,82 +1,463 @@
 ---
+const filters = ["All", "Heroes", "Creatures", "Spirits", "Places", "Gods", "Other"];
+
 const myths = [
   {
     id: 1,
     title: "The Children of Lir",
+    category: "Other",
     origin: "Mythological Cycle",
-    summary: "Four siblings, stripped of their royal lives by a cruel curse. A tragic tale of jealousy, dark magic, and an unimaginable fate.",
-    themes: ["Transformation", "Family", "Tragedy", "Magic"],
-    link: "/ChildrenOfLir", 
+    summary: "Four siblings, transformed into swans by a cruel curse. A tragic tale of jealousy, endurance, and lost childhood.",
+    link: "/ChildrenOfLir",
     image: "/myths/children-of-lir.jpeg",
+    comingSoon: false,
   },
   {
     id: 2,
     title: "The Giant's Causeway",
+    category: "Heroes",
     origin: "Irish Folklore",
-    summary: "An epic rivalry across the sea. A true story of bravery, cunning, and the colossal clash that forged the Causeway.",
-    link: "/GiantsCauseway", 
+    summary: "An epic rivalry across the sea. A story of bravery, fear, and the colossal clash that created the Causeway.",
+    link: "/GiantsCauseway",
     image: "/myths/giants-causeway.png",
+    comingSoon: false,
   },
   {
     id: 3,
     title: "The Banshee",
+    category: "Spirits",
     origin: "Irish Folklore",
-    summary: "The most feared sound in Irish folklore. Uncover the truth behind the sorrowful spirit whose midnight cry foretells an inescapable fate.",
-    themes: ["Omens", "Spirits", "Death", "Family"],
-    link: "/Banshee", 
+    summary: "A sorrowful spirit whose midnight cry is said to foretell death within a family.",
+    link: "/Banshee",
     image: "/myths/banshee.jpeg",
-  }
+    comingSoon: false,
+  },
+  {
+    id: 4,
+    title: "Cú Chulainn",
+    category: "Heroes",
+    origin: "Ulster Cycle",
+    summary: "A fierce young warrior remembered for his strength, loyalty, and tragic heroic fate.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 5,
+    title: "The Selkie",
+    category: "Creatures",
+    origin: "Sea Folklore",
+    summary: "A seal-like being who can shed its skin and walk on land as a human.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 6,
+    title: "Tír na nÓg",
+    category: "Places",
+    origin: "Mythological Place",
+    summary: "The legendary land of youth, beauty, and eternal life beyond the western sea.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 7,
+    title: "The Púca",
+    category: "Creatures",
+    origin: "Irish Folklore",
+    summary: "A mischievous shapeshifter known for tricks, omens, and strange encounters.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 8,
+    title: "The Morrígan",
+    category: "Gods",
+    origin: "Celtic Mythology",
+    summary: "A powerful goddess associated with fate, war, prophecy, and transformation.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 9,
+    title: "The Dullahan",
+    category: "Spirits",
+    origin: "Dark Folklore",
+    summary: "A headless rider whose arrival is believed to bring death and terror.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 10,
+    title: "The Tuatha Dé Danann",
+    category: "Gods",
+    origin: "Mythological Race",
+    summary: "A supernatural people of magic, wisdom, and ancient power in Irish mythology.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
+  {
+    id: 11,
+    title: "The Salmon of Knowledge",
+    category: "Creatures",
+    origin: "Wisdom Tale",
+    summary: "A magical salmon said to contain all the wisdom of the world.",
+    link: "#",
+    image: "/myths/coming-soon.jpeg",
+    comingSoon: true,
+  },
 ];
 ---
 
-<section class="px-6 pt-40 pb-24 md:px-10">
-  <div class="mx-auto max-w-4xl">
+<section class="myths-page px-6 pt-32 pb-24 md:px-10">
+  <div class="mx-auto max-w-7xl">
 
+    <div class="section-header mb-16 text-center">
+      <div class="section-divider-line"></div>
 
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {myths.map((myth) => (
-        <a
-          href={myth.link}
-          class="group flex flex-col overflow-hidden rounded-[1.6rem] border border-transparent bg-dark/35 text-left shadow-[0_10px_30px_-18px_rgba(0,0,0,0.45)] transition duration-300 hover:-translate-y-1 hover:border-gold/30"
-        >
-          <div class="aspect-[4/5] overflow-hidden">
-            <img
-              src={myth.image}
-              alt={myth.title}
-              class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-            />
-          </div>
+      <p class="section-eyebrow">The Collection</p>
 
+      <h1 class="section-title">
+        Choose Your <span class="accent">Legend</span>
+      </h1>
 
-          <div class="flex flex-1 flex-col border-t border-transparent bg-dark/50 p-6 md:p-8">
-            <p class="text-xs uppercase tracking-[0.12em] text-gold/85">
-              {myth.origin}
-            </p>
-            
-            <h3 class="mt-2 text-2xl font-semibold text-sand">
-              {myth.title}
-            </h3>
-            
-            <p class="mt-4 flex-1 text-base leading-relaxed text-sand/80">
-              {myth.summary}
-            </p>
-            
-            <div class="mt-8 flex items-center text-sm font-semibold uppercase tracking-wider text-gold transition-colors group-hover:text-gold/80">
-              Full story
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor" 
-                stroke-width="2"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </div>
-          </div>
-        </a>
+      <p class="mx-auto mt-5 max-w-2xl font-[var(--font-body)] text-base leading-relaxed text-sand/65">
+        Explore Irish myths, legendary creatures, heroic tales, and ancient stories
+        brought together as part of the Éire Lore experience.
+      </p>
+    </div>
+
+    <!-- Filters -->
+    <div class="myth-filters">
+      {filters.map((filter) => (
+        <button class="myth-filter-btn" data-filter={filter}>
+          {filter}
+        </button>
       ))}
     </div>
+
+    <!-- Cards -->
+    <div class="myths-grid">
+      {myths.map((myth) => (
+        <article
+          class={`myth-flip-card ${myth.comingSoon ? "is-coming-soon" : ""}`}
+          data-category={myth.category}
+        >
+          <div class="myth-flip-inner">
+
+            <!-- Front -->
+            <div class="myth-card-face myth-card-front">
+              <img src={myth.image} alt={myth.title} />
+
+              <div class="myth-front-overlay"></div>
+
+              {myth.comingSoon && (
+                <div class="coming-soon-label">
+                  Coming Soon
+                </div>
+              )}
+
+              <div class="myth-front-content">
+                <p>{myth.origin}</p>
+                <h2>{myth.title}</h2>
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="myth-card-face myth-card-back">
+              <p class="myth-origin">{myth.origin}</p>
+
+              <h2>{myth.title}</h2>
+
+              <p class="myth-summary">
+                {myth.summary}
+              </p>
+
+              {myth.comingSoon ? (
+                <span class="myth-link myth-link-disabled">
+                  Coming Soon
+                </span>
+              ) : (
+                <a href={myth.link} class="myth-link">
+                  Full story
+                  <span>→</span>
+                </a>
+              )}
+            </div>
+
+          </div>
+        </article>
+      ))}
+    </div>
+
   </div>
 </section>
+
+<style>
+  .section-divider-line {
+    width: 1px;
+    height: clamp(36px, 5vh, 56px);
+    background: linear-gradient(var(--color-gold), transparent);
+    opacity: 0.4;
+    margin: 0 auto clamp(1.2rem, 3vh, 2rem);
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .section-title {
+    margin-top: 0.7rem;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+    color: var(--color-sand);
+  }
+
+  .accent {
+    font-style: italic;
+    color: var(--color-gold);
+  }
+
+  .myth-filters {
+    margin: 0 auto 3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .myth-filter-btn {
+    border: 1px solid rgba(216, 169, 27, 0.25);
+    border-radius: 999px;
+    background: rgba(0, 44, 35, 0.35);
+    padding: 0.55rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(241, 210, 152, 0.75);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .myth-filter-btn:hover,
+  .myth-filter-btn.is-active {
+    background: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-gold);
+  }
+
+  .myths-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .myth-flip-card {
+    aspect-ratio: 1 / 1.15;
+    perspective: 1200px;
+    cursor: pointer;
+  }
+
+  .myth-flip-inner {
+    position: relative;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .myth-flip-card:hover .myth-flip-inner,
+  .myth-flip-card.is-flipped .myth-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .myth-card-face {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 1.45rem;
+    border: 1px solid rgba(216, 169, 27, 0.16);
+    background: rgba(0, 44, 35, 0.55);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 20px 48px -28px rgba(0, 0, 0, 0.6);
+  }
+
+  .myth-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .myth-flip-card:hover .myth-card-front img {
+    transform: scale(1.04);
+  }
+
+  .myth-front-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 44, 35, 0.95),
+      rgba(0, 44, 35, 0.15),
+      transparent
+    );
+  }
+
+  .myth-front-content {
+    position: absolute;
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 3;
+  }
+
+  .myth-front-content p,
+  .myth-origin {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
+  .myth-front-content h2,
+  .myth-card-back h2 {
+    margin-top: 0.5rem;
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--color-sand);
+  }
+
+  .myth-card-back {
+    transform: rotateY(180deg);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .myth-summary {
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(241, 210, 152, 0.72);
+  }
+
+  .myth-link {
+    margin-top: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: color 0.25s ease, gap 0.25s ease;
+  }
+
+  .myth-link:hover {
+    color: var(--color-sand);
+    gap: 0.75rem;
+  }
+
+  .myth-link-disabled {
+    opacity: 0.55;
+    cursor: default;
+  }
+
+  .is-coming-soon .myth-card-front img {
+    filter: blur(4px) brightness(0.65);
+    transform: scale(1.04);
+  }
+
+  .coming-soon-label {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    background: rgba(0, 44, 35, 0.25);
+  }
+
+  @media (max-width: 1100px) {
+    .myths-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 780px) {
+    .myths-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 520px) {
+    .myths-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const filterButtons = document.querySelectorAll(".myth-filter-btn");
+  const mythCards = document.querySelectorAll(".myth-flip-card");
+
+  filterButtons[0]?.classList.add("is-active");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.filter;
+
+      filterButtons.forEach((btn) => btn.classList.remove("is-active"));
+      button.classList.add("is-active");
+
+      mythCards.forEach((card) => {
+        const category = card.dataset.category;
+
+        card.classList.remove("is-flipped");
+
+        if (selected === "All" || category === selected) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  mythCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("is-flipped");
+    });
+  });
+</script>
