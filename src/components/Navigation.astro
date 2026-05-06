@@ -156,6 +156,15 @@ const currentPath = Astro.url.pathname;
       navVisibleByMouse = false;
     }
   });
+
+  document.addEventListener("mousemove", (e) => {
+    if (e.clientY < 120) {
+      navVisibleByMouse = true;
+      showNav();
+    } else {
+      navVisibleByMouse = false;
+    }
+  });
   const searchBtn = document.getElementById("search-btn");
 const searchInput = document.getElementById("search-input");
 
