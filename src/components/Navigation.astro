@@ -46,17 +46,30 @@ const currentPath = Astro.url.pathname;
       })}
     </ul>
 
-    <div class="flex items-center gap-3">
-      <div class="relative flex items-center">
-        <input
-          id="search-input"
-          type="text"
-          placeholder="Search myths..."
-          class="absolute right-14 top-1/2 hidden h-11 w-52 -translate-y-1/2 rounded-full border border-gold/25 bg-dark/95 px-5 text-sm text-sand placeholder:text-sand/45 outline-none backdrop-blur-xl transition"
+    <a
+      href="/shop"
+      aria-label="Shop"
+      class={`flex h-11 w-11 items-center justify-center rounded-full border border-gold/30 transition-all duration-300 ${
+        currentPath === "/shop"
+          ? "bg-gold text-dark shadow-[0_0_25px_rgba(220,180,90,0.35)]"
+          : "bg-gold/90 text-dark hover:scale-105 hover:bg-sand"
+      }`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.7"
+        class="h-5 w-5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12A1.5 1.5 0 0 1 19.376 22H4.624a1.5 1.5 0 0 1-1.493-1.493l1.263-12A1.5 1.5 0 0 1 5.887 7.125h12.226a1.5 1.5 0 0 1 1.493 1.382Z"
         />
-
-  
-      </div>
+      </svg>
+    </a>
 
       <button
         id="menu-btn"
