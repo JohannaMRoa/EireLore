@@ -55,15 +55,7 @@ const currentPath = Astro.url.pathname;
           class="absolute right-14 top-1/2 hidden h-11 w-52 -translate-y-1/2 rounded-full border border-gold/25 bg-dark/95 px-5 text-sm text-sand placeholder:text-sand/45 outline-none backdrop-blur-xl transition"
         />
 
-        <button
-          id="search-btn"
-          type="button"
-          class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 bg-sand/5 text-sand transition"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="h-5 w-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.6-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/>
-          </svg>
-        </button>
+  
       </div>
 
       <button
@@ -166,74 +158,8 @@ const currentPath = Astro.url.pathname;
     }
   });
 
-  // ── SEARCH SYSTEM ───────────────────────
-  const searchBtn = document.getElementById("search-btn");
-  const searchInput = document.getElementById("search-input");
-
-  const searchRoutes = {
-    "giant": "/myths",
-    "giants": "/myths",
-    "causeway": "/myths",
-
-    "fionn": "/glossary#fionn-mac-cumhaill",
-    "finn": "/glossary#fionn-mac-cumhaill",
-    "benandonner": "/glossary#benandonner",
-    "oonagh": "/glossary#oonagh",
-
-    "banshee": "/myths",
-    "lir": "/myths",
-    "selkie": "/myths",
-    "puca": "/myths",
-    "morrigan": "/myths",
-
-    "myths": "/myths",
-    "glossary": "/glossary",
-    "team": "/team",
-    "about": "/about",
-  };
-
-  function openSearch() {
-    searchInput.classList.remove("hidden");
-    searchInput.focus();
-  }
-
-  function closeSearch() {
-    searchInput.classList.add("hidden");
-    searchInput.value = "";
-  }
-
-  function runSearch() {
-    const query = searchInput.value.trim().toLowerCase();
-
-    // First click only opens search
-    if (!query) {
-      openSearch();
-      return;
-    }
-
-    const match = Object.keys(searchRoutes).find((key) =>
-      query.includes(key)
-    );
-
-    if (match) {
-      window.location.href = searchRoutes[match];
-    } else {
-      window.location.href =
-        `/glossary?search=${encodeURIComponent(query)}`;
-    }
-  }
-
-  searchBtn?.addEventListener("click", runSearch);
-
-  searchInput?.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      runSearch();
-    }
-
-    if (e.key === "Escape") {
-      closeSearch();
-    }
-  });
+  
+ 
 
   // ── MOBILE MENU ─────────────────────────
   const menuBtn = document.getElementById("menu-btn");
