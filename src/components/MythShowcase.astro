@@ -171,76 +171,73 @@ const myths = [
     <div class="myths-grid">
       {myths.map((myth) => (
         <article
-          class={`myth-flip-card ${myth.comingSoon ? "is-coming-soon" : ""}`}
-          data-category={myth.category}
-        >
-          <div class="myth-flip-inner">
+  class={`myth-flip-card 
+  ${myth.comingSoon ? "is-coming-soon" : ""}
+  ${!myth.unlocked ? "is-locked" : ""}`}
+  data-category={myth.category}
+>
+  <div class="myth-flip-inner">
 
-            <!-- Front -->
-            <div class="myth-card-face myth-card-front">
-              <img src={myth.image} alt={myth.title} />
+    <!-- Front -->
+    <div class="myth-card-face myth-card-front">
+      <img src={myth.image} alt={myth.title} />
 
-              <div class="myth-front-overlay"></div>
+      <div class="myth-front-overlay"></div>
 
-              {myth.comingSoon && (
-                <div class="coming-soon-label">
-                  Coming Soon
-                </div>
-              )}
+      {myth.comingSoon && (
+        <div class="coming-soon-label">
+          Coming Soon
+        </div>
+      )}
 
-              {!myth.comingSoon && (
-                <div class="myth-front-content">
-                  <p>{myth.origin}</p>
-                  <h2>{myth.title}</h2>
-                </div>
-              )}
-            </div>
+      {myth.comingSoon && myth.unlocked && (
+        <div class="myth-lock-icon myth-lock-icon-open">
+          <svg  class="lock-svg" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M208,80H96V56a32,32,0,0,1,32-32c15.37,0,29.2,11,32.16,25.59a8,8,0,0,0,15.68-3.18C171.32,24.15,151.2,8,128,8A48.05,48.05,0,0,0,80,56V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm0,128H48V96H208V208Zm-80-96a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Z"/>
+          </svg>
+        </div>
+      )}
 
+      {!myth.unlocked && (
+        <div class="myth-lock-icon myth-lock-icon-closed">
+          <svg  class="lock-svg" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 256 256" fill="currentColor">
+            <path d="M128,112a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Zm80-72H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z"/>
+          </svg>
+        </div>
+      )}
 
+      {!myth.comingSoon && (
+        <div class="myth-front-content">
+          <p>{myth.origin}</p>
+          <h2>{myth.title}</h2>
+        </div>
+      )}
+    </div>
 
-            <div class="myth-lock-icon">
-  {myth.unlocked ? (
+    <!-- Back -->
+    <div class="myth-card-face myth-card-back">
+      <p class="myth-origin">{myth.origin}</p>
 
-    <!-- OPEN LOCK -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256" fill="currentColor">
-      <path d="M208,80H96V56a32,32,0,0,1,32-32c15.37,0,29.2,11,32.16,25.59a8,8,0,0,0,15.68-3.18C171.32,24.15,151.2,8,128,8A48.05,48.05,0,0,0,80,56V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm0,128H48V96H208V208Zm-80-96a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Z"/>
-    </svg>
+      <h2>{myth.title}</h2>
 
-  ) : (
+      <p class="myth-summary">
+        {myth.summary}
+      </p>
 
-    <!-- CLOSED LOCK -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256" fill="currentColor">
-      <path d="M128,112a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Zm80-72H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z"/>
-    </svg>
+      {myth.comingSoon ? (
+        <span class="myth-link myth-link-disabled">
+          Coming Soon
+        </span>
+      ) : (
+        <a href={myth.link} class="myth-link">
+          Full story
+          <span>→</span>
+        </a>
+      )}
+    </div>
 
-  )}
-</div>
-
-
-            <!-- Back -->
-            <div class="myth-card-face myth-card-back">
-              <p class="myth-origin">{myth.origin}</p>
-
-              <h2>{myth.title}</h2>
-
-              <p class="myth-summary">
-                {myth.summary}
-              </p>
-
-              {myth.comingSoon ? (
-                <span class="myth-link myth-link-disabled">
-                  Coming Soon
-                </span>
-              ) : (
-                <a href={myth.link} class="myth-link">
-                  Full story
-                  <span>→</span>
-                </a>
-              )}
-            </div>
-
-          </div>
-        </article>
+  </div>
+</article>
       ))}
     </div>
 
@@ -326,11 +323,11 @@ const myths = [
     will-change: transform;
   }
 
-  .myth-flip-card:hover .myth-flip-inner,
+  .myth-flip-card:not(.is-locked):hover .myth-flip-inner,
   .myth-flip-card.is-flipped .myth-flip-inner {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-  }
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
 
   .myth-card-face {
     position: absolute;
@@ -494,28 +491,36 @@ const myths = [
 
   .myth-lock-icon {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 6;
-
-  width: 2.5rem;
-  height: 2.5rem;
-
+  inset: 0;
+  z-index: 8;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 999px;
-  background: rgba(0, 44, 35, 0.7);
-  backdrop-filter: blur(8px);
-
   color: var(--color-gold);
+  pointer-events: none;
+  transform: translateY(-2.4rem) translateZ(5px);
+  -webkit-transform: translateY(-2.4rem) translateZ(5px);
+}
 
-  border: 1px solid rgba(216, 169, 27, 0.2);
+.myth-lock-icon-open {
+  opacity: 0.85;
+}
+
+.myth-lock-icon-closed {
+  opacity: 0.95;
 }
 
 .is-locked {
-  cursor: default;
+  cursor: not-allowed;
+}
+
+.lock-svg {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.is-locked .myth-card-front img {
+  filter: blur(5px) brightness(0.45);
 }
 </style>
 
@@ -546,11 +551,13 @@ const myths = [
     });
   });
 
-  mythCards.forEach((card) => {
+mythCards.forEach((card) => {
   card.addEventListener("click", (e) => {
 
-
     if (e.target.closest("a")) return;
+
+    // NO GIRAR SI ESTA BLOQUEADA
+    if (card.classList.contains("is-locked")) return;
 
     card.classList.toggle("is-flipped");
   });
