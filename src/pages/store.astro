@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const collections = [
+const categories = [
   "All",
   "T-Shirts",
   "Tote Bags",
@@ -10,31 +10,67 @@ const collections = [
   "Posters",
 ];
 
+const storyCollections = [
+  "All",
+  "Children of Lir",
+  "Giant's Causeway",
+  "Banshee",
+  "Éire Lore",
+];
+
 const products = [
   {
     title: "Children of Lir Art Tee",
     category: "T-Shirts",
+    collection: "Children of Lir",
     price: "€24.99",
     image: "/shop/lir-tee.png",
     tag: "New",
   },
   {
+    title: "Children of Lir Tote Bag",
+    category: "Tote Bags",
+    collection: "Children of Lir",
+    price: "€18.99",
+    image: "/shop/lir-tote.png",
+    tag: "Story",
+  },
+  {
     title: "Giant’s Causeway Figure",
     category: "Figures",
+    collection: "Giant's Causeway",
     price: "€34.99",
     image: "/shop/giant-figure.png",
     tag: "Featured",
   },
   {
+    title: "Giant’s Causeway Keychain",
+    category: "Keychains",
+    collection: "Giant's Causeway",
+    price: "€8.99",
+    image: "/shop/giant-keychain.png",
+    tag: "Mini",
+  },
+  {
     title: "Banshee Night Poster",
     category: "Posters",
+    collection: "Banshee",
     price: "€14.99",
     image: "/shop/banshee-poster.png",
     tag: "New",
   },
   {
+    title: "Banshee Art Tee",
+    category: "T-Shirts",
+    collection: "Banshee",
+    price: "€24.99",
+    image: "/shop/banshee-tee.png",
+    tag: "Dark Lore",
+  },
+  {
     title: "Éire Lore Tote Bag",
     category: "Tote Bags",
+    collection: "Éire Lore",
     price: "€18.99",
     image: "/shop/tote-bag.png",
     tag: "Best Pick",
@@ -42,6 +78,7 @@ const products = [
   {
     title: "Fionn Keychain",
     category: "Keychains",
+    collection: "Éire Lore",
     price: "€8.99",
     image: "/shop/keychain.png",
     tag: "Mini",
@@ -134,38 +171,60 @@ const products = [
         <h2>Fan favourites</h2>
       </div>
 
-      <div class="shop-filters">
-        {collections.map((item) => (
-          <button class="shop-filter-btn" data-filter={item}>
-            {item}
-          </button>
-        ))}
-      </div>
+      <div class="shop-filter-group">
+  <p class="filter-label">Product type</p>
+
+  <div class="shop-filters">
+    {categories.map((item) => (
+      <button class="shop-filter-btn is-category" data-category-filter={item}>
+        {item}
+      </button>
+    ))}
+  </div>
+</div>
+
+<div class="shop-filter-group">
+  <p class="filter-label">Story collection</p>
+
+  <div class="shop-filters">
+    {storyCollections.map((item) => (
+      <button class="shop-filter-btn is-collection" data-collection-filter={item}>
+        {item}
+      </button>
+    ))}
+  </div>
+</div>
 
       <div class="product-grid">
         {products.map((product) => (
-          <article class="product-card" data-category={product.category}>
+          <article
+  class="product-card"
+  data-category={product.category}
+  data-collection={product.collection}
+>
             <div class="product-image">
               <span class="product-tag">{product.tag}</span>
               <img src={product.image} alt={product.title} />
             </div>
 
             <div class="product-info">
-              <p>{product.category}</p>
-              <h3>{product.title}</h3>
-              <span>{product.price}</span>
+  <p>{product.category}</p>
+  <span class="product-collection">{product.collection}</span>
 
-              <button
-                type="button"
-                class="add-to-cart-btn"
-                data-title={product.title}
-                data-category={product.category}
-                data-price={product.price}
-                data-image={product.image}
-              >
-                Add to cart
-              </button>
-            </div>
+  <h3>{product.title}</h3>
+  <span>{product.price}</span>
+
+  <button
+    type="button"
+    class="add-to-cart-btn"
+    data-title={product.title}
+    data-category={product.category}
+    data-price={product.price}
+    data-image={product.image}
+  >
+    Add to cart
+  </button>
+</div>
           </article>
         ))}
       </div>
@@ -202,23 +261,13 @@ const products = [
 
 </Layout>
 
+
+
+
 <style>
   .shop-page {
     min-height: 100vh;
     padding-top: 7rem;
-  }
-
-  .shop-hero {
-    min-height: 78vh;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    align-items: center;
-    gap: 3rem;
-    padding: clamp(3rem, 8vw, 6rem);
-    background:
-      radial-gradient(circle at 80% 20%, rgba(216, 169, 27, 0.18), transparent 35%),
-      linear-gradient(135deg, rgba(0, 68, 53, 0.95), rgba(16, 107, 102, 0.8));
-    overflow: hidden;
   }
 
   .shop-eyebrow {
@@ -227,19 +276,6 @@ const products = [
     font-weight: 800;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--color-gold);
-  }
-
-  .shop-hero h1 {
-    margin-top: 1rem;
-    font-family: var(--font-title);
-    font-size: clamp(3rem, 7vw, 6rem);
-    line-height: 0.95;
-    color: var(--color-sand);
-  }
-
-  .shop-hero h1 span {
-    font-style: italic;
     color: var(--color-gold);
   }
 
@@ -273,14 +309,63 @@ const products = [
     transform: translateY(-2px);
   }
 
-  .shop-hero-art {
+  /* HERO CAROUSEL */
+  .shop-hero-carousel {
+    position: relative;
+    min-height: 78vh;
+    margin: 0 clamp(1rem, 3vw, 2rem);
+    overflow: hidden;
+    border-radius: 1.6rem;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(216, 169, 27, 0.18), transparent 35%),
+      linear-gradient(135deg, rgba(0, 68, 53, 0.95), rgba(16, 107, 102, 0.8));
+  }
+
+  .shop-slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 3rem;
+    padding: clamp(3rem, 8vw, 6rem);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.02);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .shop-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+
+  .shop-slide-content {
+    z-index: 2;
+  }
+
+  .shop-slide h1 {
+    margin-top: 1rem;
+    font-family: var(--font-title);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    color: var(--color-sand);
+  }
+
+  .shop-slide h1 span {
+    font-style: italic;
+    color: var(--color-gold);
+  }
+
+  .shop-slide-art {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
   }
 
-  .shop-hero-art img {
+  .shop-slide-art img {
     width: min(28vw, 260px);
     aspect-ratio: 3 / 4;
     object-fit: cover;
@@ -289,18 +374,70 @@ const products = [
     box-shadow: 0 30px 70px -35px rgba(0, 0, 0, 0.7);
   }
 
-  .shop-hero-art img:nth-child(1) {
+  .shop-slide-art img:nth-child(1) {
     transform: rotate(-5deg) translateY(20px);
   }
 
-  .shop-hero-art img:nth-child(2) {
+  .shop-slide-art img:nth-child(2) {
     transform: scale(1.08);
   }
 
-  .shop-hero-art img:nth-child(3) {
+  .shop-slide-art img:nth-child(3) {
     transform: rotate(5deg) translateY(20px);
   }
 
+  .shop-carousel-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 1.6rem;
+    z-index: 5;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .shop-carousel-controls button {
+    border: 0;
+    background: transparent;
+    color: var(--color-sand);
+    cursor: pointer;
+  }
+
+  #shop-prev,
+  #shop-next {
+    font-size: 2.5rem;
+    line-height: 1;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+
+  #shop-prev:hover,
+  #shop-next:hover {
+    color: var(--color-gold);
+    transform: scale(1.1);
+  }
+
+  .shop-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .shop-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(241, 210, 152, 0.45);
+    transition: all 0.25s ease;
+  }
+
+  .shop-dot.is-active {
+    width: 13px;
+    height: 13px;
+    background: var(--color-gold);
+  }
+
+  /* SHOP SECTION */
   .shop-section {
     padding: 5rem clamp(1.5rem, 6vw, 3rem) 6rem;
     max-width: 1280px;
@@ -327,12 +464,27 @@ const products = [
     color: var(--color-sand);
   }
 
+  .shop-filter-group {
+    margin-bottom: 1.4rem;
+  }
+
+  .filter-label {
+    margin-bottom: 0.8rem;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+
   .shop-filters {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .shop-filter-btn {
@@ -411,6 +563,14 @@ const products = [
     color: var(--color-gold);
   }
 
+  .product-collection {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: rgba(241, 210, 152, 0.58);
+  }
+
   .product-info h3 {
     margin-top: 0.5rem;
     min-height: 3rem;
@@ -420,7 +580,7 @@ const products = [
     color: var(--color-sand);
   }
 
-  .product-info span {
+  .product-info span:not(.product-collection) {
     display: block;
     margin-top: 1rem;
     font-family: var(--font-body);
@@ -449,8 +609,232 @@ const products = [
     color: var(--color-dark);
   }
 
+  /* CART BUTTON */
+  .store-cart-button {
+    position: fixed;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    z-index: 70;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(216, 169, 27, 0.35);
+    border-radius: 999px;
+    background: var(--color-gold);
+    color: var(--color-dark);
+    box-shadow: 0 18px 45px -18px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .store-cart-button:hover {
+    background: var(--color-sand);
+    transform: translateY(-3px) scale(1.04);
+  }
+
+  .store-cart-button svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  /* CART DRAWER */
+  .cart-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .cart-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cart-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 90;
+    width: min(100vw, 430px);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-sand);
+    color: var(--color-dark);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+  }
+
+  .cart-drawer.is-open {
+    transform: translateX(0);
+  }
+
+  .cart-header {
+    min-height: 82px;
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-dark);
+    color: var(--color-gold);
+  }
+
+  .cart-header h2 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  .cart-header button {
+    border: 0;
+    background: transparent;
+    color: var(--color-gold);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.6rem;
+  }
+
+  .cart-empty {
+    margin-top: 30vh;
+    text-align: center;
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-dark);
+  }
+
+  .cart-item {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 1rem;
+    position: relative;
+    padding-bottom: 1.4rem;
+    margin-bottom: 1.4rem;
+    border-bottom: 1px solid rgba(0, 56, 48, 0.15);
+  }
+
+  .cart-item img {
+    width: 92px;
+    height: 92px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .cart-item-info p {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(0, 56, 48, 0.65);
+  }
+
+  .cart-item-info h3 {
+    margin-top: 0.3rem;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--color-dark);
+  }
+
+  .cart-item-info span {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  .cart-qty {
+    margin-top: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .cart-qty button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(0, 56, 48, 0.25);
+    background: transparent;
+    color: var(--color-dark);
+    cursor: pointer;
+  }
+
+  .cart-remove {
+    grid-column: 2;
+    width: max-content;
+    border: 0;
+    background: transparent;
+    color: rgba(0, 56, 48, 0.6);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .cart-footer {
+    padding: 1.6rem;
+    background: var(--color-dark);
+    color: var(--color-sand);
+  }
+
+  .cart-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: var(--color-gold);
+    text-transform: uppercase;
+  }
+
+  .cart-note {
+    margin-top: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: rgba(241, 210, 152, 0.65);
+  }
+
+  .checkout-btn {
+    margin-top: 1.2rem;
+    width: 100%;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-gold);
+    color: var(--color-dark);
+    padding: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
   @media (max-width: 1050px) {
-    .shop-hero {
+    .product-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .shop-slide {
       grid-template-columns: 1fr;
       text-align: center;
     }
@@ -460,8 +844,8 @@ const products = [
       margin-right: auto;
     }
 
-    .product-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .shop-slide-art img {
+      width: 28vw;
     }
   }
 
@@ -470,390 +854,98 @@ const products = [
       grid-template-columns: 1fr;
     }
 
-    .shop-hero-art {
+    .shop-hero-carousel {
+      min-height: 92vh;
+    }
+
+    .shop-slide-art {
       flex-direction: column;
     }
 
-    .shop-hero-art img {
-      width: 70vw;
+    .shop-slide-art img {
+      width: 64vw;
       transform: none !important;
     }
   }
-
-  .shop-hero-carousel {
-  position: relative;
-  min-height: 78vh;
-  margin: 0 clamp(1rem, 3vw, 2rem);
-  overflow: hidden;
-  border-radius: 1.6rem;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(216, 169, 27, 0.18), transparent 35%),
-    linear-gradient(135deg, rgba(0, 68, 53, 0.95), rgba(16, 107, 102, 0.8));
-}
-
-.shop-slide {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: 3rem;
-  padding: clamp(3rem, 8vw, 6rem);
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.02);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.shop-slide.is-active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1);
-}
-
-.shop-slide-content {
-  z-index: 2;
-}
-
-.shop-slide h1 {
-  margin-top: 1rem;
-  font-family: var(--font-title);
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 0.95;
-  color: var(--color-sand);
-}
-
-.shop-slide h1 span {
-  font-style: italic;
-  color: var(--color-gold);
-}
-
-.shop-slide-art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.shop-slide-art img {
-  width: min(28vw, 260px);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 1.6rem;
-  border: 1px solid rgba(216, 169, 27, 0.18);
-  box-shadow: 0 30px 70px -35px rgba(0, 0, 0, 0.7);
-}
-
-.shop-slide-art img:nth-child(1) {
-  transform: rotate(-5deg) translateY(20px);
-}
-
-.shop-slide-art img:nth-child(2) {
-  transform: scale(1.08);
-}
-
-.shop-slide-art img:nth-child(3) {
-  transform: rotate(5deg) translateY(20px);
-}
-
-.shop-carousel-controls {
-  position: absolute;
-  left: 50%;
-  bottom: 1.6rem;
-  z-index: 5;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-
-.shop-carousel-controls button {
-  border: 0;
-  background: transparent;
-  color: var(--color-sand);
-  cursor: pointer;
-}
-
-#shop-prev,
-#shop-next {
-  font-size: 2.5rem;
-  line-height: 1;
-  transition: color 0.25s ease, transform 0.25s ease;
-}
-
-#shop-prev:hover,
-#shop-next:hover {
-  color: var(--color-gold);
-  transform: scale(1.1);
-}
-
-.shop-dots {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.shop-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: rgba(241, 210, 152, 0.45);
-  transition: all 0.25s ease;
-}
-
-.shop-dot.is-active {
-  width: 13px;
-  height: 13px;
-  background: var(--color-gold);
-}
-
-@media (max-width: 900px) {
-  .shop-slide {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .shop-lead {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .shop-slide-art img {
-    width: 28vw;
-  }
-}
-
-.cart-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  background: rgba(0, 0, 0, 0.55);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.cart-overlay.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.cart-drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 90;
-
-  width: min(100vw, 430px);
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  background: var(--color-sand);
-  color: var(--color-dark);
-
-  transform: translateX(100%);
-  transition: transform 0.35s ease;
-}
-
-.cart-drawer.is-open {
-  transform: translateX(0);
-}
-
-.cart-header {
-  min-height: 82px;
-  padding: 1.4rem 1.6rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: var(--color-dark);
-  color: var(--color-gold);
-}
-
-.cart-header h2 {
-  font-family: var(--font-title);
-  font-size: 1.8rem;
-  text-transform: uppercase;
-}
-
-.cart-header button {
-  border: 0;
-  background: transparent;
-  color: var(--color-gold);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.cart-items {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1.6rem;
-}
-
-.cart-empty {
-  margin-top: 30vh;
-  text-align: center;
-  font-family: var(--font-title);
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--color-dark);
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 1rem;
-  position: relative;
-  padding-bottom: 1.4rem;
-  margin-bottom: 1.4rem;
-  border-bottom: 1px solid rgba(0, 56, 48, 0.15);
-}
-
-.cart-item img {
-  width: 92px;
-  height: 92px;
-  object-fit: cover;
-  border-radius: 1rem;
-}
-
-.cart-item-info p {
-  font-family: var(--font-body);
-  font-size: 0.62rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(0, 56, 48, 0.65);
-}
-
-.cart-item-info h3 {
-  margin-top: 0.3rem;
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  color: var(--color-dark);
-}
-
-.cart-item-info span {
-  display: block;
-  margin-top: 0.4rem;
-  font-family: var(--font-body);
-  font-weight: 700;
-  color: var(--color-dark);
-}
-
-.cart-qty {
-  margin-top: 0.7rem;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.cart-qty button {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(0, 56, 48, 0.25);
-  background: transparent;
-  color: var(--color-dark);
-  cursor: pointer;
-}
-
-.cart-remove {
-  grid-column: 2;
-  width: max-content;
-  border: 0;
-  background: transparent;
-  color: rgba(0, 56, 48, 0.6);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.cart-footer {
-  padding: 1.6rem;
-  background: var(--color-dark);
-  color: var(--color-sand);
-}
-
-.cart-total-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--font-title);
-  font-size: 1.6rem;
-  color: var(--color-gold);
-  text-transform: uppercase;
-}
-
-.cart-note {
-  margin-top: 0.6rem;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  color: rgba(241, 210, 152, 0.65);
-}
-
-.checkout-btn {
-  margin-top: 1.2rem;
-  width: 100%;
-  border: 0;
-  border-radius: 999px;
-  background: var(--color-gold);
-  color: var(--color-dark);
-  padding: 1rem;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.store-cart-button {
-  position: fixed;
-  right: 1.4rem;
-  bottom: 1.4rem;
-  z-index: 70;
-
-  width: 3.5rem;
-  height: 3.5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid rgba(216, 169, 27, 0.35);
-  border-radius: 999px;
-
-  background: var(--color-gold);
-  color: var(--color-dark);
-
-  box-shadow: 0 18px 45px -18px rgba(0, 0, 0, 0.75);
-  cursor: pointer;
-
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.store-cart-button:hover {
-  background: var(--color-sand);
-  transform: translateY(-3px) scale(1.04);
-}
-
-.store-cart-button svg {
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
 </style>
 
-
 <script>
+  // HERO CAROUSEL
+  const slides = document.querySelectorAll(".shop-slide");
+  const dots = document.querySelectorAll(".shop-dot");
+  const prevBtn = document.getElementById("shop-prev");
+  const nextBtn = document.getElementById("shop-next");
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach((slide) => slide.classList.remove("is-active"));
+    dots.forEach((dot) => dot.classList.remove("is-active"));
+
+    slides[currentSlide]?.classList.add("is-active");
+    dots[currentSlide]?.classList.add("is-active");
+  }
+
+  prevBtn?.addEventListener("click", () => showSlide(currentSlide - 1));
+  nextBtn?.addEventListener("click", () => showSlide(currentSlide + 1));
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      showSlide(Number(dot.dataset.slide));
+    });
+  });
+
+  // FILTERS
+  const categoryButtons = document.querySelectorAll("[data-category-filter]");
+  const collectionButtons = document.querySelectorAll("[data-collection-filter]");
+  const productCards = document.querySelectorAll(".product-card");
+
+  let activeCategory = "All";
+  let activeCollection = "All";
+
+  categoryButtons[0]?.classList.add("is-active");
+  collectionButtons[0]?.classList.add("is-active");
+
+  function applyFilters() {
+    productCards.forEach((card) => {
+      const cardCategory = card.dataset.category;
+      const cardCollection = card.dataset.collection;
+
+      const categoryMatch =
+        activeCategory === "All" || cardCategory === activeCategory;
+
+      const collectionMatch =
+        activeCollection === "All" || cardCollection === activeCollection;
+
+      card.style.display = categoryMatch && collectionMatch ? "block" : "none";
+    });
+  }
+
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeCategory = button.dataset.categoryFilter;
+
+      categoryButtons.forEach((btn) => btn.classList.remove("is-active"));
+      button.classList.add("is-active");
+
+      applyFilters();
+    });
+  });
+
+  collectionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeCollection = button.dataset.collectionFilter;
+
+      collectionButtons.forEach((btn) => btn.classList.remove("is-active"));
+      button.classList.add("is-active");
+
+      applyFilters();
+    });
+  });
+
+  // CART
   const cartOpen = document.getElementById("cart-open");
   const addButtons = document.querySelectorAll(".add-to-cart-btn");
   const cartDrawer = document.getElementById("cart-drawer");
@@ -960,18 +1052,14 @@ const products = [
     const index = Number(button.dataset.index);
     const action = button.dataset.action;
 
-    if (action === "increase") {
-      cart[index].quantity += 1;
-    }
+    if (action === "increase") cart[index].quantity += 1;
 
     if (action === "decrease") {
       cart[index].quantity -= 1;
       if (cart[index].quantity <= 0) cart.splice(index, 1);
     }
 
-    if (action === "remove") {
-      cart.splice(index, 1);
-    }
+    if (action === "remove") cart.splice(index, 1);
 
     saveCart();
     renderCart();
