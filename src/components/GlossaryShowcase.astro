@@ -63,7 +63,7 @@ const glossaryData = [
   {
     term: "Lough Dairbhreach",
     pronunciation: "lokh DAR-vrakh",
-    meaning: "Lake of the Oaks — the first of three locations where the Children of Lir spent 300 years of their enchantment, located near Mullingar.",
+    meaning: "Lake of the Oaks, the first of three locations where the Children of Lir spent 300 years of their enchantment, located near Mullingar.",
     related_story: "Children of Lir",
     link: "/ChildrenOfLir"
   },
@@ -72,7 +72,7 @@ const glossaryData = [
   {
     term: "Bean Sí",
     pronunciation: "ban SHEE",
-    meaning: "Woman of the Fairy Mound — the Irish name for the Banshee, a female spirit whose mournful wail heralds the death.",
+    meaning: "Woman of the Fairy Mound, the Irish name for the Banshee, a female spirit whose mournful wail heralds the death.",
     related_story: "The Banshee",
     link: "/Banshee"
   },
@@ -86,14 +86,14 @@ const glossaryData = [
   {
     term: "Clíodhna",
     pronunciation: "KLEE-o-na",
-    meaning: "A principal goddess and queen of the Tuatha Dé Danann, sometimes described as Queen of the Banshees and a guardian spirit connected to certain Irish families.",
+    meaning: "A principal goddess and queen of the Tuatha Dé Danann, sometimes described as Queen of the Banshees.",
     related_story: "The Banshee",
     link: "/Banshee"
   },
   {
     term: "Sídhe",
     pronunciation: "SHEE",
-    meaning: "The fairy mounds or fairy folk of Irish mythology. Ancient burial mounds across the Irish countryside were believed to be entrances to the Otherworld, home of the Tuatha Dé Danann.",
+    meaning: "The fairy mounds or fairy folk of Irish mythology. ",
     related_story: "The Banshee",
     link: "/Banshee"
   },
@@ -109,7 +109,7 @@ const glossaryData = [
   {
     term: "Oonagh",
     pronunciation: "OO-nah",
-    meaning: "The clever wife of Fionn mac Cumhaill. In the Giant's Causeway legend, she saved her husband by disguising him as an enormous baby, tricking Benandonner into fleeing Scotland.",
+    meaning: "The clever wife of Fionn mac Cumhaill.",
     related_story: "Giant's Causeway",
     link: "/GiantsCauseway"
   },
@@ -354,13 +354,16 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 <section class="px-6 pt-40 pb-24 md:px-10">
   <div class="mx-auto max-w-7xl">
     
-    <div class="mb-12 border-b border-gold/20 pb-8 text-center md:text-left">
-      <h2 class="text-4xl font-semibold text-sand md:text-5xl">Irish Glossary</h2>
-      <p class="mt-4 max-w-2xl text-lg text-sand/70">
-        A guide to the magic and myths of ancient Ireland
-      </p>
-    </div>
-
+<div class="section-header mb-16 text-center">
+  <div class="section-divider-line"></div>
+  <p class="section-eyebrow">Reference</p>
+  <h1 class="section-title">
+    Irish <span class="accent">Glossary</span>
+  </h1>
+  <p class="mx-auto mt-5 max-w-2xl font-[var(--font-body)] text-base leading-relaxed text-sand/65">
+    A guide to the magic and myths of ancient Ireland
+  </p>
+</div>
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-[280px_1fr]">
 
       <aside>
@@ -448,5 +451,29 @@ const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     </div>
   </div>
 </section>
+
+<style>
+
+  .section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  .section-title {
+    margin-top: 0.7rem;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    line-height: 1.1;
+    color: var(--color-sand);
+  }
+  .accent {
+    font-style: italic;
+    color: var(--color-gold);
+  }
+</style>
 
 <script src="../scripts/glossary-showcase.js"></script>
