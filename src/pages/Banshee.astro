@@ -1,63 +1,73 @@
 ---
-// src/pages/GiantsCauseway.astro
+// src/pages/Banshee.astro
 import Layout from "../layouts/Layout.astro";
 
 const scenes = [
   {
-    body: "On the wild north coast of Ireland lived the mighty giant Fionn mac Cumhaill. He was strong, proud, and known across the land for his courage.",
-    imageSrc: "/assets/scenes-GC/scene-01.png",
-    imageAlt: "The wild Irish coast",
+    body: "Long ago, on a cold and lonely night in Ireland, the wind moved softly across the hills and the mist crept over the fields. In the darkness, the land felt ancient, watchful, and full of unseen presences.",
+    imageSrc: "/assets/scenes-TB/scene-01-1.png",
+    imageAlt: "Misty Irish hills at dusk",
+    bg: "#1a1040",
   },
   {
-    body: "Across the sea in Scotland lived another giant, Benandonner. He boasted loudly and challenged Fionn again and again.",
-    imageSrc: "/assets/scenes-GC/scene-02.png",
-    imageAlt: "Finn McCool standing on the Antrim cliffs",
+    body: "In a quiet stone house, a family kept watch beside a loved one who had grown weak and frail. No one spoke above a whisper, as though the night itself were listening.",
+    imageSrc: "/assets/scenes-TB/scene-02.png",
+    imageAlt: "The Banshee in her many forms",
+    bg: "#1e0a3c",
   },
   {
-    body: "Fionn decided he would meet Benandonner face to face. He began tearing great chunks of stone from the earth and throwing them into the sea.",
-    imageSrc: "/assets/scenes-GC/scene-03.png",
-    imageAlt: "Stormy sea between Ireland and Scotland",
+    body: "Then, without warning, the wind fell silent. The fire seemed to dim, the shadows stood still, and a heavy hush settled over the house. It was the kind of silence that made every heartbeat sound louder.",
+    imageSrc: "/assets/scenes-TB/scene-03.png",
+    imageAlt: "Ancient Irish family crest in moonlight",
+    bg: "#251248",
   },
   {
-    body: "Piece by piece, a mighty causeway stretched from Ireland toward Scotland. It looked like a road made for giants alone.",
-    imageSrc: "/assets/scenes-GC/scene-04.png",
-    imageAlt: "Finn hurling basalt columns into the sea",
+    body: "One of the family members looked toward the window and saw a pale woman standing in the mist outside. Her figure was slender and ghostlike, and her long hair shimmered faintly in the moonlight.",
+    imageSrc: "/assets/scenes-TB/scene-04.png",
+    imageAlt: "The Banshee wailing under a full moon",
+    bg: "#2a0e3e",
   },
   {
-    body: "Fionn marched along the causeway, ready for battle. But when he saw Benandonner in the distance, he realized the Scottish giant was far bigger than he expected.",
-    imageSrc: "/assets/scenes-GC/scene-05.png",
-    imageAlt: "Finn frozen in dread at Benandonner's shadow",
+    body: "She did not move like an ordinary woman. She seemed ancient, sorrowful, and otherworldly, as if she had stepped directly from the Sídhe, the ancient fairy mounds of Ireland. This was no wandering stranger. This was The Banshee.",
+    imageSrc: "/assets/scenes-TB/scene-05.png",
+    imageAlt: "The Banshee washing at the river",
+    bg: "#1c1535",
   },
   {
-    body: "Fionn rushed home in fear and told his clever wife, Oonagh, what he had seen.",
-    imageSrc: "/assets/scenes-GC/scene-06.png",
-    imageAlt: "Oonagh with a clever smile disguising Finn",
+    body: "Suddenly, she lifted her head and let out a terrible cry — a piercing Caoineadh. It was not a cry of rage, but of grief... a long, aching wail that carried through the night like sorrow given a voice. The sound chilled the soul of everyone who heard it.",
+    imageSrc: "/assets/scenes-TB/scene-06.png",
+    imageAlt: "The Banshee weeping by candlelight",
+    bg: "#2d1642",
   },
   {
-    body: "Oonagh quickly made a plan to protect him. She dressed Fionn like a baby and placed him in a giant cradle. She covered him with blankets just before Benandonner arrived.",
-    imageSrc: "/assets/scenes-GC/scene-07.png",
-    imageAlt: "Benandonner staring in horror at Finn in the cradle",
+    body: "Inside the house, the family froze in terror. Deep in their hearts, they knew what that mournful cry meant. The Banshee had come, not to harm them, but to warn them that death was near.",
+    imageSrc: "/assets/scenes-TB/scene-07.png",
+    imageAlt: "A man confronting the Banshee",
+    bg: "#1a0e30",
   },
   {
-    body: "When Benandonner entered the house, Oonagh welcomed him and pointed to the cradle: 'Welcome, but please keep your voice down' she whispered. 'The baby is finally asleep'. He stared in amazement at the enormous baby sleeping there — if this is the size of his child, how gigantic must Finn be?",
-    imageSrc: "/assets/scenes-GC/scene-08.png",
-    imageAlt: "Benandonner staring in the cottage",
+    body: "As the wail faded into the distance, the room grew still once more. Then the family turned back to the bedside and saw that their loved one had passed away. The warning had been true.",
+    imageSrc: "/assets/scenes-banshee/scene-08.png",
+    imageAlt: "A silver comb gleaming in the moonlight",
+    bg: "#221540",
   },
   {
-    body: "Benandonner thought: if this is the child, then the father must be terrifying. Suddenly afraid, he lost all desire to fight Fionn.",
-    imageSrc: "/assets/scenes-GC/scene-09.png",
-    imageAlt: "Benandonner realising his mistake",
+    body: "And so the people said that the Banshee was not a monster, but a mourner. She was the sorrow heard before loss, the voice of grief arriving ahead of human tears.",
+    imageSrc: "/assets/scenes-TB/scene-09.png",
+    imageAlt: "Elders telling stories around a fire",
+    bg: "#2e1038",
   },
   {
-    body: "Benandonner fled back to Scotland, tearing up the causeway behind him as he ran. That is why only the end of the giant's road remains today, known as the Giant's Causeway.",
-    imageSrc: "/assets/scenes-GC/scene-10.png",
-    imageAlt: "The Giant's Causeway today",
+    body: "Even now, in Irish folklore, the cry of the Banshee is remembered as one of the most haunting signs of all. Some old tales say that spirits like her serve Clíodhna, the ancient fairy queen. On dark nights, when the wind falls silent and the mist gathers low, some still wonder whether her sorrowful voice is waiting in the hills.",
+    imageSrc: "/assets/scenes-TB/scene-10.png",
+    imageAlt: "The Irish countryside under a stormy sky",
+    bg: "#383667",
   },
 ];
 ---
 
-<Layout title="The Giant's Causeway — Éire Lore">
-  <main class="giants-page">
+<Layout title="The Banshee — Éire Lore">
+  <main class="banshee-page" id="banshee-page">
 
     <!-- PARALLAX BACKGROUND -->
     <div class="parallax-container" aria-hidden="true">
@@ -77,21 +87,50 @@ const scenes = [
       <span>Back to all legends</span>
     </a>
 
+    <!-- SCENE PROGRESS SIDEBAR -->
+    <nav class="scene-nav" id="scene-nav" aria-label="Story progress">
+      <div class="scene-nav-track">
+        <div class="scene-nav-fill" id="scene-nav-fill"></div>
+        {scenes.map((_, i) => (
+          <button
+            class="scene-nav-dot"
+            data-target={i}
+            aria-label={`Go to scene ${i + 1}`}
+          />
+        ))}
+      </div>
+      <span class="scene-counter">
+        <span class="scene-counter-current" id="scene-counter-current">01</span>
+        <span class="scene-counter-sep">/</span>
+        <span class="scene-counter-total">{String(scenes.length).padStart(2, "0")}</span>
+      </span>
+    </nav>
+
+    <!-- AUDIO -->
     <audio id="story-audio" preload="metadata" style="display:none">
-      <source src="/assets/audio/giants-causeway.mp3" type="audio/mpeg" />
+      <source src="/assets/audio/banshee.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="ambient-audio" preload="metadata" loop style="display:none">
+      <source src="/assets/audio/ambient-wind.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- TITLE -->
+    <!-- ══════════════════════════
+         TITLE SECTION
+    ═══════════════════════════ -->
     <section class="title-section">
       <div class="title-inner">
 
-        <p class="title-eyebrow">Irish Legend</p>
+        <p class="title-eyebrow">
+          <span class="eyebrow-char" aria-hidden="true">✦</span>
+          Irish Legend
+          <span class="eyebrow-char" aria-hidden="true">✦</span>
+        </p>
 
         <h1 class="title-heading">
-          The <br/>
-          <em>Banshee</em>
+          <span class="title-line" data-line="0">The</span>
+          <em class="title-line title-line--em" data-line="1">Banshee</em>
         </h1>
-
+<br>
         <div class="title-ctas">
           <button class="cta-primary" id="btn-read">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -115,6 +154,17 @@ const scenes = [
             </svg>
             <span class="btn-play-label">Play the story</span>
           </button>
+
+          <!-- Ambient sound toggle -->
+          <button class="cta-ambient" id="btn-ambient" title="Toggle ambient sound">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+          </button>
         </div>
 
         <div class="story-progress" id="story-progress" aria-hidden="true">
@@ -131,17 +181,20 @@ const scenes = [
       </div>
     </section>
 
-    <!-- STORY -->
+    <!-- ══════════════════════════
+         STORY
+    ═══════════════════════════ -->
     <section id="story" class="story-section">
       <div class="scenes-wrapper">
         {scenes.map((scene, i) => {
-          const flip = i % 2 !== 0;
+          const flip   = i % 2 !== 0;
           const padded = String(i + 1).padStart(2, "0");
 
           return (
             <article
               class:list={["scene", { "scene--flip": flip }]}
               data-scene={i}
+              data-bg={scene.bg}
               id={`scene-${i}`}
             >
               <div class="scene-image" data-anim="image">
@@ -167,22 +220,53 @@ const scenes = [
       <div id="story-outro" class="story-outro"></div>
     </section>
 
+    <!-- ══════════════════════════
+         OUTRO / CTA
+    ═══════════════════════════ -->
+    <section class="outro-section">
+      <div class="outro-inner" id="outro-inner">
+        <div class="outro-ornament" aria-hidden="true">
+          <svg viewBox="0 0 120 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="12" x2="44" y2="12" stroke="#D8A91B" stroke-opacity="0.4" stroke-width="1"/>
+            <circle cx="60" cy="12" r="8" stroke="#D8A91B" stroke-opacity="0.5" stroke-width="1"/>
+            <circle cx="60" cy="12" r="3" fill="#D8A91B" fill-opacity="0.6"/>
+            <line x1="76" y1="12" x2="120" y2="12" stroke="#D8A91B" stroke-opacity="0.4" stroke-width="1"/>
+          </svg>
+        </div>
+        <p class="outro-eyebrow">The legend ends here</p>
+        <h2 class="outro-heading">More stories<br/><em>await</em></h2>
+        <p class="outro-body">
+          Ireland holds countless tales of gods, heroes, and creatures from the mist.
+          Explore every legend in the Éire Lore collection.
+        </p>
+        <a href="/myths" class="outro-cta">
+          <span>Explore all legends</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
   </main>
 </Layout>
 
 <style>
+  /* ── Tokens ─────────────────────────────────────── */
   :root {
-    --dark: #004435;
-    --teal: #106B66;
-    --gold: #D8A91B;
-    --sand: #F1D298;
+    --dark:       #1a1040;
+    --teal:       #4a3580;
+    --gold:       #D8A91B;
+    --sand:       #F1D298;
     --font-title: "Playfair Display", serif;
-    --font-body: "Montserrat", sans-serif;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-
-    --page-bg: #383667;
-    --footer-bg: #383667;
-    --bg-overlay: rgba(0, 0, 0, 0.16);
+    --font-body:  "Montserrat", sans-serif;
+    --ease:       cubic-bezier(0.22, 1, 0.36, 1);
+    --page-bg:    #383667;
+    --footer-bg:  #383667;
+    --bg-overlay: rgba(0, 0, 0, 0.22);
     --parallax-opacity: 1;
   }
 
@@ -196,13 +280,50 @@ const scenes = [
     background: var(--footer-bg) !important;
   }
 
-  .giants-page {
+  /* ── Custom Cursor ───────────────────────────────── */
+  .cursor {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .cursor-dot {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-ring {
+    position: absolute;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(216,169,27,0.55);
+    transform: translate(-50%, -50%);
+    transition: width 0.25s var(--ease), height 0.25s var(--ease),
+                border-color 0.25s ease;
+  }
+
+  .cursor--hover .cursor-ring {
+    width: 50px; height: 50px;
+    border-color: rgba(216,169,27,0.85);
+  }
+
+  @media (pointer: coarse) {
+    .cursor { display: none; }
+  }
+
+  /* ── Page wrapper ────────────────────────────────── */
+  .banshee-page {
     position: relative;
     overflow: hidden;
     background: var(--page-bg);
+    transition: background-color 1.4s ease;
   }
 
-  .giants-page::after {
+  .banshee-page::after {
     content: "";
     position: fixed;
     inset: 0;
@@ -211,13 +332,12 @@ const scenes = [
     pointer-events: none;
   }
 
+  /* ── Parallax ────────────────────────────────────── */
   .parallax-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     z-index: 0;
-    width: 100%;
-    height: 180vh;
+    width: 100%; height: 180vh;
     overflow: hidden;
     opacity: var(--parallax-opacity);
     pointer-events: none;
@@ -225,10 +345,8 @@ const scenes = [
 
   .layer {
     position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100vw;
-    max-width: none;
+    top: 0; left: 50%;
+    width: 100vw; max-width: none;
     transform: translateX(-50%);
     pointer-events: none;
     user-select: none;
@@ -244,6 +362,141 @@ const scenes = [
     z-index: 2;
   }
 
+  /* ── Floating back btn ───────────────────────────── */
+  .floating-back-btn {
+    position: fixed;
+    left: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(216,169,27,0.36);
+    border-radius: 100px;
+    padding: 0.78rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(241,210,152,0.88);
+    text-decoration: none;
+    background: rgba(26, 16, 64, 0.62);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+
+  @media (hover: hover) {
+    .floating-back-btn:hover {
+      color: var(--sand);
+      border-color: rgba(216,169,27,0.65);
+      background: rgba(26, 16, 64, 0.82);
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .floating-back-btn {
+      padding: 0.72rem 0.9rem;
+      font-size: 0.58rem;
+      max-width: calc(100vw - 2rem);
+    }
+  }
+
+  /* ── Scene Nav Sidebar ───────────────────────────── */
+  .scene-nav {
+    position: fixed;
+    right: clamp(0.75rem, 1.8vw, 1.4rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+
+  .scene-nav.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .scene-nav-track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 2px;
+    background: rgba(216,169,27,0.15);
+    border-radius: 2px;
+  }
+
+  .scene-nav-fill {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: height 0.45s var(--ease);
+  }
+
+  .scene-nav-dot {
+    position: relative;
+    width: 22px; height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .scene-nav-dot::after {
+    content: '';
+    display: block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(216,169,27,0.25);
+    transition: background 0.3s, transform 0.3s var(--ease);
+  }
+
+  .scene-nav-dot.active::after {
+    background: var(--gold);
+    transform: scale(1.5);
+  }
+
+  .scene-counter {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: var(--font-body);
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: rgba(216,169,27,0.5);
+  }
+
+  .scene-counter-current {
+    font-size: 0.7rem;
+    color: var(--gold);
+  }
+
+  .scene-counter-sep { opacity: 0.4; }
+
+  @media (max-width: 600px) {
+    .scene-nav { display: none; }
+  }
+
+  /* ── Title Section ───────────────────────────────── */
   .title-section {
     min-height: 100svh;
     display: flex;
@@ -263,13 +516,13 @@ const scenes = [
     background:
       radial-gradient(
         ellipse 70% 48% at 50% 48%,
-        rgba(0, 0, 0, 0.34) 0%,
-        rgba(0, 0, 0, 0.18) 42%,
+        rgba(0,0,0,0.40) 0%,
+        rgba(0,0,0,0.22) 42%,
         transparent 72%
       ),
       radial-gradient(
         ellipse 80% 60% at 50% 110%,
-        rgba(216,169,27,0.12) 0%,
+        rgba(216,169,27,0.10) 0%,
         transparent 70%
       );
     pointer-events: none;
@@ -292,14 +545,20 @@ const scenes = [
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
     opacity: 0;
     transform: translateY(14px);
     animation: fadeUp 0.9s 0.15s var(--ease) forwards;
     text-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.75),
-      0 0 18px rgba(216, 169, 27, 0.45);
+      0 2px 8px rgba(0,0,0,0.75),
+      0 0 18px rgba(216,169,27,0.45);
   }
 
+  .eyebrow-char { font-size: 0.5em; opacity: 0.55; }
+
+  /* Kinetic title */
   .title-heading {
     font-family: var(--font-title);
     font-weight: 700;
@@ -307,24 +566,38 @@ const scenes = [
     line-height: 1.0;
     color: var(--sand);
     letter-spacing: -0.01em;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 1.1s 0.35s var(--ease) forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-shadow:
-      0 6px 0 rgba(0, 44, 35, 0.38),
-      0 16px 35px rgba(0, 0, 0, 0.75),
-      0 0 42px rgba(0, 0, 0, 0.55);
+      0 6px 0 rgba(26,16,64,0.38),
+      0 16px 35px rgba(0,0,0,0.75),
+      0 0 42px rgba(0,0,0,0.55);
   }
 
-  .title-heading em {
+  .title-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(32px) skewX(-4deg);
+  }
+
+  .title-line[data-line="0"] { animation: titleSlide 1.1s 0.3s  var(--ease) forwards; }
+  .title-line[data-line="1"] { animation: titleSlide 1.1s 0.52s var(--ease) forwards; }
+
+  .title-line--em {
     font-style: italic;
     color: var(--gold);
     text-shadow:
-      0 6px 0 rgba(0, 44, 35, 0.35),
-      0 16px 36px rgba(0, 0, 0, 0.78),
-      0 0 32px rgba(216, 169, 27, 0.42);
+      0 6px 0 rgba(26,16,64,0.35),
+      0 16px 36px rgba(0,0,0,0.78),
+      0 0 32px rgba(216,169,27,0.42);
   }
 
+  @keyframes titleSlide {
+    to { opacity: 1; transform: translateY(0) skewX(0deg); }
+  }
+
+  /* CTAs */
   .title-ctas {
     display: flex;
     align-items: center;
@@ -333,16 +606,16 @@ const scenes = [
     justify-content: center;
     opacity: 0;
     transform: translateY(14px);
-    animation: fadeUp 1s 0.6s var(--ease) forwards;
+    animation: fadeUp 1s 0.72s var(--ease) forwards;
   }
 
   .cta-primary,
-  .cta-secondary {
+  .cta-secondary,
+  .cta-ambient {
     display: inline-flex;
     align-items: center;
     gap: 7px;
     border-radius: 100px;
-    padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.1rem, 4vw, 1.5rem);
     font-family: var(--font-body);
     font-size: clamp(0.65rem, 2.5vw, 0.78rem);
     font-weight: 600;
@@ -350,7 +623,7 @@ const scenes = [
     text-transform: uppercase;
     cursor: pointer;
     border: none;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
     min-height: 44px;
     -webkit-tap-highlight-color: transparent;
   }
@@ -358,29 +631,39 @@ const scenes = [
   .cta-primary {
     background: var(--gold);
     color: var(--dark);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.1rem, 4vw, 1.5rem);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   }
 
   .cta-secondary {
-    background: rgba(0, 44, 35, 0.34);
+    background: rgba(26, 16, 64, 0.34);
     color: rgba(241,210,152,0.9);
     border: 1px solid rgba(216,169,27,0.38);
     backdrop-filter: blur(8px);
+    padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.1rem, 4vw, 1.5rem);
+  }
+
+  .cta-ambient {
+    background: rgba(26, 16, 64, 0.34);
+    color: rgba(241,210,152,0.45);
+    border: 1px solid rgba(216,169,27,0.2);
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 0.9rem;
+  }
+
+  .cta-ambient.is-on {
+    color: var(--gold);
+    border-color: rgba(216,169,27,0.5);
   }
 
   @media (hover: hover) {
-    .cta-primary:hover { background: var(--sand); }
-    .cta-primary:hover svg { transform: translateY(3px); }
-
+    .cta-primary:hover  { background: var(--sand); transform: translateY(-1px); }
     .cta-secondary:hover {
       background: rgba(216,169,27,0.08);
       color: var(--sand);
       border-color: rgba(216,169,27,0.6);
     }
-  }
-
-  .cta-primary svg {
-    transition: transform 0.3s var(--ease);
+    .cta-ambient:hover { color: var(--gold); border-color: rgba(216,169,27,0.4); }
   }
 
   .cta-secondary.is-playing {
@@ -389,6 +672,7 @@ const scenes = [
     border-color: rgba(216,169,27,0.5);
   }
 
+  /* Progress bar */
   .story-progress {
     display: flex;
     align-items: center;
@@ -420,8 +704,7 @@ const scenes = [
 
   .progress-fill {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     height: 4px;
     width: 0%;
     background: var(--gold);
@@ -434,10 +717,9 @@ const scenes = [
     position: absolute;
     top: 0;
     transform: translate(-50%, 0);
-    width: 5px;
-    height: 4px;
+    width: 5px; height: 4px;
     border-radius: 50%;
-    background: rgba(216,169,27,0.5);
+    background: rgba(216,169,27,0.45);
     pointer-events: none;
   }
 
@@ -451,9 +733,10 @@ const scenes = [
     min-width: 3ch;
   }
 
+  /* Scroll hint */
   .scroll-hint {
     opacity: 0;
-    animation: fadeUp 1s 1s ease forwards;
+    animation: fadeUp 1s 1.1s ease forwards;
   }
 
   .scroll-tick {
@@ -465,24 +748,17 @@ const scenes = [
   }
 
   @keyframes fadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes tickPulse {
-    0%, 100% {
-      opacity: 0.12;
-      transform: scaleY(0.5);
-    }
-
-    50% {
-      opacity: 0.45;
-      transform: scaleY(1);
-    }
+    0%, 100% { opacity: 0.12; transform: scaleY(0.5); }
+    50%       { opacity: 0.45; transform: scaleY(1); }
   }
 
+  /* ══════════════════════════════════════
+     STORY SECTION
+  ═════════════════════════════════════════ */
   .story-section {
     background: transparent;
     padding-top: clamp(3rem, 6vh, 5rem);
@@ -503,8 +779,6 @@ const scenes = [
     gap: clamp(1.25rem, 4vw, 2rem);
     margin-bottom: clamp(3.5rem, 10vh, 7rem);
     position: relative;
-    transition: opacity 0.35s ease;
-    overflow: hidden;
   }
 
   @media (min-width: 700px) {
@@ -513,7 +787,6 @@ const scenes = [
       grid-template-areas: "image text";
       gap: clamp(2rem, 5vw, 6rem);
       margin-bottom: clamp(5rem, 12vh, 10rem);
-      overflow: visible;
     }
 
     .scene--flip {
@@ -522,8 +795,8 @@ const scenes = [
     }
   }
 
-  .scene.audio-dim { opacity: 0.3; }
-  .scene.audio-active { opacity: 1 !important; }
+  .scene.audio-dim    { opacity: 0.28; transition: opacity 0.5s ease; }
+  .scene.audio-active { opacity: 1 !important; transition: opacity 0.5s ease; }
 
   .scene-image {
     grid-area: image;
@@ -545,21 +818,18 @@ const scenes = [
 
   .scene-text {
     grid-area: text;
-    padding: 0 clamp(0rem, 2vw, 0.5rem);
-  }
-
-  .scene-rule,
-  .scene-body {
-    opacity: 0;
+    padding: 0 clamp(1rem, 2vw, 0.5rem);
+    align-items: flex-end;
   }
 
   .scene-rule {
-    width: 28px;
+    width: 150px;
     height: 2px;
     background: var(--gold);
     border-radius: 2px;
     margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
     transform-origin: left center;
+    opacity: 0;
   }
 
   .scene-body {
@@ -568,58 +838,127 @@ const scenes = [
     line-height: 1.85;
     color: rgba(241,210,152,0.9);
     max-width: 44ch;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 2px 20px rgba(0,0,0,0.55);
+    opacity: 0;
   }
 
   @media (max-width: 699px) {
     .scene-body { max-width: 100%; }
   }
 
-  .story-outro {
-    height: 2rem;
+  .story-outro { height: 2rem; }
+
+  /* ── Outro Section ───────────────────────────────── */
+  .outro-section {
+    position: relative;
+    z-index: 2;
+    background: rgba(10, 6, 30, 0.75);
+    padding: clamp(5rem, 12vh, 9rem) clamp(1.5rem, 6vw, 5rem);
+    text-align: center;
+    border-top: 1px solid rgba(216,169,27,0.1);
   }
 
-  .floating-back-btn {
-    position: fixed;
-    left: clamp(1rem, 3vw, 2rem);
-    bottom: clamp(1rem, 3vw, 2rem);
-    z-index: 50;
+  .outro-inner {
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.9rem, 2vh, 1.4rem);
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 1s var(--ease), transform 1s var(--ease);
+  }
+
+  .outro-inner.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .outro-ornament { width: 110px; opacity: 0.85; }
+
+  .outro-eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.65;
+  }
+
+  .outro-heading {
+    font-family: var(--font-title);
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    font-weight: 700;
+    color: var(--sand);
+    line-height: 1.1;
+    text-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  .outro-heading em { font-style: italic; color: var(--gold); }
+
+  .outro-body {
+    font-family: var(--font-body);
+    font-size: clamp(0.88rem, 2vw, 1rem);
+    line-height: 1.8;
+    color: rgba(241,210,152,0.52);
+    max-width: 40ch;
+  }
+
+  .outro-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(216,169,27,0.36);
-    border-radius: 100px;
-    padding: 0.78rem 1.25rem;
+    gap: 10px;
+    margin-top: 0.4rem;
+    background: var(--gold);
+    color: var(--dark);
+    text-decoration: none;
     font-family: var(--font-body);
-    font-size: 0.68rem;
+    font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(241,210,152,0.88);
-    text-decoration: none;
-    background: rgba(0, 44, 35, 0.62);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+    padding: 0.9rem 1.8rem;
+    border-radius: 100px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    transition: background 0.2s, transform 0.2s;
     min-height: 44px;
-    -webkit-tap-highlight-color: transparent;
-    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
   }
 
   @media (hover: hover) {
-    .floating-back-btn:hover {
-      color: var(--sand);
-      border-color: rgba(216,169,27,0.65);
-      background: rgba(0,44,35,0.82);
+    .outro-cta:hover {
+      background: var(--sand);
       transform: translateY(-2px);
     }
   }
 
-  @media (max-width: 520px) {
-    .floating-back-btn {
-      padding: 0.72rem 0.9rem;
-      font-size: 0.58rem;
-      max-width: calc(100vw - 2rem);
+  /* ── Mobile tweaks ───────────────────────────────── */
+  @media (max-width: 699px) {
+    .title-section {
+      padding-top: clamp(5rem, 14vh, 8rem);
+      padding-bottom: clamp(2rem, 5vh, 4rem);
     }
+
+    .scenes-wrapper {
+      padding: 0 1.1rem clamp(2rem, 5vh, 4rem);
+    }
+
+    .scene {
+      gap: 0.9rem;
+      margin-bottom: clamp(2.8rem, 8vh, 4.5rem);
+    }
+
+    .scene-image { aspect-ratio: 4 / 3; }
+
+    .scene-body {
+      font-size: clamp(0.92rem, 4.2vw, 1.05rem);
+      line-height: 1.75;
+    }
+
+    .scene-text { padding: 0; }
+
+    .story-progress { width: min(85vw, 320px); }
   }
 </style>
 
@@ -630,106 +969,148 @@ const scenes = [
   gsap.registerPlugin(ScrollTrigger);
 
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
-
   const SECONDS_PER_SCENE = 14;
 
-  const audio = document.getElementById("story-audio") as HTMLAudioElement;
-  const btnRead = document.getElementById("btn-read") as HTMLButtonElement;
-  const btnPlay = document.getElementById("btn-play") as HTMLButtonElement;
-  const progressWrap = document.getElementById("story-progress") as HTMLDivElement;
-  const progressTrack = document.getElementById("progress-track") as HTMLDivElement;
-  const progressFill = document.getElementById("progress-fill") as HTMLDivElement;
-  const progressTime = document.getElementById("progress-time") as HTMLSpanElement;
-  const scenes = document.querySelectorAll<HTMLElement>(".scene");
+  /* ── Refs ──────────────────────────────────────── */
+  const page          = document.getElementById("banshee-page")         as HTMLElement;
+  const audio         = document.getElementById("story-audio")          as HTMLAudioElement;
+  const ambientAudio  = document.getElementById("ambient-audio")        as HTMLAudioElement;
+  const btnRead       = document.getElementById("btn-read")             as HTMLButtonElement;
+  const btnPlay       = document.getElementById("btn-play")             as HTMLButtonElement;
+  const btnAmbient    = document.getElementById("btn-ambient")          as HTMLButtonElement;
+  const progressWrap  = document.getElementById("story-progress")       as HTMLDivElement;
+  const progressTrack = document.getElementById("progress-track")       as HTMLDivElement;
+  const progressFill  = document.getElementById("progress-fill")        as HTMLDivElement;
+  const progressTime  = document.getElementById("progress-time")        as HTMLSpanElement;
+  const sceneNav      = document.getElementById("scene-nav")            as HTMLElement;
+  const navFill       = document.getElementById("scene-nav-fill")       as HTMLElement;
+  const counterCurrent= document.getElementById("scene-counter-current")as HTMLElement;
+  const outroInner    = document.getElementById("outro-inner")          as HTMLElement;
 
-  const TOTAL = scenes.length;
-  const DURATION = SECONDS_PER_SCENE * TOTAL;
+  const scenes  = document.querySelectorAll<HTMLElement>(".scene");
+  const navDots = document.querySelectorAll<HTMLButtonElement>(".scene-nav-dot");
+  const TOTAL   = scenes.length;
+  const DURATION= SECONDS_PER_SCENE * TOTAL;
 
-  gsap.to(".layer-1", {
-    y: 200,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".parallax-container",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
+  /* ── Custom Cursor ─────────────────────────────── */
+  if (!isTouch) {
+    const cursorEl   = document.createElement("div");
+    cursorEl.id      = "cursor";
+    cursorEl.className = "cursor";
+    cursorEl.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
+    document.body.appendChild(cursorEl);
 
-  gsap.to(".layer-2", {
-    y: 400,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".parallax-container",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
+    const cursorDot  = cursorEl.querySelector<HTMLElement>(".cursor-dot")!;
+    const cursorRing = cursorEl.querySelector<HTMLElement>(".cursor-ring")!;
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-  gsap.to(".layer-3", {
-    y: 600,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".parallax-container",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
+    document.addEventListener("mousemove", (e) => {
+      mx = e.clientX; my = e.clientY;
+      cursorDot.style.left = `${mx}px`;
+      cursorDot.style.top  = `${my}px`;
+    });
 
+    (function lerp() {
+      rx += (mx - rx) * 0.11;
+      ry += (my - ry) * 0.11;
+      cursorRing.style.left = `${rx}px`;
+      cursorRing.style.top  = `${ry}px`;
+      requestAnimationFrame(lerp);
+    })();
+
+    document.querySelectorAll("a, button, .progress-track").forEach((el) => {
+      el.addEventListener("mouseenter", () => cursorEl.classList.add("cursor--hover"));
+      el.addEventListener("mouseleave", () => cursorEl.classList.remove("cursor--hover"));
+    });
+  }
+
+  /* ── Parallax ──────────────────────────────────── */
+  gsap.to(".layer-1", { y: 200, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".layer-2", { y: 400, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".layer-3", { y: 600, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+
+  /* ── Progress dots on narration bar ────────────── */
   scenes.forEach((_, i) => {
     if (i === 0) return;
-
     const dot = document.createElement("div");
     dot.className = "ap-marker";
     dot.style.left = `${(i / TOTAL) * 100}%`;
     progressTrack.appendChild(dot);
   });
 
-  const fmt = (s: number) =>
-    `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, "0")}`;
-
+  /* ── Background colour transition per scene ─────── */
   scenes.forEach((scene) => {
-    const isFlip = scene.classList.contains("scene--flip");
-    const img = scene.querySelector<HTMLElement>("[data-anim='image']");
-    const rule = scene.querySelector<HTMLElement>("[data-anim='rule']");
-    const body = scene.querySelector<HTMLElement>("[data-anim='body']");
-
-    const st = {
+    const bg = scene.dataset.bg;
+    if (!bg) return;
+    ScrollTrigger.create({
       trigger: scene,
-      start: "top 72%",
-      end: "top 15%",
-      toggleActions: "play reverse play reverse" as const,
+      start: "top 58%",
+      onEnter:     () => gsap.to(page, { backgroundColor: bg, duration: 1.4, ease: "power2.out" }),
+      onEnterBack: () => gsap.to(page, { backgroundColor: bg, duration: 1.4, ease: "power2.out" }),
+    });
+  });
+
+  /* ── Scene nav — appear after title ────────────── */
+  ScrollTrigger.create({
+    trigger: "#story",
+    start: "top 80%",
+    onEnter:     () => sceneNav.classList.add("visible"),
+    onLeaveBack: () => sceneNav.classList.remove("visible"),
+  });
+
+  /* ── Active scene tracking ──────────────────────── */
+  function setActive(i: number) {
+    navDots.forEach((d, idx) => d.classList.toggle("active", idx === i));
+    navFill.style.height = `${TOTAL > 1 ? (i / (TOTAL - 1)) * 100 : 100}%`;
+    counterCurrent.textContent = String(i + 1).padStart(2, "0");
+  }
+
+  scenes.forEach((scene, i) => {
+    ScrollTrigger.create({
+      trigger: scene,
+      start: "top 55%",
+      end:   "bottom 45%",
+      onEnter:     () => setActive(i),
+      onEnterBack: () => setActive(i),
+    });
+  });
+
+  /* Nav dot → scroll to scene */
+  navDots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      document.getElementById(`scene-${i}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  });
+
+  /* ══════════════════════════════════════════════════
+     PER-SCENE ANIMATIONS
+  ═══════════════════════════════════════════════════ */
+  scenes.forEach((scene, i) => {
+    const isFlip  = scene.classList.contains("scene--flip");
+    const img     = scene.querySelector<HTMLElement>("[data-anim='image']");
+    const rule    = scene.querySelector<HTMLElement>("[data-anim='rule']");
+    const body    = scene.querySelector<HTMLElement>("[data-anim='body']");
+
+    const st: ScrollTrigger.Vars = {
+      trigger: scene,
+      start: "top 82%",
+      toggleActions: "play none none none",
     };
 
     if (img) {
-      if (isTouch) {
-        gsap.fromTo(
-          img,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.65,
-            ease: "power2.out",
-            scrollTrigger: st,
-          }
-        );
-      } else {
-        gsap.fromTo(
-          img,
-          { opacity: 0, x: isFlip ? 50 : -50, filter: "blur(8px)" },
-          {
-            opacity: 1,
-            x: 0,
-            filter: "blur(0px)",
-            duration: 0.9,
-            ease: "power3.out",
-            scrollTrigger: st,
-          }
-        );
-      }
+      gsap.fromTo(
+        img,
+        isTouch
+          ? { opacity: 0, scale: 0.93, y: 32 }
+          : { opacity: 0, scale: 0.9, x: isFlip ? 70 : -70 },
+        {
+          opacity: 1, scale: 1, x: 0, y: 0,
+          duration: isTouch ? 0.75 : 1.1,
+          ease: "expo.out",
+          scrollTrigger: st,
+        }
+      );
     }
 
     if (rule) {
@@ -737,12 +1118,11 @@ const scenes = [
         rule,
         { opacity: 0, scaleX: 0, transformOrigin: "left center" },
         {
-          opacity: 0.6,
-          scaleX: 1,
-          duration: 0.5,
-          ease: "power2.inOut",
+          opacity: 0.65, scaleX: 1,
+          duration: 2,
+          ease: "power3.inOut",
           scrollTrigger: st,
-          delay: isTouch ? 0.1 : 0.18,
+          delay: isTouch ? 0.22 : 0.3,
         }
       );
     }
@@ -751,181 +1131,138 @@ const scenes = [
       gsap.fromTo(
         body,
         isTouch
-          ? { opacity: 0, y: 16 }
-          : { opacity: 0, y: 22, filter: "blur(5px)" },
-        isTouch
-          ? {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              scrollTrigger: st,
-              delay: 0.18,
-            }
-          : {
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-              duration: 0.8,
-              ease: "power3.out",
-              scrollTrigger: st,
-              delay: 0.28,
-            }
+          ? { opacity: 0, y: 24 }
+          : { opacity: 0, y: 28, rotateX: 8, transformOrigin: "top center" },
+        {
+          opacity: 1, y: 0, rotateX: 0,
+          duration: isTouch ? 0.65 : 0.95,
+          ease: "expo.out",
+          scrollTrigger: st,
+          delay: isTouch ? 0.3 : 0.42,
+        }
       );
     }
   });
 
+  /* ── Outro reveal ───────────────────────────────── */
+  if (outroInner) {
+    ScrollTrigger.create({
+      trigger: outroInner,
+      start: "top 82%",
+      onEnter: () => outroInner.classList.add("visible"),
+    });
+  }
+
+  /* ── Read button → scroll to story ─────────────── */
   btnRead.addEventListener("click", () => {
     const target = document.getElementById("story");
-
     if (!target) return;
-
-    const navH = 80;
-    const top = target.getBoundingClientRect().top + window.scrollY - navH;
-
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - 80,
+      behavior: "smooth",
+    });
   });
 
-  let currentScene = -1;
+  /* ── Narration audio ────────────────────────────── */
+  const fmt = (s: number) =>
+    `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, "0")}`;
+
+  let isPlaying     = false;
+  let elapsed       = 0;
+  let rafId: number;
+  let lastTick      = 0;
+  let lastNarrScene = -1;
 
   function goToScene(index: number) {
-    if (index === currentScene) return;
-
-    currentScene = index;
-
     const el = document.getElementById(`scene-${index}`);
-
     if (!el) return;
-
     el.scrollIntoView({ behavior: "smooth", block: "center" });
-
     scenes.forEach((s) => s.classList.remove("audio-active"));
     el.classList.add("audio-active");
   }
 
-  let isPlaying = false;
-  let elapsed = 0;
-  let rafId: number;
-  let lastTick = 0;
-
   function tick(now: number) {
     if (!isPlaying) return;
-
     elapsed += (now - lastTick) / 1000;
     lastTick = now;
-
     const pct = Math.min((elapsed / DURATION) * 100, 100);
-
-    progressFill.style.width = `${pct}%`;
-    progressTime.textContent = fmt(elapsed);
-
-    goToScene(Math.min(Math.floor(elapsed / SECONDS_PER_SCENE), TOTAL - 1));
-
-    if (elapsed >= DURATION) {
-      stop(true);
-      return;
-    }
-
+    progressFill.style.width  = `${pct}%`;
+    progressTime.textContent  = fmt(elapsed);
+    const idx = Math.min(Math.floor(elapsed / SECONDS_PER_SCENE), TOTAL - 1);
+    if (idx !== lastNarrScene) { lastNarrScene = idx; goToScene(idx); }
+    if (elapsed >= DURATION) { stop(true); return; }
     rafId = requestAnimationFrame(tick);
   }
 
-  function start() {
+  function startNarration() {
     isPlaying = true;
-    lastTick = performance.now();
-
+    lastTick  = performance.now();
     audio.play().catch(() => {});
-
     progressWrap.classList.add("visible");
     progressWrap.setAttribute("aria-hidden", "false");
-
     btnPlay.classList.add("is-playing");
-
-    (btnPlay.querySelector(".icon-play") as SVGElement).style.display = "none";
+    (btnPlay.querySelector(".icon-play")  as SVGElement).style.display = "none";
     (btnPlay.querySelector(".icon-pause") as SVGElement).style.display = "";
     (btnPlay.querySelector(".btn-play-label") as HTMLElement).textContent = "Pause";
-
     scenes.forEach((s) => s.classList.add("audio-dim"));
-
     const target = document.getElementById("story");
-
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-
-    setTimeout(() => {
-      rafId = requestAnimationFrame(tick);
-    }, 700);
+    if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
+    setTimeout(() => { rafId = requestAnimationFrame(tick); }, 700);
   }
 
   function stop(finished = false) {
     isPlaying = false;
-
     cancelAnimationFrame(rafId);
     audio.pause();
-
     scenes.forEach((s) => {
       s.classList.remove("audio-dim");
       s.classList.remove("audio-active");
     });
-
     btnPlay.classList.remove("is-playing");
-
-    (btnPlay.querySelector(".icon-play") as SVGElement).style.display = "";
+    (btnPlay.querySelector(".icon-play")  as SVGElement).style.display = "";
     (btnPlay.querySelector(".icon-pause") as SVGElement).style.display = "none";
     (btnPlay.querySelector(".btn-play-label") as HTMLElement).textContent = "Play the story";
-
-    if (finished) {
-      progressFill.style.width = "100%";
-    }
-
-    ScrollTrigger.refresh();
+    if (finished) progressFill.style.width = "100%";
   }
 
-  btnPlay.addEventListener("click", () => {
-    isPlaying ? stop() : start();
-  });
+  btnPlay.addEventListener("click", () => { isPlaying ? stop() : startNarration(); });
 
+  /* Seek */
   function seekTo(clientX: number) {
     const rect = progressTrack.getBoundingClientRect();
-    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-
-    elapsed = pct * DURATION;
-
+    const pct  = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    elapsed    = pct * DURATION;
     if (isPlaying) lastTick = performance.now();
     if (audio.duration) audio.currentTime = pct * audio.duration;
-
-    progressFill.style.width = `${pct * 100}%`;
-    progressTime.textContent = fmt(elapsed);
-
-    goToScene(Math.min(Math.floor(elapsed / SECONDS_PER_SCENE), TOTAL - 1));
+    progressFill.style.width  = `${pct * 100}%`;
+    progressTime.textContent  = fmt(elapsed);
+    lastNarrScene = -1;
   }
 
   progressTrack.addEventListener("click", (e) => seekTo(e.clientX));
+  progressTrack.addEventListener("touchstart", (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
+  progressTrack.addEventListener("touchmove",  (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
 
-  progressTrack.addEventListener(
-    "touchstart",
-    (e) => {
-      e.preventDefault();
-      seekTo(e.touches[0].clientX);
-    },
-    { passive: false }
-  );
+  /* ── Ambient audio ──────────────────────────────── */
+  let ambientOn = false;
+  btnAmbient.addEventListener("click", () => {
+    ambientOn = !ambientOn;
+    if (ambientOn) {
+      ambientAudio.volume = 0;
+      ambientAudio.play().catch(() => {});
+      gsap.to(ambientAudio, { volume: 0.18, duration: 2 });
+      btnAmbient.classList.add("is-on");
+    } else {
+      gsap.to(ambientAudio, {
+        volume: 0, duration: 1.5,
+        onComplete: () => ambientAudio.pause(),
+      });
+      btnAmbient.classList.remove("is-on");
+    }
+  });
 
-  progressTrack.addEventListener(
-    "touchmove",
-    (e) => {
-      e.preventDefault();
-      seekTo(e.touches[0].clientX);
-    },
-    { passive: false }
-  );
-
-  window.addEventListener(
-    "orientationchange",
-    () => {
-      setTimeout(() => ScrollTrigger.refresh(), 300);
-    },
-    { passive: true }
-  );
+  /* ── Orientation change ─────────────────────────── */
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => ScrollTrigger.refresh(), 300);
+  }, { passive: true });
 </script>
