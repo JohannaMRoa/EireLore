@@ -141,7 +141,7 @@ const products = [
       <p class="shop-eyebrow">Collectible Figures</p>
       <h1>Bring myths<br /><span>to your shelf</span></h1>
       <p class="shop-lead">
-        Display small fantasy figures inspired by Irish folklore and legendary characters.
+        
       </p>
       <a href="#products" class="shop-btn">View Figures</a>
     </div>
@@ -152,7 +152,7 @@ const products = [
       <p class="shop-eyebrow">Posters & Prints</p>
       <h1>Frame the<br /><span>Otherworld</span></h1>
       <p class="shop-lead">
-        Illustrated prints and posters designed for folklore lovers and digital heritage fans.
+       
       </p>
       <a href="#products" class="shop-btn">Explore Prints</a>
     </div>
@@ -432,17 +432,20 @@ const products = [
   }
 
   .shop-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    background: rgba(241, 210, 152, 0.45);
-    transition: all 0.25s ease;
-  }
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: rgba(241, 210, 152, 0.35);
+  border: 1px solid rgba(216, 169, 27, 0.35);
+  transition: all 0.25s ease;
+}
+
 
   .shop-dot.is-active {
-    width: 13px;
-    height: 13px;
-    background: var(--color-gold);
+    width: 1.7rem;
+  height: 0.65rem;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
   }
 
   /* SHOP SECTION */
