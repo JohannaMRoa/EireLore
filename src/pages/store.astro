@@ -166,7 +166,7 @@ const products = [
       <p class="shop-eyebrow">Collectible Figures</p>
       <h1>Bring myths<br /><span>to your shelf</span></h1>
       <p class="shop-lead">
-        Display small fantasy figures inspired by Irish folklore and legendary characters.
+        
       </p>
       <a href="#products" class="shop-btn">View Figures</a>
     </div>
@@ -177,7 +177,7 @@ const products = [
       <p class="shop-eyebrow">Posters & Prints</p>
       <h1>Frame the<br /><span>Otherworld</span></h1>
       <p class="shop-lead">
-        Illustrated prints and posters designed for folklore lovers and digital heritage fans.
+       
       </p>
       <a href="#products" class="shop-btn">Explore Prints</a>
     </div>
@@ -197,71 +197,84 @@ const products = [
 </section>
 
     <!-- COLLECTION FILTERS -->
-    <section id="products" class="shop-section">
-      <div class="section-header">
-        <div class="section-divider-line"></div>
-        <p class="shop-eyebrow">Éire Lore Shop</p>
-        <h2>Fan favourites</h2>
-      </div>
+    <!-- STORE CONTENT -->
+<section id="products" class="shop-section">
+  <div class="section-header">
+    <div class="section-divider-line"></div>
+    <p class="shop-eyebrow">Éire Lore Shop</p>
+    <h2>Fan favourites</h2>
+  </div>
+
+  <div class="store-layout">
+
+    <!-- LEFT FILTERS -->
+    <aside class="store-sidebar">
+      <h3>Filters</h3>
 
       <div class="shop-filter-group">
-  <p class="filter-label">Product type</p>
+        <p class="filter-label">Product type</p>
 
-  <div class="shop-filters">
-    {categories.map((item) => (
-      <button class="shop-filter-btn is-category" data-category-filter={item}>
-        {item}
-      </button>
-    ))}
-  </div>
-</div>
+        <div class="shop-filters vertical">
+          {categories.map((item) => (
+            <button class="shop-filter-btn is-category" data-category-filter={item}>
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
+    </aside>
 
-<div class="shop-filter-group">
-  <p class="filter-label">Story collection</p>
+    <!-- RIGHT CONTENT -->
+    <div class="store-products-area">
+      <div class="collections-bar">
+        <p class="filter-label">Story collection</p>
 
-  <div class="shop-filters">
-    {storyCollections.map((item) => (
-      <button class="shop-filter-btn is-collection" data-collection-filter={item}>
-        {item}
-      </button>
-    ))}
-  </div>
-</div>
+        <div class="shop-filters collections-row">
+          {storyCollections.map((item) => (
+            <button class="shop-filter-btn is-collection" data-collection-filter={item}>
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div class="product-grid">
         {products.map((product) => (
           <article
-  class="product-card"
-  data-category={product.category}
-  data-collection={product.collection}
->
+            class="product-card"
+            data-category={product.category}
+            data-collection={product.collection}
+          >
             <div class="product-image">
               <span class="product-tag">{product.tag}</span>
               <img src={product.image} alt={product.title} />
             </div>
 
             <div class="product-info">
-  <p>{product.category}</p>
-  <span class="product-collection">{product.collection}</span>
+              <p>{product.category}</p>
+              <span class="product-collection">{product.collection}</span>
 
-  <h3>{product.title}</h3>
-  <span>{product.price}</span>
+              <h3>{product.title}</h3>
+              <span>{product.price}</span>
 
-  <button
-    type="button"
-    class="add-to-cart-btn"
-    data-title={product.title}
-    data-category={product.category}
-    data-price={product.price}
-    data-image={product.image}
-  >
-    Add to cart
-  </button>
-</div>
+              <button
+                type="button"
+                class="add-to-cart-btn"
+                data-title={product.title}
+                data-category={product.category}
+                data-price={product.price}
+                data-image={product.image}
+              >
+                Add to cart
+              </button>
+            </div>
           </article>
         ))}
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
 
   </main>
 
@@ -454,22 +467,28 @@ const products = [
     display: flex;
     align-items: center;
     gap: 0.6rem;
+    
   }
 
   .shop-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 999px;
-    background: rgba(241, 210, 152, 0.45);
-    transition: all 0.25s ease;
-  }
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: rgba(241, 210, 152, 0.35);
+  border: 1px solid rgba(216, 169, 27, 0.35);
+  transition: all 0.25s ease;
+  
+}
+
 
   .shop-dot.is-active {
-    width: 13px;
-    height: 13px;
-    background: var(--color-gold);
+  width: 1.7rem;
+  height: 0.65rem;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
   }
 
+  
   /* SHOP SECTION */
   .shop-section {
     padding: 5rem clamp(1.5rem, 6vw, 3rem) 6rem;
@@ -543,7 +562,7 @@ const products = [
 
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
   }
 
@@ -642,6 +661,8 @@ const products = [
     color: var(--color-dark);
   }
 
+  
+
   /* CART BUTTON */
   .store-cart-button {
     position: fixed;
@@ -662,6 +683,32 @@ const products = [
     transition: transform 0.25s ease, background 0.25s ease;
   }
 
+  .store-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.store-sidebar {
+  position: static;
+  top: 7rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(216, 169, 27, 0.18);
+}
+
+.store-sidebar h3 {
+  margin-bottom: 1.4rem;
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--color-sand);
+}
+
+.store-products-area {
+  min-width: 0;
+}
+
+
   .store-cart-button:hover {
     background: var(--color-sand);
     transform: translateY(-3px) scale(1.04);
@@ -671,6 +718,28 @@ const products = [
     width: 1.4rem;
     height: 1.4rem;
   }
+
+  .collections-bar {
+  margin-bottom: 2.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(216, 169, 27, 0.16);
+}
+
+.shop-filters.vertical {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.shop-filters.collections-row {
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+.filter-label {
+  text-align: left;
+}
 
   /* CART DRAWER */
   .cart-overlay {
@@ -900,6 +969,10 @@ const products = [
       transform: none !important;
     }
   }
+
+  .shop-filter-group {
+  margin-bottom: 2rem;
+}
 </style>
 
 <script>
