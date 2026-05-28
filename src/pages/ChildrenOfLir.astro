@@ -930,7 +930,7 @@ const scenes = [
   gsap.registerPlugin(ScrollTrigger);
 
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
-  const SECONDS_PER_SCENE = 14;
+  const SECONDS_PER_SCENE = 25;
 
   /* ── Refs ──────────────────────────────────────── */
   const page          = document.getElementById("lir-page")             as HTMLElement;
@@ -1104,6 +1104,9 @@ const scenes = [
       );
     }
   });
+
+
+  /*─────────────────────SCRIPT─────────────────────*/
 
   /* ── Outro reveal ───────────────────────────────── */
   if (outroInner) {
