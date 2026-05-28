@@ -111,7 +111,7 @@ const scenes = [
       <source src="/assets/audio/giants-causeway.mp3" type="audio/mpeg" />
     </audio>
     <audio id="ambient-audio" preload="metadata" loop style="display:none">
-      <source src="/assets/audio/ambient-ocean.mp3" type="audio/mpeg" />
+      <source src="/assets/audio/ambient-ocean1.mp3" type="audio/mpeg" />
     </audio>
 
     <!-- ══════════════════════════
@@ -973,7 +973,7 @@ const scenes = [
   gsap.registerPlugin(ScrollTrigger);
 
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
-  const SECONDS_PER_SCENE = 14;
+  const SECONDS_PER_SCENE = 10;
 
   /* ── Refs ──────────────────────────────────────── */
   const page          = document.getElementById("giants-page")          as HTMLElement;
@@ -1152,7 +1152,7 @@ const scenes = [
     }
   });
 
-  /* ── Outro reveal ───────────────────────────────── */
+  /* ── Outro reveal ─────── */
   if (outroInner) {
     ScrollTrigger.create({
       trigger: outroInner,
@@ -1161,7 +1161,7 @@ const scenes = [
     });
   }
 
-  /* ── Read button → scroll to story ─────────────── */
+  /* ── Read button → scroll to story ────── */
   btnRead.addEventListener("click", () => {
     const target = document.getElementById("story");
     if (!target) return;
@@ -1171,7 +1171,7 @@ const scenes = [
     });
   });
 
-  /* ── Narration audio ────────────────────────────── */
+  /* ── Narration audio ─────── */
   const fmt = (s: number) =>
     `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, "0")}`;
 
@@ -1251,7 +1251,7 @@ const scenes = [
   progressTrack.addEventListener("touchstart", (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
   progressTrack.addEventListener("touchmove",  (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
 
-  /* ── Ambient audio ──────────────────────────────── */
+  /* ── Ambient audio ──────────── */
   let ambientOn = false;
   btnAmbient.addEventListener("click", () => {
     ambientOn = !ambientOn;
@@ -1269,7 +1269,7 @@ const scenes = [
     }
   });
 
-  /* ── Orientation change ─────────────────────────── */
+  /* ── Orientation change ───── */
   window.addEventListener("orientationchange", () => {
     setTimeout(() => ScrollTrigger.refresh(), 300);
   }, { passive: true });
