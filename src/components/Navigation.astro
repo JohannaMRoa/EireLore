@@ -8,36 +8,41 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname;
+
+const isActiveLink = (href: string) =>
+  currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
 <header
   id="main-nav"
-  class="fixed left-0 top-4 z-50 w-full px-4 transition-all duration-500 md:top-6 md:px-10"
+  class="fixed left-0 top-0 z-50 w-full bg-dark/45 backdrop-blur-sm transition-all duration-500"
 >
   <nav
     id="nav-inner"
-    class="mx-auto flex max-w-7xl items-center justify-between rounded-full bg-dark/65 px-4 py-2 shadow-[0_18px_60px_-24px_rgba(0,0,0,0.75)] backdrop-blur-2xl transition-all duration-300 md:px-6"
+    class="mx-auto flex max-w-7xl items-center justify-between bg-[radial-gradient(circle_at_center,rgba(30,140,120,0.18),transparent_70%)] px-6 py-4 transition-all duration-300 md:px-10"
+    aria-label="Main navigation"
   >
-    <a href="/" class="flex items-center no-underline">
+    <a href="/" class="flex items-center no-underline" aria-label="Éire Lore Home">
       <img
+        id="nav-logo"
         src="/logo-2.svg"
         alt="Éire Lore"
-        class="h-11 w-auto object-contain transition-all duration-300 md:h-12"
-        id="nav-logo"
+        class="h-12 w-auto object-contain transition-all duration-300 md:h-14"
       />
     </a>
 
-    <ul class="hidden items-center gap-2 list-none md:flex">
+    <ul class="hidden list-none items-center gap-9 md:flex">
       {navLinks.map((link) => {
-        const isActive = currentPath === link.href;
+        const isActive = isActiveLink(link.href);
+
         return (
           <li>
             <a
               href={link.href}
-              class={`relative inline-flex rounded-full px-5 py-2 text-xs font-semibold uppercase tracking-[0.16em] no-underline transition-all duration-300 ${
+              class={`text-xs font-bold uppercase tracking-[0.18em] no-underline transition-all duration-300 ${
                 isActive
-                  ? "bg-gold text-dark shadow-[0_0_25px_rgba(220,180,90,0.35)]"
-                  : "text-sand/75 hover:bg-sand/10 hover:text-gold"
+                  ? "text-gold"
+                  : ":text-sand/65 hover:text-gold hover:drop-shadow-[0_0_12px_rgba(220,180,90,0.28)]"
               }`}
             >
               {link.label}
@@ -47,35 +52,34 @@ const currentPath = Astro.url.pathname;
       })}
     </ul>
 
-  
-
-      <button
-        id="menu-btn"
-        type="button"
-        class="flex h-11 w-11 items-center justify-center rounded-full border border-gold/25 bg-sand/5 text-sand transition md:hidden"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="h-6 w-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-        </svg>
-      </button>
-    </div>
+    <button
+      id="menu-btn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="flex h-11 w-11 items-center justify-center border border-gold/25 bg-sand/5 text-sand transition hover:bg-sand/10 hover:text-gold md:hidden"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
   </nav>
 
   <div
     id="mobile-menu"
-    class="mx-auto mt-3 hidden max-w-md rounded-[2rem] border border-gold/20 bg-dark/90 p-3 backdrop-blur-2xl md:hidden"
+    class="hidden border-t border-gold/10 bg-dark/95 px-6 py-5 backdrop-blur-2xl md:hidden"
   >
-    <ul class="flex flex-col gap-2 list-none">
+    <ul class="flex list-none flex-col gap-4">
       {navLinks.map((link) => {
-        const isActive = currentPath === link.href;
+        const isActive = isActiveLink(link.href);
+
         return (
           <li>
             <a
               href={link.href}
-              class={`block rounded-full px-5 py-3 text-sm font-semibold uppercase tracking-[0.12em] no-underline transition ${
-                isActive
-                  ? "bg-gold text-dark"
-                  : "text-sand hover:bg-sand/10 hover:text-gold"
+              class={`block text-sm font-bold uppercase tracking-[0.16em] no-underline transition ${
+                isActive ? "text-gold drop-shadow-[0_0_10px_rgba(220,180,90,0.35)]" : "text-sand/70 hover:text-gold"
               }`}
             >
               {link.label}
@@ -87,76 +91,65 @@ const currentPath = Astro.url.pathname;
   </div>
 </header>
 
-
 <script>
   const nav = document.getElementById("main-nav");
-  const inner = document.getElementById("nav-inner");
   const logo = document.getElementById("nav-logo");
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
   let lastScrollY = window.scrollY;
-  let navVisibleByMouse = false;
 
-  // ── NAV SHOW / HIDE ─────────────────────
   function showNav() {
+    if (!nav) return;
     nav.style.transform = "translateY(0)";
     nav.style.opacity = "1";
-    nav.style.filter = "blur(0px)";
   }
 
   function hideNav() {
-    nav.style.transform = "translateY(-120%)";
+    if (!nav) return;
+    nav.style.transform = "translateY(-100%)";
     nav.style.opacity = "0";
-    nav.style.filter = "blur(6px)";
   }
 
-  // ── SCROLL NAV EFFECT ───────────────────
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
+  function closeMobileMenu() {
+    mobileMenu?.classList.add("hidden");
+    menuBtn?.setAttribute("aria-expanded", "false");
+  }
 
-    if (
-      currentScrollY > lastScrollY &&
-      currentScrollY > 80 &&
-      !navVisibleByMouse
-    ) {
+  window.addEventListener("scroll", () => {
+    if (!nav || !logo) return;
+
+    const currentScrollY = window.scrollY;
+    const menuIsOpen = !mobileMenu?.classList.contains("hidden");
+
+    if (currentScrollY > lastScrollY && currentScrollY > 90 && !menuIsOpen) {
       hideNav();
     } else {
       showNav();
     }
 
-    // Shrink nav on scroll
     if (currentScrollY > 50) {
-      nav.style.top = "6px";
-      inner.style.maxWidth = "900px";
-      inner.style.padding = "6px 16px";
-      logo.style.height = "36px";
+      nav.classList.add("bg-dark/70");
+      logo.style.height = "40px";
     } else {
-      nav.style.top = "";
-      inner.style.maxWidth = "";
-      inner.style.padding = "";
+      nav.classList.remove("bg-dark/70");
       logo.style.height = "";
     }
 
     lastScrollY = currentScrollY;
   });
 
-  // ── SHOW NAV WHEN MOUSE GOES TOP ────────
-  document.addEventListener("mousemove", (e) => {
-    if (e.clientY < 120) {
-      navVisibleByMouse = true;
-      showNav();
-    } else {
-      navVisibleByMouse = false;
-    }
-  });
-
-  
- 
-
-  // ── MOBILE MENU ─────────────────────────
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-
   menuBtn?.addEventListener("click", () => {
     mobileMenu?.classList.toggle("hidden");
+    const isOpen = !mobileMenu?.classList.contains("hidden");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMobileMenu();
   });
 </script>
