@@ -6,6 +6,7 @@ const categories = [
   "T-Shirts",
   "Tote Bags",
   "Figures",
+  "Accesories",
   "Keychains",
   "Posters",
 ];
@@ -19,13 +20,35 @@ const storyCollections = [
 ];
 
 const products = [
-  {
+    {
+    title: "Giant’s Causeway Figure",
+    category: "Figures",
+    collection: "Legends",
+    price: "€34.99",
+    image: "/shop/giant-figure.png",
+  },
+      {
+    title: "The Children of Lir Figure",
+    category: "Figures",
+    collection: "Legends",
+    price: "€34.99",
+    image: "/shop/swan-figure.png",
+  },
+    {
+    title: "The Banshee Figure",
+    category: "Figures",
+    collection: "Legends",
+    price: "€34.99",
+    image: "/shop/banshee-figure.png",
+  },
+
+
+    {
     title: "Set of Pins",
     category: "Accesories",
     collection: "Éire Lore",
     price: "€10.99",
     image: "/shop/pin-set.png",
-    tag: "Mini",
   },
     {
     title: "Legendary Tote",
@@ -33,31 +56,6 @@ const products = [
     collection: "Éire Lore",
     price: "€12.99",
     image: "/shop/tote-bag.png",
-    tag: "Story",
-  },
-    {
-    title: "Giant’s Causeway Figure",
-    category: "Figures",
-    collection: "Giant's Causeway",
-    price: "€34.99",
-    image: "/shop/giant-figure.png",
-    tag: "Featured",
-  },
-    {
-    title: "The Banshee Figure",
-    category: "Figures",
-    collection: "The Banshee",
-    price: "€34.99",
-    image: "/shop/banshee-figure.png",
-    tag: "Featured",
-  },
-    {
-    title: "The Children of Lir Figure",
-    category: "Figures",
-    collection: "Children of Lir",
-    price: "€34.99",
-    image: "/shop/swan-figure.png",
-    tag: "Featured",
   },
     {
     title: "Set of cards",
@@ -65,55 +63,53 @@ const products = [
     collection: "Éire Lore",
     price: "€8.99",
     image: "/shop/card-set.png",
-    tag: "Featured",
   },
-  {
-    title: "Children of Lir ",
-    category: "T-Shirts",
-    collection: "Children of Lir",
-    price: "€24.99",
-    image: "/shop/lir-tee.png",
-    tag: "New",
-  },
-  {
-    title: "Children of Lir Tote Bag",
-    category: "Tote Bags",
-    collection: "Children of Lir",
-    price: "€18.99",
-    image: "/shop/lir-tote.png",
-    tag: "Story",
-  },
+
+
   {
     title: "Giant’s Causeway Keychain",
     category: "Keychains",
-    collection: "Giant's Causeway",
+    collection: "Legends",
+    price: "€10.99",
+    image: "/shop/fionn-keychain.jpg",
+  },
+  {
+    title: "Children of Lir Keychain",
+    category: "Keychains",
+    collection: "Legends",
+    price: "€10.99",
+    image: "/shop/swan-keychain.jpg",
+  },
+  {
+    title: "The Banshee Keychain",
+    category: "Keychains",
+    collection: "Legends",
     price: "€8.99",
-    image: "/shop/giant-keychain.png",
-    tag: "Mini",
+    image: "/shop/banshee-keychain.jpg",
+
+  },
+
+
+    {
+    title: "Phone case",
+    category: "Accesories",
+    collection: "Éire Lore",
+    price: "€15.99",
+    image: "/shop/phone-case.png",
   },
   {
-    title: "Banshee Poster",
-    category: "Posters",
-    collection: "Banshee",
-    price: "€14.99",
-    image: "/shop/banshee-poster.png",
-    tag: "New",
+    title: "Airpods case",
+    category: "Accesories",
+    collection: "Éire Lore",
+    price: "€15.99",
+    image: "/shop/airpods-case.png",
   },
   {
-    title: "Banshee ",
-    category: "T-Shirts",
-    collection: "Banshee",
-    price: "€24.99",
-    image: "/shop/banshee-tee.png",
-    tag: "Dark Lore",
-  },
-  {
-    title: "Fionn Keychain",
+    title: "Legend Keeper - NFC",
     category: "Keychains",
     collection: "Éire Lore",
-    price: "€8.99",
-    image: "/shop/keychain.png",
-    tag: "Mini",
+    price: "€12.99",
+    image: "/shop/eire-lore-keychain.png",
   },
 
 ];
@@ -578,21 +574,6 @@ const products = [
     object-fit: cover;
   }
 
-  .product-tag {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    z-index: 2;
-    border-radius: 999px;
-    background: var(--color-gold);
-    color: var(--color-dark);
-    padding: 0.35rem 0.7rem;
-    font-family: var(--font-body);
-    font-size: 0.62rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
 
   .product-info {
     padding: 1.3rem;

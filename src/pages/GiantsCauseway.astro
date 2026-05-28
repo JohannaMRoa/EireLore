@@ -253,7 +253,6 @@ const scenes = [
 </Layout>
 
 <style>
-  /* ── Tokens ─────────────────────────────────────── */
   :root {
     --dark:       #004435;
     --teal:       #106B66;
@@ -278,42 +277,8 @@ const scenes = [
     background: var(--footer-bg) !important;
   }
 
-  /* ── Custom Cursor ───────────────────────────────── */
-  .cursor {
-    position: fixed;
-    top: 0; left: 0;
-    z-index: 9999;
-    pointer-events: none;
-  }
 
-  .cursor-dot {
-    position: absolute;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    transform: translate(-50%, -50%);
-  }
-
-  .cursor-ring {
-    position: absolute;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(216,169,27,0.55);
-    transform: translate(-50%, -50%);
-    transition: width 0.25s var(--ease), height 0.25s var(--ease),
-                border-color 0.25s ease;
-  }
-
-  .cursor--hover .cursor-ring {
-    width: 50px; height: 50px;
-    border-color: rgba(216,169,27,0.85);
-  }
-
-  @media (pointer: coarse) {
-    .cursor { display: none; }
-  }
-
-  /* ── Page wrapper ────────────────────────────────── */
+  /* ── Page wrapper ────────────────── */
   .giants-page {
     position: relative;
     overflow: hidden;
@@ -330,7 +295,7 @@ const scenes = [
     pointer-events: none;
   }
 
-  /* ── Parallax ────────────────────────────────────── */
+  /* ── Parallax ─────────────── */
   .parallax-container {
     position: absolute;
     top: 0; left: 0;
@@ -360,7 +325,7 @@ const scenes = [
     z-index: 2;
   }
 
-  /* ── Floating back btn ───────────────────────────── */
+  /* ── Floating back btn ────────── */
   .floating-back-btn {
     position: fixed;
     left: clamp(1rem, 3vw, 2rem);
@@ -404,7 +369,7 @@ const scenes = [
     }
   }
 
-  /* ── Scene Nav Sidebar ───────────────────────────── */
+  /* ── Scene Nav Sidebar ────────── */
   .scene-nav {
     position: fixed;
     right: clamp(0.75rem, 1.8vw, 1.4rem);
@@ -754,9 +719,7 @@ const scenes = [
     50%       { opacity: 0.45; transform: scaleY(1); }
   }
 
-  /* ══════════════════════════════════════
-     STORY — original layout, kept intact
-  ═════════════════════════════════════════ */
+
   .story-section {
     background: transparent;
     padding-top: clamp(3rem, 6vh, 5rem);
@@ -817,23 +780,25 @@ const scenes = [
     display: block;
   }
 
-  /* Text area */
   .scene-text {
-    grid-area: text;
-    padding: 0 clamp(1rem, 2vw, 0.5rem);
-    align-items: flex-end;
-  }
+  grid-area: text;
+  padding: 0 clamp(1rem, 2vw, 0.5rem);
+  align-items: flex-end;
+  text-align: center;        
+  display: flex;             
+  flex-direction: column;    
+  align-items: center;     
+}
 
-  /* Rule — GSAP animates scaleX */
   .scene-rule {
-    width: 150px;
-    height: 2px;
-    background: var(--gold);
-    border-radius: 2px;
-    margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
-    transform-origin: left center;
-    opacity: 0;
-  }
+  width: 250px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
+  transform-origin: center center;  
+  opacity: 0;
+}
 
   /* Body — GSAP animates in */
   .scene-body {
@@ -1121,19 +1086,18 @@ const scenes = [
 
     /* RULE */
     if (rule) {
-      gsap.fromTo(
-        rule,
-        { opacity: 0, scaleX: 0, transformOrigin: "left center" },
-        {
-          opacity: 0.65, scaleX: 1,
-          duration: 2,
-          ease: "power3.inOut",
-          scrollTrigger: st,
-          delay: isTouch ? 0.22 : 0.3,
-        }
-      );
+  gsap.fromTo(
+    rule,
+    { opacity: 0, scaleX: 0, transformOrigin: "center center" },  
+    {
+      opacity: 0.65, scaleX: 1,
+      duration: 3.5,
+      ease: "power3.inOut",
+      scrollTrigger: st,
+      delay: isTouch ? 0.22 : 0.3,
     }
-
+  );
+  }
     /* BODY */
     if (body) {
       gsap.fromTo(
