@@ -329,15 +329,14 @@ const scenes = [
   }
 
   /* ── Parallax ────────────────────────────────────── */
-  .parallax-container {
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-    width: 100%; height: 180vh;
-    overflow: hidden;
-    opacity: var(--parallax-opacity);
-    pointer-events: none;
-  }
+/* DESPUÉS */
+.parallax-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100vh;   /* ← solo ocupa el hero */
+  z-index: 0;
+}
 
   .layer {
     position: absolute;
@@ -966,6 +965,23 @@ const scenes = [
 
     .story-progress { width: min(85vw, 320px); }
   }
+
+  @media (max-width: 699px) {
+  .parallax-container {
+    height: 100svh;
+  }
+
+  .layer {
+    width: 200vw;          /* más ancho para que llene */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Reducir el movimiento en mobile */
+  .layer-1 { transform: translateX(-50%) scale(1.1); }
+  .layer-2 { transform: translateX(-50%) scale(1.05); }
+  .layer-3 { transform: translateX(-50%); }
+}
 </style>
 
 <script>
@@ -1031,10 +1047,15 @@ const scenes = [
   }
 
   /* ── Parallax ──────────────────────────────────── */
-  gsap.to(".layer-1", { y: 200, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".layer-2", { y: 400, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".layer-3", { y: 600, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
 
+/* DESPUÉS */
+const p1 = isTouch ? 80  : 200;
+const p2 = isTouch ? 160 : 400;
+const p3 = isTouch ? 240 : 600;
+
+gsap.to(".layer-1", { y: p1, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+gsap.to(".layer-2", { y: p2, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+gsap.to(".layer-3", { y: p3, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
   /* ── Progress dots on narration bar ────────────── */
   scenes.forEach((_, i) => {
     if (i === 0) return;
