@@ -329,15 +329,14 @@ const scenes = [
   }
 
   /* ── Parallax ────────────────────────────────────── */
-  .parallax-container {
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-    width: 100%; height: 180vh;
-    overflow: hidden;
-    opacity: var(--parallax-opacity);
-    pointer-events: none;
-  }
+/* DESPUÉS */
+.parallax-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100vh;   /* ← solo ocupa el hero */
+  z-index: 0;
+}
 
   .layer {
     position: absolute;
@@ -777,16 +776,18 @@ const scenes = [
     position: relative;
   }
 
+  /* ── DESKTOP: imagen al 30% ──────────────────────── */
   @media (min-width: 700px) {
     .scene {
-      grid-template-columns: 52% 1fr;
+      grid-template-columns: 30% 1fr;
       grid-template-areas: "image text";
       gap: clamp(2rem, 5vw, 6rem);
       margin-bottom: clamp(5rem, 12vh, 10rem);
+      align-items: center;
     }
 
     .scene--flip {
-      grid-template-columns: 1fr 52%;
+      grid-template-columns: 1fr 30%;
       grid-template-areas: "text image";
     }
   }
@@ -802,7 +803,7 @@ const scenes = [
   }
 
   @media (min-width: 700px) {
-    .scene-image { aspect-ratio: 5 / 4; }
+    .scene-image { aspect-ratio: 1 / 1; }
   }
 
   .scene-image img {
@@ -815,16 +816,19 @@ const scenes = [
   .scene-text {
     grid-area: text;
     padding: 0 clamp(1rem, 2vw, 0.5rem);
-    align-items: flex-end;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .scene-rule {
-    width: 150px;
+    width: 250px;
     height: 2px;
     background: var(--gold);
     border-radius: 2px;
     margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
-    transform-origin: left center;
+    transform-origin: center center;
     opacity: 0;
   }
 
@@ -945,7 +949,12 @@ const scenes = [
       margin-bottom: clamp(2.8rem, 8vh, 4.5rem);
     }
 
-    .scene-image { aspect-ratio: 4 / 3; }
+    /* ── MOBILE: imagen al 60% centrada ─────────────── */
+    .scene-image {
+      aspect-ratio: 1 / 1;
+      max-width: 60%;
+      margin: 0 auto;
+    }
 
     .scene-body {
       font-size: clamp(0.92rem, 4.2vw, 1.05rem);
@@ -956,6 +965,23 @@ const scenes = [
 
     .story-progress { width: min(85vw, 320px); }
   }
+
+  @media (max-width: 699px) {
+  .parallax-container {
+    height: 100svh;
+  }
+
+  .layer {
+    width: 200vw;          /* más ancho para que llene */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Reducir el movimiento en mobile */
+  .layer-1 { transform: translateX(-50%) scale(1.1); }
+  .layer-2 { transform: translateX(-50%) scale(1.05); }
+  .layer-3 { transform: translateX(-50%); }
+}
 </style>
 
 <script>
@@ -1021,10 +1047,15 @@ const scenes = [
   }
 
   /* ── Parallax ──────────────────────────────────── */
-  gsap.to(".layer-1", { y: 200, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".layer-2", { y: 400, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".layer-3", { y: 600, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
 
+/* DESPUÉS */
+const p1 = isTouch ? 80  : 200;
+const p2 = isTouch ? 160 : 400;
+const p3 = isTouch ? 240 : 600;
+
+gsap.to(".layer-1", { y: p1, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+gsap.to(".layer-2", { y: p2, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
+gsap.to(".layer-3", { y: p3, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
   /* ── Progress dots on narration bar ────────────── */
   scenes.forEach((_, i) => {
     if (i === 0) return;
@@ -1112,10 +1143,10 @@ const scenes = [
     if (rule) {
       gsap.fromTo(
         rule,
-        { opacity: 0, scaleX: 0, transformOrigin: "left center" },
+        { opacity: 0, scaleX: 0, transformOrigin: "center center" },
         {
           opacity: 0.65, scaleX: 1,
-          duration: 2,
+          duration: 3.5,
           ease: "power3.inOut",
           scrollTrigger: st,
           delay: isTouch ? 0.22 : 0.3,
