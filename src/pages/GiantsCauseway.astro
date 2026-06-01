@@ -69,14 +69,14 @@ const scenes = [
 <Layout title="The Giant's Causeway — Éire Lore">
   <main class="giants-page" id="giants-page">
 
-    <!-- PARALLAX BACKGROUND -->
+    /* ──  PARALLAX BACKGROUND ─────────────── */
     <div class="parallax-container" aria-hidden="true">
       <img src="/assets/Giant-3.svg" class="layer layer-3" alt="" />
       <img src="/assets/Giant-2.svg" class="layer layer-2" alt="" />
       <img src="/assets/Giant-1.svg" class="layer layer-1" alt="" />
     </div>
 
-    <!-- FLOATING BACK BUTTON -->
+  /* ── FLOATING BACK BUTTON ─────────────── */
     <a href="/myths" class="floating-back-btn">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="2"
@@ -87,7 +87,7 @@ const scenes = [
       <span>Back to all legends</span>
     </a>
 
-    <!-- SCENE PROGRESS SIDEBAR -->
+    /* ── SCENE PROGRESS SIDEBAR ─────────────── */
     <nav class="scene-nav" id="scene-nav" aria-label="Story progress">
       <div class="scene-nav-track">
         <div class="scene-nav-fill" id="scene-nav-fill"></div>
@@ -106,7 +106,7 @@ const scenes = [
       </span>
     </nav>
 
-    <!-- AUDIO -->
+     /* ── AUDIO ─────────────── */
     <audio id="story-audio" preload="metadata" style="display:none">
       <source src="/assets/audio/giants-causeway.mp3" type="audio/mpeg" />
     </audio>
@@ -114,9 +114,9 @@ const scenes = [
       <source src="/assets/audio/ambient-ocean1.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- ══════════════════════════
+    /* ══════════════════════════
          TITLE SECTION
-    ═══════════════════════════ -->
+    ═══════════════════════════ */
     <section class="title-section">
       <div class="title-inner">
 
@@ -126,7 +126,6 @@ const scenes = [
           <span class="eyebrow-char" aria-hidden="true">✦</span>
         </p>
 
-        <!-- Kinetic title: two lines animate independently -->
         <h1 class="title-heading">
           <span class="title-line" data-line="0">The Giant's</span>
           <em class="title-line title-line--em" data-line="1">Causeway</em>
@@ -182,9 +181,8 @@ const scenes = [
       </div>
     </section>
 
-    <!-- ══════════════════════════
-         STORY — original layout
-    ═══════════════════════════ -->
+
+    
     <section id="story" class="story-section">
       <div class="scenes-wrapper">
         {scenes.map((scene, i) => {
@@ -221,9 +219,8 @@ const scenes = [
       <div id="story-outro" class="story-outro"></div>
     </section>
 
-    <!-- ══════════════════════════
-         OUTRO / CTA
-    ═══════════════════════════ -->
+
+    
     <section class="outro-section">
       <div class="outro-inner" id="outro-inner">
         <div class="outro-ornament" aria-hidden="true">
@@ -1125,7 +1122,7 @@ const scenes = [
     });
   }
 
-  /* ── Read button → scroll to story ────── */
+  /* ── Read button ────── */
   btnRead.addEventListener("click", () => {
     const target = document.getElementById("story");
     if (!target) return;
