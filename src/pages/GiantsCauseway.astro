@@ -69,14 +69,7 @@ const scenes = [
 <Layout title="The Giant's Causeway — Éire Lore">
   <main class="giants-page" id="giants-page">
 
-    /* ──  PARALLAX BACKGROUND ─────────────── */
-    <div class="parallax-container" aria-hidden="true">
-      <img src="/assets/Giant-3.svg" class="layer layer-3" alt="" />
-      <img src="/assets/Giant-2.svg" class="layer layer-2" alt="" />
-      <img src="/assets/Giant-1.svg" class="layer layer-1" alt="" />
-    </div>
-
-  /* ──  BACK BUTTON ────────── */
+    <!-- FLOATING BACK BUTTON -->
     <a href="/myths" class="floating-back-btn">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="2"
@@ -87,7 +80,7 @@ const scenes = [
       <span>Back to all legends</span>
     </a>
 
-    /* ── PROGRESS SIDEBAR ────────── */
+    <!-- SCENE PROGRESS SIDEBAR -->
     <nav class="scene-nav" id="scene-nav" aria-label="Story progress">
       <div class="scene-nav-track">
         <div class="scene-nav-fill" id="scene-nav-fill"></div>
@@ -106,7 +99,7 @@ const scenes = [
       </span>
     </nav>
 
-     /* ── AUDIO ─────────────── */
+    <!-- AUDIO -->
     <audio id="story-audio" preload="metadata" style="display:none">
       <source src="/assets/audio/giants.mp3" type="audio/mpeg" />
     </audio>
@@ -114,8 +107,15 @@ const scenes = [
       <source src="/assets/audio/ambient-ocean1.mp3" type="audio/mpeg" />
     </audio>
 
-    /* ─────────────── TITLE SECTION───────────────*/
+    <!-- ══════════════════════════
+         TITLE SECTION 
+    ═══════════════════════════ -->
     <section class="title-section">
+
+      <div class="hero-banner" aria-hidden="true">
+        <img src="/assets/giants-banner.png" alt="" />
+      </div>
+
       <div class="title-inner">
 
         <p class="title-eyebrow">
@@ -128,7 +128,7 @@ const scenes = [
           <span class="title-line" data-line="0">The Giant's</span>
           <em class="title-line title-line--em" data-line="1">Causeway</em>
         </h1>
-<br>
+        <br>
         <div class="title-ctas">
           <button class="cta-primary" id="btn-read">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -153,7 +153,6 @@ const scenes = [
             <span class="btn-play-label">Play the story</span>
           </button>
 
-          <!-- Ambient sound toggle -->
           <button class="cta-ambient" id="btn-ambient" title="Toggle ambient sound">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2"
@@ -179,8 +178,9 @@ const scenes = [
       </div>
     </section>
 
-
-    
+    <!-- ══════════════════════════
+         STORY
+    ═══════════════════════════ -->
     <section id="story" class="story-section">
       <div class="scenes-wrapper">
         {scenes.map((scene, i) => {
@@ -217,8 +217,9 @@ const scenes = [
       <div id="story-outro" class="story-outro"></div>
     </section>
 
-
-
+    <!-- ══════════════════════════
+         OUTRO / CTA
+    ═══════════════════════════ -->
     <section class="outro-section">
       <div class="outro-inner" id="outro-inner">
         <div class="outro-ornament" aria-hidden="true">
@@ -229,9 +230,49 @@ const scenes = [
             <line x1="76" y1="12" x2="120" y2="12" stroke="#D8A91B" stroke-opacity="0.4" stroke-width="1"/>
           </svg>
         </div>
-        <p class="outro-eyebrow">The legend ends here</p>
-        <h2 class="outro-heading">More stories<br/><em>await</em></h2>
 
+        <p class="outro-eyebrow">This legend ends here</p>
+
+        <!-- ── Outro links — replace # with your URLs ── -->
+        <div class="outro-links">
+          <a href="https://open.spotify.com/artist/5n89lGrulTQx7XoN3usNl3?si=LUTK2lIAT7WAzZC1uGWSHA"
+             target="_blank" rel="noopener noreferrer"
+             class="outro-link" aria-label="Listen to the music">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+            <span>Listen to<br>the Music</span>
+          </a>
+
+          <a href="https://www.lisarichardsagency.com/actors/suzie-seweify/"
+             target="_blank" rel="noopener noreferrer"
+             class="outro-link" aria-label="Meet the narrator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+            <span>Meet the<br>Narrator</span>
+          </a>
+
+          <a href="#"
+             target="_blank" rel="noopener noreferrer"
+             class="outro-link" aria-label="Find the book">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            <span>Full<br>Story</span>
+          </a>
+        </div>
+        <br>
+        <h2 class="outro-heading">More stories <em>await</em></h2>
         <a href="/myths" class="outro-cta">
           <span>Explore all legends</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -248,6 +289,7 @@ const scenes = [
 </Layout>
 
 <style>
+  /* ── Tokens ─────────────────────────────────────── */
   :root {
     --dark:       #004435;
     --teal:       #106B66;
@@ -258,8 +300,6 @@ const scenes = [
     --ease:       cubic-bezier(0.22, 1, 0.36, 1);
     --page-bg:    #566409;
     --footer-bg:  #566409;
-    --bg-overlay: rgba(0, 0, 0, 0.16);
-    --parallax-opacity: 1;
   }
 
   :global(html),
@@ -267,60 +307,17 @@ const scenes = [
     overflow-x: hidden;
     background: var(--page-bg);
   }
+  :global(footer) { background: var(--footer-bg) !important; }
 
-  :global(footer) {
-    background: var(--footer-bg) !important;
-  }
-
-
-
+  /* ── Page wrapper ────────────────────────────────── */
   .giants-page {
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
     background: var(--page-bg);
     transition: background-color 1.4s ease;
   }
 
-  .giants-page::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    background: var(--bg-overlay);
-    pointer-events: none;
-  }
-
-  /* ── Parallax ─────────────── */
-  .parallax-container {
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-    width: 100%; height: 180vh;
-    overflow: hidden;
-    opacity: var(--parallax-opacity);
-    pointer-events: none;
-  }
-
-  .layer {
-    position: absolute;
-    top: 0; left: 50%;
-    width: 100vw; max-width: none;
-    transform: translateX(-50%);
-    pointer-events: none;
-    user-select: none;
-  }
-
-  .layer-3 { z-index: 1; }
-  .layer-2 { z-index: 2; }
-  .layer-1 { z-index: 3; }
-
-  .title-section,
-  .story-section {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* ── Floating back btn ────────── */
+  /* ── Floating back btn ───────────────────────────── */
   .floating-back-btn {
     position: fixed;
     left: clamp(1rem, 3vw, 2rem);
@@ -339,14 +336,13 @@ const scenes = [
     text-transform: uppercase;
     color: rgba(241,210,152,0.88);
     text-decoration: none;
-    background: rgba(0, 44, 35, 0.62);
+    background: rgba(0,44,35,0.62);
     backdrop-filter: blur(12px);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.38);
     min-height: 44px;
     -webkit-tap-highlight-color: transparent;
     transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
   }
-
   @media (hover: hover) {
     .floating-back-btn:hover {
       color: var(--sand);
@@ -355,573 +351,339 @@ const scenes = [
       transform: translateY(-2px);
     }
   }
-
   @media (max-width: 520px) {
-    .floating-back-btn {
-      padding: 0.72rem 0.9rem;
-      font-size: 0.58rem;
-      max-width: calc(100vw - 2rem);
-    }
+    .floating-back-btn { padding: 0.72rem 0.9rem; font-size: 0.58rem; max-width: calc(100vw - 2rem); }
   }
 
-  /* ── Scene Nav Sidebar ────────── */
+  /* ── Scene Nav Sidebar ───────────────────────────── */
   .scene-nav {
     position: fixed;
     right: clamp(0.75rem, 1.8vw, 1.4rem);
     top: 50%;
     transform: translateY(-50%);
     z-index: 40;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.6rem;
-    opacity: 0;
-    pointer-events: none;
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    opacity: 0; pointer-events: none;
     transition: opacity 0.5s ease;
   }
-
-  .scene-nav.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
+  .scene-nav.visible { opacity: 1; pointer-events: auto; }
   .scene-nav-track {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 2px;
-    background: rgba(216,169,27,0.15);
-    border-radius: 2px;
+    display: flex; flex-direction: column; align-items: center;
+    width: 2px; background: rgba(216,169,27,0.15); border-radius: 2px;
   }
-
   .scene-nav-fill {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 0%;
-    background: var(--gold);
-    border-radius: 2px;
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 0%;
+    background: var(--gold); border-radius: 2px;
     transition: height 0.45s var(--ease);
   }
-
   .scene-nav-dot {
-    position: relative;
-    width: 22px; height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+    position: relative; width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    background: none; border: none; cursor: pointer; padding: 0;
     -webkit-tap-highlight-color: transparent;
   }
-
   .scene-nav-dot::after {
-    content: '';
-    display: block;
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: rgba(216,169,27,0.25);
+    content: ''; display: block; width: 5px; height: 5px;
+    border-radius: 50%; background: rgba(216,169,27,0.25);
     transition: background 0.3s, transform 0.3s var(--ease);
   }
-
-  .scene-nav-dot.active::after {
-    background: var(--gold);
-    transform: scale(1.5);
-  }
-
+  .scene-nav-dot.active::after { background: var(--gold); transform: scale(1.5); }
   .scene-counter {
-    display: flex;
-    align-items: baseline;
-    gap: 2px;
-    font-family: var(--font-body);
-    font-size: 0.52rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: rgba(216,169,27,0.5);
+    display: flex; align-items: baseline; gap: 2px;
+    font-family: var(--font-body); font-size: 0.52rem; font-weight: 700;
+    letter-spacing: 0.04em; color: rgba(216,169,27,0.5);
   }
-
-  .scene-counter-current {
-    font-size: 0.7rem;
-    color: var(--gold);
-  }
-
+  .scene-counter-current { font-size: 0.7rem; color: var(--gold); }
   .scene-counter-sep { opacity: 0.4; }
+  @media (max-width: 600px) { .scene-nav { display: none; } }
 
-  @media (max-width: 600px) {
-    .scene-nav { display: none; }
-  }
-
-  /* ── Title Section ───────────────────────────────── */
+  /* ══════════════════════════════════════
+     TITLE SECTION — overflow:hidden clips the banner
+  ═════════════════════════════════════════ */
   .title-section {
+    position: relative;
+    overflow: hidden;
     min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: clamp(6rem, 16vh, 10rem) clamp(1.25rem, 5vw, 4rem) clamp(3rem, 6vh, 5rem);
-    background: transparent;
-    position: relative;
-    overflow: hidden;
+    background: var(--page-bg);
   }
 
+  /* Dark vignette for text readability */
   .title-section::before {
     content: '';
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0; z-index: 2;
     background:
-      radial-gradient(
-        ellipse 70% 48% at 50% 48%,
-        rgba(0,0,0,0.34) 0%,
-        rgba(0,0,0,0.18) 42%,
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 80% 60% at 50% 110%,
-        rgba(216,169,27,0.12) 0%,
-        transparent 70%
-      );
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.18) 50%, transparent 80%),
+      linear-gradient(to bottom, rgba(0,25,16,0.45) 0%, transparent 40%, transparent 60%, rgba(0,25,16,0.55) 100%);
     pointer-events: none;
   }
 
-  .title-inner {
-    position: relative;
+  /* ── Static banner ───────────────────────────────── */
+  .hero-banner {
+    position: absolute;
+    inset: 0;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(1rem, 2.5vh, 1.8rem);
+  }
+  .hero-banner img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+  @media (max-width: 699px) {
+    .hero-banner img { object-position: center top; }
+  }
+
+  /* ── Title content ───────────────────────────────── */
+  .title-inner {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column; align-items: center;
+    gap: clamp(1rem, 2.5vh, 1.8rem); width: 100%;
   }
 
   .title-eyebrow {
     font-family: var(--font-body);
     font-size: clamp(0.58rem, 2vw, 0.72rem);
-    font-weight: 700;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
+    font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase;
     color: var(--gold);
-    display: flex;
-    align-items: center;
-    gap: 0.6em;
-    opacity: 0;
-    transform: translateY(14px);
+    display: flex; align-items: center; gap: 0.6em;
+    opacity: 0; transform: translateY(14px);
     animation: fadeUp 0.9s 0.15s var(--ease) forwards;
-    text-shadow:
-      0 2px 8px rgba(0,0,0,0.75),
-      0 0 18px rgba(216,169,27,0.45);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.75), 0 0 18px rgba(216,169,27,0.45);
   }
-
   .eyebrow-char { font-size: 0.5em; opacity: 0.55; }
 
-  /* Kinetic title — each line has its own entrance */
   .title-heading {
     font-family: var(--font-title);
-    font-weight: 700;
-    font-size: clamp(2.8rem, 13vw, 9rem);
-    line-height: 1.0;
-    color: var(--sand);
-    letter-spacing: -0.01em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-weight: 700; font-size: clamp(2.8rem, 13vw, 9rem);
+    line-height: 1.0; color: var(--sand); letter-spacing: -0.01em;
+    display: flex; flex-direction: column; align-items: center;
     text-shadow:
       0 6px 0 rgba(0,44,35,0.38),
       0 16px 35px rgba(0,0,0,0.75),
       0 0 42px rgba(0,0,0,0.55);
   }
-
   .title-line {
-    display: block;
-    opacity: 0;
+    display: block; opacity: 0;
     transform: translateY(32px) skewX(-4deg);
   }
-
   .title-line[data-line="0"] { animation: titleSlide 1.1s 0.3s  var(--ease) forwards; }
   .title-line[data-line="1"] { animation: titleSlide 1.1s 0.52s var(--ease) forwards; }
-
   .title-line--em {
-    font-style: italic;
-    color: var(--gold);
+    font-style: italic; color: var(--gold);
     text-shadow:
       0 6px 0 rgba(0,44,35,0.35),
       0 16px 36px rgba(0,0,0,0.78),
       0 0 32px rgba(216,169,27,0.42);
   }
-
-  @keyframes titleSlide {
-    to { opacity: 1; transform: translateY(0) skewX(0deg); }
-  }
+  @keyframes titleSlide { to { opacity: 1; transform: translateY(0) skewX(0deg); } }
 
   /* CTAs */
   .title-ctas {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(14px);
+    display: flex; align-items: center; gap: 0.65rem;
+    flex-wrap: wrap; justify-content: center;
+    opacity: 0; transform: translateY(14px);
     animation: fadeUp 1s 0.72s var(--ease) forwards;
   }
-
-  .cta-primary,
-  .cta-secondary,
-  .cta-ambient {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    border-radius: 100px;
-    font-family: var(--font-body);
+  .cta-primary, .cta-secondary, .cta-ambient {
+    display: inline-flex; align-items: center; gap: 7px;
+    border-radius: 100px; font-family: var(--font-body);
     font-size: clamp(0.65rem, 2.5vw, 0.78rem);
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: none;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; border: none;
     transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
-    min-height: 44px;
-    -webkit-tap-highlight-color: transparent;
+    min-height: 44px; -webkit-tap-highlight-color: transparent;
   }
-
   .cta-primary {
-    background: var(--gold);
-    color: var(--dark);
+    background: var(--gold); color: var(--dark);
     padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.1rem, 4vw, 1.5rem);
     box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   }
-
   .cta-secondary {
-    background: rgba(0, 44, 35, 0.34);
-    color: rgba(241,210,152,0.9);
-    border: 1px solid rgba(216,169,27,0.38);
-    backdrop-filter: blur(8px);
+    background: rgba(0,44,35,0.34); color: rgba(241,210,152,0.9);
+    border: 1px solid rgba(216,169,27,0.38); backdrop-filter: blur(8px);
     padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.1rem, 4vw, 1.5rem);
   }
-
   .cta-ambient {
-    background: rgba(0, 44, 35, 0.34);
-    color: rgba(241,210,152,0.45);
-    border: 1px solid rgba(216,169,27,0.2);
-    backdrop-filter: blur(8px);
+    background: rgba(0,44,35,0.34); color: rgba(241,210,152,0.45);
+    border: 1px solid rgba(216,169,27,0.2); backdrop-filter: blur(8px);
     padding: 0.75rem 0.9rem;
   }
-
-  .cta-ambient.is-on {
-    color: var(--gold);
-    border-color: rgba(216,169,27,0.5);
-  }
-
+  .cta-ambient.is-on { color: var(--gold); border-color: rgba(216,169,27,0.5); }
   @media (hover: hover) {
     .cta-primary:hover  { background: var(--sand); transform: translateY(-1px); }
-    .cta-secondary:hover {
-      background: rgba(216,169,27,0.08);
-      color: var(--sand);
-      border-color: rgba(216,169,27,0.6);
-    }
-    .cta-ambient:hover { color: var(--gold); border-color: rgba(216,169,27,0.4); }
+    .cta-secondary:hover { background: rgba(216,169,27,0.08); color: var(--sand); border-color: rgba(216,169,27,0.6); }
+    .cta-ambient:hover  { color: var(--gold); border-color: rgba(216,169,27,0.4); }
   }
-
-  .cta-secondary.is-playing {
-    background: rgba(216,169,27,0.1);
-    color: var(--gold);
-    border-color: rgba(216,169,27,0.5);
-  }
+  .cta-secondary.is-playing { background: rgba(216,169,27,0.1); color: var(--gold); border-color: rgba(216,169,27,0.5); }
 
   /* Progress bar */
   .story-progress {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    opacity: 0;
-    transform: translateY(6px);
+    display: flex; align-items: center; gap: 10px;
+    opacity: 0; transform: translateY(6px);
     transition: opacity 0.4s ease, transform 0.4s ease;
-    pointer-events: none;
-    width: min(90vw, 360px);
+    pointer-events: none; width: min(90vw, 360px);
   }
-
-  .story-progress.visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
+  .story-progress.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
   .progress-track {
-    flex: 1;
-    height: 4px;
-    background: rgba(216,169,27,0.18);
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    overflow: visible;
-    padding: 8px 0;
-    margin: -8px 0;
+    flex: 1; height: 4px; background: rgba(216,169,27,0.18);
+    border-radius: 4px; cursor: pointer; position: relative;
+    overflow: visible; padding: 8px 0; margin: -8px 0;
   }
-
   .progress-fill {
-    position: absolute;
-    top: 0; left: 0;
-    height: 4px;
-    width: 0%;
-    background: var(--gold);
-    border-radius: 4px;
-    transition: width 0.25s linear;
-    pointer-events: none;
+    position: absolute; top: 0; left: 0;
+    height: 4px; width: 0%; background: var(--gold);
+    border-radius: 4px; transition: width 0.25s linear; pointer-events: none;
   }
-
   .ap-marker {
-    position: absolute;
-    top: 0;
-    transform: translate(-50%, 0);
-    width: 5px; height: 4px;
-    border-radius: 50%;
-    background: rgba(216,169,27,0.45);
-    pointer-events: none;
+    position: absolute; top: 0; transform: translate(-50%, 0);
+    width: 5px; height: 4px; border-radius: 50%;
+    background: rgba(216,169,27,0.45); pointer-events: none;
   }
-
   .progress-time {
-    font-family: var(--font-body);
-    font-size: 0.6rem;
-    font-weight: 600;
-    color: rgba(241,210,152,0.6);
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    min-width: 3ch;
+    font-family: var(--font-body); font-size: 0.6rem; font-weight: 600;
+    color: rgba(241,210,152,0.6); letter-spacing: 0.05em;
+    white-space: nowrap; min-width: 3ch;
   }
 
   /* Scroll hint */
-  .scroll-hint {
-    opacity: 0;
-    animation: fadeUp 1s 1.1s ease forwards;
-  }
-
+  .scroll-hint { opacity: 0; animation: fadeUp 1s 1.1s ease forwards; }
   .scroll-tick {
-    width: 1px;
-    height: clamp(24px, 4vh, 40px);
+    width: 1px; height: clamp(24px, 4vh, 40px);
     background: linear-gradient(var(--gold), transparent);
-    opacity: 0.4;
-    animation: tickPulse 1.9s ease-in-out infinite;
+    opacity: 0.4; animation: tickPulse 1.9s ease-in-out infinite;
   }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   @keyframes tickPulse {
     0%, 100% { opacity: 0.12; transform: scaleY(0.5); }
     50%       { opacity: 0.45; transform: scaleY(1); }
   }
 
-
+  /* ══════════════════════════════════════
+     STORY SECTION
+  ═════════════════════════════════════════ */
   .story-section {
+    position: relative; z-index: 2;
     background: transparent;
     padding-top: clamp(3rem, 6vh, 5rem);
   }
-
   .scenes-wrapper {
-    max-width: 1300px;
-    margin: 0 auto;
+    max-width: 1300px; margin: 0 auto;
     padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(3rem, 6vh, 5rem);
   }
 
-  /* Exact original grid */
   .scene {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "image"
-      "text";
+    grid-template-areas: "image" "text";
     gap: clamp(1.25rem, 4vw, 2rem);
     margin-bottom: clamp(3.5rem, 10vh, 7rem);
     position: relative;
   }
-
   @media (min-width: 700px) {
     .scene {
-      grid-template-columns: 52% 1fr;
+      grid-template-columns: 30% 1fr;
       grid-template-areas: "image text";
       gap: clamp(2rem, 5vw, 6rem);
       margin-bottom: clamp(5rem, 12vh, 10rem);
+      align-items: center;
     }
-
-    .scene--flip {
-      grid-template-columns: 1fr 52%;
-      grid-template-areas: "text image";
-    }
+    .scene--flip { grid-template-columns: 1fr 30%; grid-template-areas: "text image"; }
   }
 
-  /* Audio dim states */
   .scene.audio-dim    { opacity: 0.28; transition: opacity 0.5s ease; }
   .scene.audio-active { opacity: 1 !important; transition: opacity 0.5s ease; }
 
-  /* Image area — GSAP sets opacity from 0 */
-  .scene-image {
-    grid-area: image;
-    position: relative;
-    aspect-ratio: 1 / 1;
-    opacity: 0;
-  }
-
-  @media (min-width: 700px) {
-    .scene-image { aspect-ratio: 5 / 4; }
-  }
-
-  .scene-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
+  .scene-image { grid-area: image; position: relative; aspect-ratio: 1 / 1; opacity: 0; }
+  .scene-image img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
   .scene-text {
-  grid-area: text;
-  padding: 0 clamp(1rem, 2vw, 0.5rem);
-  align-items: flex-end;
-  text-align: center;        
-  display: flex;             
-  flex-direction: column;    
-  align-items: center;     
-}
-
+    grid-area: text;
+    padding: 0 clamp(1rem, 2vw, 0.5rem);
+    text-align: center; display: flex; flex-direction: column; align-items: center;
+  }
   .scene-rule {
-  width: 250px;
-  height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
-  margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
-  transform-origin: center center;  
-  opacity: 0;
-}
-
-  /* Body — GSAP animates in */
+    width: 250px; height: 2px; background: var(--gold); border-radius: 2px;
+    margin-bottom: clamp(0.75rem, 2vh, 1.2rem);
+    transform-origin: center center; opacity: 0;
+  }
   .scene-body {
-    font-family: var(--font-body);
-    font-size: clamp(0.95rem, 2.2vw, 1.25rem);
-    line-height: 1.85;
-    color: rgba(241,210,152,0.9);
-    max-width: 44ch;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.55);
-    opacity: 0;
+    font-family: var(--font-body); font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+    line-height: 1.85; color: rgba(241,210,152,0.9); max-width: 44ch;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.55); opacity: 0;
   }
-
-  @media (max-width: 699px) {
-    .scene-body { max-width: 100%; }
-  }
-
+  @media (max-width: 699px) { .scene-body { max-width: 100%; } }
   .story-outro { height: 2rem; }
 
   /* ── Outro Section ───────────────────────────────── */
   .outro-section {
-    position: relative;
-    z-index: 2;
-    background: rgba(0, 25, 16, 0.7);
+    position: relative; z-index: 2;
+    background: rgba(0,25,16,0.75);
     padding: clamp(5rem, 12vh, 9rem) clamp(1.5rem, 6vw, 5rem);
-    text-align: center;
-    border-top: 1px solid rgba(216,169,27,0.1);
+    text-align: center; border-top: 1px solid rgba(216,169,27,0.1);
   }
-
   .outro-inner {
-    max-width: 560px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 560px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center;
     gap: clamp(0.9rem, 2vh, 1.4rem);
-    opacity: 0;
-    transform: translateY(36px);
+    opacity: 0; transform: translateY(36px);
     transition: opacity 1s var(--ease), transform 1s var(--ease);
   }
-
-  .outro-inner.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+  .outro-inner.visible { opacity: 1; transform: translateY(0); }
   .outro-ornament { width: 110px; opacity: 0.85; }
-
   .outro-eyebrow {
-    font-family: var(--font-body);
-    font-size: 0.63rem;
-    font-weight: 700;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0.65;
+    font-family: var(--font-body); font-size: 0.63rem; font-weight: 700;
+    letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); opacity: 0.65;
   }
-
   .outro-heading {
-    font-family: var(--font-title);
-    font-size: clamp(2.2rem, 7vw, 4.5rem);
-    font-weight: 700;
-    color: var(--sand);
-    line-height: 1.1;
+    font-family: var(--font-title); font-size: clamp(2.2rem, 7vw, 4.5rem);
+    font-weight: 700; color: var(--sand); line-height: 1.1;
     text-shadow: 0 8px 32px rgba(0,0,0,0.5);
   }
-
   .outro-heading em { font-style: italic; color: var(--gold); }
 
-  .outro-body {
-    font-family: var(--font-body);
-    font-size: clamp(0.88rem, 2vw, 1rem);
-    line-height: 1.8;
-    color: rgba(241,210,152,0.52);
-    max-width: 40ch;
+  /* Outro links */
+  .outro-links {
+    display: flex; align-items: center;
+    gap: clamp(1.5rem, 5vw, 3rem);
+    margin-top: 0.8rem; padding-top: 1.4rem;
   }
+  .outro-link {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(241,210,152,0.45); text-decoration: none;
+    font-family: var(--font-body); font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+  .outro-link svg { width: 22px; height: 22px; }
+  @media (hover: hover) { .outro-link:hover { color: var(--gold); transform: translateY(-3px); } }
 
   .outro-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 0.4rem;
-    background: var(--gold);
-    color: var(--dark);
-    text-decoration: none;
-    font-family: var(--font-body);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.9rem 1.8rem;
-    border-radius: 100px;
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 0.4rem; background: var(--gold); color: var(--dark);
+    text-decoration: none; font-family: var(--font-body);
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.9rem 1.8rem; border-radius: 100px;
     box-shadow: 0 12px 32px rgba(0,0,0,0.35);
-    transition: background 0.2s, transform 0.2s;
-    min-height: 44px;
+    transition: background 0.2s, transform 0.2s; min-height: 44px;
   }
-
-  @media (hover: hover) {
-    .outro-cta:hover {
-      background: var(--sand);
-      transform: translateY(-2px);
-    }
-  }
+  @media (hover: hover) { .outro-cta:hover { background: var(--sand); transform: translateY(-2px); } }
 
   /* ── Mobile tweaks ───────────────────────────────── */
   @media (max-width: 699px) {
-    .title-section {
-      padding-top: clamp(5rem, 14vh, 8rem);
-      padding-bottom: clamp(2rem, 5vh, 4rem);
-    }
-
-    .scenes-wrapper {
-      padding: 0 1.1rem clamp(2rem, 5vh, 4rem);
-    }
-
-    .scene {
-      gap: 0.9rem;
-      margin-bottom: clamp(2.8rem, 8vh, 4.5rem);
-    }
-
-    .scene-image { aspect-ratio: 4 / 3; }
-
-    .scene-body {
-      font-size: clamp(0.92rem, 4.2vw, 1.05rem);
-      line-height: 1.75;
-    }
-
+    .title-section { padding-top: clamp(5rem, 14vh, 8rem); padding-bottom: clamp(2rem, 5vh, 4rem); }
+    .scenes-wrapper { padding: 0 1.1rem clamp(2rem, 5vh, 4rem); }
+    .scene { gap: 0.9rem; margin-bottom: clamp(2.8rem, 8vh, 4.5rem); }
+    .scene-image { aspect-ratio: 1 / 1; max-width: 60%; margin: 0 auto; }
+    .scene-body { font-size: clamp(0.92rem, 4.2vw, 1.05rem); line-height: 1.75; }
     .scene-text { padding: 0; }
-
     .story-progress { width: min(85vw, 320px); }
   }
 </style>
@@ -936,72 +698,50 @@ const scenes = [
   const SECONDS_PER_SCENE = 10;
 
   /* ── Refs ──────────────────────────────────────── */
-  const page          = document.getElementById("giants-page")          as HTMLElement;
-  const audio         = document.getElementById("story-audio")          as HTMLAudioElement;
-  const ambientAudio  = document.getElementById("ambient-audio")        as HTMLAudioElement;
-  const btnRead       = document.getElementById("btn-read")             as HTMLButtonElement;
-  const btnPlay       = document.getElementById("btn-play")             as HTMLButtonElement;
-  const btnAmbient    = document.getElementById("btn-ambient")          as HTMLButtonElement;
-  const progressWrap  = document.getElementById("story-progress")       as HTMLDivElement;
-  const progressTrack = document.getElementById("progress-track")       as HTMLDivElement;
-  const progressFill  = document.getElementById("progress-fill")        as HTMLDivElement;
-  const progressTime  = document.getElementById("progress-time")        as HTMLSpanElement;
-  const sceneNav      = document.getElementById("scene-nav")            as HTMLElement;
-  const navFill       = document.getElementById("scene-nav-fill")       as HTMLElement;
-  const counterCurrent= document.getElementById("scene-counter-current")as HTMLElement;
-  const outroInner    = document.getElementById("outro-inner")          as HTMLElement;
+  const page           = document.getElementById("giants-page")           as HTMLElement;
+  const audio          = document.getElementById("story-audio")           as HTMLAudioElement;
+  const ambientAudio   = document.getElementById("ambient-audio")         as HTMLAudioElement;
+  const btnRead        = document.getElementById("btn-read")              as HTMLButtonElement;
+  const btnPlay        = document.getElementById("btn-play")              as HTMLButtonElement;
+  const btnAmbient     = document.getElementById("btn-ambient")           as HTMLButtonElement;
+  const progressWrap   = document.getElementById("story-progress")        as HTMLDivElement;
+  const progressTrack  = document.getElementById("progress-track")        as HTMLDivElement;
+  const progressFill   = document.getElementById("progress-fill")         as HTMLDivElement;
+  const progressTime   = document.getElementById("progress-time")         as HTMLSpanElement;
+  const sceneNav       = document.getElementById("scene-nav")             as HTMLElement;
+  const navFill        = document.getElementById("scene-nav-fill")        as HTMLElement;
+  const counterCurrent = document.getElementById("scene-counter-current") as HTMLElement;
+  const outroInner     = document.getElementById("outro-inner")           as HTMLElement;
 
   const scenes  = document.querySelectorAll<HTMLElement>(".scene");
   const navDots = document.querySelectorAll<HTMLButtonElement>(".scene-nav-dot");
   const TOTAL   = scenes.length;
-  const DURATION= SECONDS_PER_SCENE * TOTAL;
+  const DURATION = SECONDS_PER_SCENE * TOTAL;
 
-  /* ── Custom Cursor (creado dinámicamente) ──────── */
+  /* ── Custom Cursor ─────────────────────────────── */
   if (!isTouch) {
     const cursorEl = document.createElement("div");
-    cursorEl.id = "cursor";
     cursorEl.className = "cursor";
     cursorEl.setAttribute("aria-hidden", "true");
     cursorEl.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
     document.body.appendChild(cursorEl);
-
     const cursorDot  = cursorEl.querySelector<HTMLElement>(".cursor-dot")!;
     const cursorRing = cursorEl.querySelector<HTMLElement>(".cursor-ring")!;
     let mx = 0, my = 0, rx = 0, ry = 0;
-
     document.addEventListener("mousemove", (e) => {
       mx = e.clientX; my = e.clientY;
-      cursorDot.style.left = `${mx}px`;
-      cursorDot.style.top  = `${my}px`;
+      cursorDot.style.left = `${mx}px`; cursorDot.style.top = `${my}px`;
     });
-
     (function lerp() {
-      rx += (mx - rx) * 0.11;
-      ry += (my - ry) * 0.11;
-      cursorRing.style.left = `${rx}px`;
-      cursorRing.style.top  = `${ry}px`;
+      rx += (mx - rx) * 0.11; ry += (my - ry) * 0.11;
+      cursorRing.style.left = `${rx}px`; cursorRing.style.top = `${ry}px`;
       requestAnimationFrame(lerp);
     })();
-
     document.querySelectorAll("a, button, .progress-track").forEach((el) => {
       el.addEventListener("mouseenter", () => cursorEl.classList.add("cursor--hover"));
       el.addEventListener("mouseleave", () => cursorEl.classList.remove("cursor--hover"));
     });
   }
-
-  /* ── Parallax ──────────────────────────────────── */
-  gsap.to(".layer-1", { y: 200, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".layer-2", { y: 400, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".layer-3", { y: 600, ease: "none", scrollTrigger: { trigger: ".parallax-container", start: "top top", end: "bottom top", scrub: true } });
-
-  /* ── Progress dots on narration bar ────────────── */
-  scenes.forEach((_, i) => {
-    if (i === 0) return;
-    const dot = document.createElement("div");
-    dot.className = "ap-marker";
-    dot.style.left = `${(i / TOTAL) * 100}%`;
-    progressTrack.appendChild(dot);
-  });
 
   /* ── Background colour transition per scene ─────── */
   scenes.forEach((scene) => {
@@ -1015,10 +755,18 @@ const scenes = [
     });
   });
 
-  /* ── Scene nav — appear after title ────────────── */
+  /* ── Progress dots on narration bar ────────────── */
+  scenes.forEach((_, i) => {
+    if (i === 0) return;
+    const dot = document.createElement("div");
+    dot.className = "ap-marker";
+    dot.style.left = `${(i / TOTAL) * 100}%`;
+    progressTrack.appendChild(dot);
+  });
+
+  /* ── Scene nav ──────────────────────────────────── */
   ScrollTrigger.create({
-    trigger: "#story",
-    start: "top 80%",
+    trigger: "#story", start: "top 80%",
     onEnter:     () => sceneNav.classList.add("visible"),
     onLeaveBack: () => sceneNav.classList.remove("visible"),
   });
@@ -1029,116 +777,66 @@ const scenes = [
     navFill.style.height = `${TOTAL > 1 ? (i / (TOTAL - 1)) * 100 : 100}%`;
     counterCurrent.textContent = String(i + 1).padStart(2, "0");
   }
-
   scenes.forEach((scene, i) => {
     ScrollTrigger.create({
-      trigger: scene,
-      start: "top 55%",
-      end:   "bottom 45%",
-      onEnter:     () => setActive(i),
-      onEnterBack: () => setActive(i),
+      trigger: scene, start: "top 55%", end: "bottom 45%",
+      onEnter: () => setActive(i), onEnterBack: () => setActive(i),
     });
   });
-
-  /* Nav dot → scroll to scene */
   navDots.forEach((dot, i) => {
     dot.addEventListener("click", () => {
-      document.getElementById(`scene-${i}`)
-        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      document.getElementById(`scene-${i}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
     });
   });
 
   /* ══════════════════════════════════════════════════
-     PER-SCENE ANIMATIONS — image and text differ
+     PER-SCENE ANIMATIONS
   ═══════════════════════════════════════════════════ */
-  scenes.forEach((scene, i) => {
-    const isFlip  = scene.classList.contains("scene--flip");
-    const img     = scene.querySelector<HTMLElement>("[data-anim='image']");
-    const rule    = scene.querySelector<HTMLElement>("[data-anim='rule']");
-    const body    = scene.querySelector<HTMLElement>("[data-anim='body']");
+  scenes.forEach((scene) => {
+    const isFlip = scene.classList.contains("scene--flip");
+    const img    = scene.querySelector<HTMLElement>("[data-anim='image']");
+    const rule   = scene.querySelector<HTMLElement>("[data-anim='rule']");
+    const body   = scene.querySelector<HTMLElement>("[data-anim='body']");
+    const st: ScrollTrigger.Vars = { trigger: scene, start: "top 82%", toggleActions: "play none none none" };
 
-    const st: ScrollTrigger.Vars = {
-      trigger: scene,
-      start: "top 82%",
-      toggleActions: "play none none none",
-    };
-
-    /* IMAGE */
     if (img) {
-      gsap.fromTo(
-        img,
-        isTouch
-          ? { opacity: 0, scale: 0.93, y: 32 }
-          : { opacity: 0, scale: 0.9, x: isFlip ? 70 : -70 },
-        {
-          opacity: 1, scale: 1, x: 0, y: 0,
-          duration: isTouch ? 0.75 : 1.1,
-          ease: "expo.out",
-          scrollTrigger: st,
-        }
+      gsap.fromTo(img,
+        isTouch ? { opacity: 0, scale: 0.93, y: 32 } : { opacity: 0, scale: 0.9, x: isFlip ? 70 : -70 },
+        { opacity: 1, scale: 1, x: 0, y: 0, duration: isTouch ? 0.75 : 1.1, ease: "expo.out", scrollTrigger: st }
       );
     }
-
-    /* RULE */
     if (rule) {
-  gsap.fromTo(
-    rule,
-    { opacity: 0, scaleX: 0, transformOrigin: "center center" },  
-    {
-      opacity: 0.65, scaleX: 1,
-      duration: 3.5,
-      ease: "power3.inOut",
-      scrollTrigger: st,
-      delay: isTouch ? 0.22 : 0.3,
+      gsap.fromTo(rule,
+        { opacity: 0, scaleX: 0, transformOrigin: "center center" },
+        { opacity: 0.65, scaleX: 1, duration: 3.5, ease: "power3.inOut", scrollTrigger: st, delay: isTouch ? 0.22 : 0.3 }
+      );
     }
-  );
-  }
-    /* BODY */
     if (body) {
-      gsap.fromTo(
-        body,
-        isTouch
-          ? { opacity: 0, y: 24 }
-          : { opacity: 0, y: 28, rotateX: 8, transformOrigin: "top center" },
-        {
-          opacity: 1, y: 0, rotateX: 0,
-          duration: isTouch ? 0.65 : 0.95,
-          ease: "expo.out",
-          scrollTrigger: st,
-          delay: isTouch ? 0.3 : 0.42,
-        }
+      gsap.fromTo(body,
+        isTouch ? { opacity: 0, y: 24 } : { opacity: 0, y: 28, rotateX: 8, transformOrigin: "top center" },
+        { opacity: 1, y: 0, rotateX: 0, duration: isTouch ? 0.65 : 0.95, ease: "expo.out", scrollTrigger: st, delay: isTouch ? 0.3 : 0.42 }
       );
     }
   });
 
-  /* ── Outro reveal ─────── */
+  /* ── Outro reveal ───────────────────────────────── */
   if (outroInner) {
     ScrollTrigger.create({
-      trigger: outroInner,
-      start: "top 82%",
+      trigger: outroInner, start: "top 82%",
       onEnter: () => outroInner.classList.add("visible"),
     });
   }
 
-  /* ── Read button ────── */
+  /* ── Read button ─────────────────────────────────── */
   btnRead.addEventListener("click", () => {
     const target = document.getElementById("story");
     if (!target) return;
-    window.scrollTo({
-      top: target.getBoundingClientRect().top + window.scrollY - 80,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" });
   });
 
-  /* ── Narration audio ─────── */
-  const fmt = (s: number) =>
-    `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, "0")}`;
-
-  let isPlaying     = false;
-  let elapsed       = 0;
-  let rafId: number;
-  let lastTick      = 0;
-  let lastNarrScene = -1;
+  /* ── Narration audio ────────────────────────────── */
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, "0")}`;
+  let isPlaying = false, elapsed = 0, rafId: number, lastTick = 0, lastNarrScene = -1;
 
   function goToScene(index: number) {
     const el = document.getElementById(`scene-${index}`);
@@ -1150,11 +848,10 @@ const scenes = [
 
   function tick(now: number) {
     if (!isPlaying) return;
-    elapsed += (now - lastTick) / 1000;
-    lastTick = now;
+    elapsed += (now - lastTick) / 1000; lastTick = now;
     const pct = Math.min((elapsed / DURATION) * 100, 100);
-    progressFill.style.width  = `${pct}%`;
-    progressTime.textContent  = fmt(elapsed);
+    progressFill.style.width = `${pct}%`;
+    progressTime.textContent = fmt(elapsed);
     const idx = Math.min(Math.floor(elapsed / SECONDS_PER_SCENE), TOTAL - 1);
     if (idx !== lastNarrScene) { lastNarrScene = idx; goToScene(idx); }
     if (elapsed >= DURATION) { stop(true); return; }
@@ -1162,8 +859,7 @@ const scenes = [
   }
 
   function startNarration() {
-    isPlaying = true;
-    lastTick  = performance.now();
+    isPlaying = true; lastTick = performance.now();
     audio.play().catch(() => {});
     progressWrap.classList.add("visible");
     progressWrap.setAttribute("aria-hidden", "false");
@@ -1178,13 +874,8 @@ const scenes = [
   }
 
   function stop(finished = false) {
-    isPlaying = false;
-    cancelAnimationFrame(rafId);
-    audio.pause();
-    scenes.forEach((s) => {
-      s.classList.remove("audio-dim");
-      s.classList.remove("audio-active");
-    });
+    isPlaying = false; cancelAnimationFrame(rafId); audio.pause();
+    scenes.forEach((s) => { s.classList.remove("audio-dim"); s.classList.remove("audio-active"); });
     btnPlay.classList.remove("is-playing");
     (btnPlay.querySelector(".icon-play")  as SVGElement).style.display = "";
     (btnPlay.querySelector(".icon-pause") as SVGElement).style.display = "none";
@@ -1194,41 +885,35 @@ const scenes = [
 
   btnPlay.addEventListener("click", () => { isPlaying ? stop() : startNarration(); });
 
-  /* Seek */
   function seekTo(clientX: number) {
     const rect = progressTrack.getBoundingClientRect();
-    const pct  = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    elapsed    = pct * DURATION;
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    elapsed = pct * DURATION;
     if (isPlaying) lastTick = performance.now();
     if (audio.duration) audio.currentTime = pct * audio.duration;
-    progressFill.style.width  = `${pct * 100}%`;
-    progressTime.textContent  = fmt(elapsed);
+    progressFill.style.width = `${pct * 100}%`;
+    progressTime.textContent = fmt(elapsed);
     lastNarrScene = -1;
   }
-
   progressTrack.addEventListener("click", (e) => seekTo(e.clientX));
   progressTrack.addEventListener("touchstart", (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
   progressTrack.addEventListener("touchmove",  (e) => { e.preventDefault(); seekTo(e.touches[0].clientX); }, { passive: false });
 
-  /* ── Ambient audio ──────────── */
+  /* ── Ambient audio ──────────────────────────────── */
   let ambientOn = false;
   btnAmbient.addEventListener("click", () => {
     ambientOn = !ambientOn;
     if (ambientOn) {
-      ambientAudio.volume = 0;
-      ambientAudio.play().catch(() => {});
+      ambientAudio.volume = 0; ambientAudio.play().catch(() => {});
       gsap.to(ambientAudio, { volume: 0.18, duration: 2 });
       btnAmbient.classList.add("is-on");
     } else {
-      gsap.to(ambientAudio, {
-        volume: 0, duration: 1.5,
-        onComplete: () => ambientAudio.pause(),
-      });
+      gsap.to(ambientAudio, { volume: 0, duration: 1.5, onComplete: () => ambientAudio.pause() });
       btnAmbient.classList.remove("is-on");
     }
   });
 
-  /* ── Orientation change ───── */
+  /* ── Orientation change ─────────────────────────── */
   window.addEventListener("orientationchange", () => {
     setTimeout(() => ScrollTrigger.refresh(), 300);
   }, { passive: true });
