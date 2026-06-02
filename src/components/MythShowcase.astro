@@ -556,7 +556,7 @@ mythCards.forEach((card) => {
 
     if (e.target.closest("a")) return;
 
-    // NO GIRAR SI ESTA BLOQUEADA
+
     if (card.classList.contains("is-locked")) return;
 
     card.classList.toggle("is-flipped");
